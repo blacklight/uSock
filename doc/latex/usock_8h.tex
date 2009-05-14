@@ -1,0 +1,118 @@
+\hypertarget{usock_8h}{
+\section{usock.h File Reference}
+\label{usock_8h}\index{usock.h@{usock.h}}
+}
+{\tt \#include $<$iostream$>$}\par
+{\tt \#include $<$sstream$>$}\par
+{\tt \#include $<$string$>$}\par
+{\tt \#include $<$cstdio$>$}\par
+{\tt \#include $<$cstdlib$>$}\par
+{\tt \#include $<$ctime$>$}\par
+{\tt \#include $<$netinet/in.h$>$}\par
+{\tt \#include $<$sys/socket.h$>$}\par
+{\tt \#include $<$sys/ioctl.h$>$}\par
+{\tt \#include $<$sys/types.h$>$}\par
+{\tt \#include $<$arpa/inet.h$>$}\par
+{\tt \#include $<$fcntl.h$>$}\par
+{\tt \#include $<$netdb.h$>$}\par
+{\tt \#include $<$net/if.h$>$}\par
+{\tt \#include $<$net/ethernet.h$>$}\par
+{\tt \#include $<$netpacket/packet.h$>$}\par
+{\tt \#include $<$netinet/ip.h$>$}\par
+{\tt \#include $<$netinet/ip6.h$>$}\par
+{\tt \#include $<$netinet/ip\_\-icmp.h$>$}\par
+{\tt \#include $<$netinet/tcp.h$>$}\par
+{\tt \#include $<$netinet/udp.h$>$}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+struct \hyperlink{structicmp__hdr}{icmp\_\-hdr}
+\item 
+struct \hyperlink{structpseudohdr}{pseudohdr}
+\item 
+class \hyperlink{classSocket}{Socket}
+\begin{CompactList}\small\item\em Base socket class for building, by default, TCP sockets. \item\end{CompactList}\item 
+class \hyperlink{classServerSocket}{ServerSocket}
+\begin{CompactList}\small\item\em Class for managing server sockets. \item\end{CompactList}\item 
+class \hyperlink{classUDPSocket}{UDPSocket}
+\begin{CompactList}\small\item\em Class for managing UDP sockets. \item\end{CompactList}\item 
+class \hyperlink{classRawSocket}{RawSocket}
+\begin{CompactList}\small\item\em Class for managing raw sockets. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define \hyperlink{usock_8h_29d0df17f4d361506734c2083f200ea3}{BUFRECV\_\-SIZE}~1024
+\item 
+\#define \hyperlink{usock_8h_fb2b62b61a722c73b8b798f010063863}{DEFAULT\_\-MAXCON}~10
+\item 
+\#define \hyperlink{usock_8h_1cec9b372679734fcd8394d779442ddb}{TH\_\-FIN}~0x01
+\item 
+\#define \hyperlink{usock_8h_91006117f7ae427b957773ab0e80bfa4}{TH\_\-SYN}~0x02
+\item 
+\#define \hyperlink{usock_8h_7f2ce15991898c8d3397045087c4381f}{TH\_\-RST}~0x04
+\item 
+\#define \hyperlink{usock_8h_45b9964096064c9a0c84fbddd2c80d38}{TH\_\-PUSH}~0x08
+\item 
+\#define \hyperlink{usock_8h_362dae974cf06bab2b79b70f0cde524f}{TH\_\-ACK}~0x10
+\item 
+\#define \hyperlink{usock_8h_7b18ca973f14696013696a00c5235f32}{TH\_\-URG}~0x20
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{usock_8h_29d0df17f4d361506734c2083f200ea3}{
+\index{usock.h@{usock.h}!BUFRECV\_\-SIZE@{BUFRECV\_\-SIZE}}
+\index{BUFRECV\_\-SIZE@{BUFRECV\_\-SIZE}!usock.h@{usock.h}}
+\subsubsection[{BUFRECV\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define BUFRECV\_\-SIZE~1024}}
+\label{usock_8h_29d0df17f4d361506734c2083f200ea3}
+
+
+\hypertarget{usock_8h_fb2b62b61a722c73b8b798f010063863}{
+\index{usock.h@{usock.h}!DEFAULT\_\-MAXCON@{DEFAULT\_\-MAXCON}}
+\index{DEFAULT\_\-MAXCON@{DEFAULT\_\-MAXCON}!usock.h@{usock.h}}
+\subsubsection[{DEFAULT\_\-MAXCON}]{\setlength{\rightskip}{0pt plus 5cm}\#define DEFAULT\_\-MAXCON~10}}
+\label{usock_8h_fb2b62b61a722c73b8b798f010063863}
+
+
+\hypertarget{usock_8h_362dae974cf06bab2b79b70f0cde524f}{
+\index{usock.h@{usock.h}!TH\_\-ACK@{TH\_\-ACK}}
+\index{TH\_\-ACK@{TH\_\-ACK}!usock.h@{usock.h}}
+\subsubsection[{TH\_\-ACK}]{\setlength{\rightskip}{0pt plus 5cm}\#define TH\_\-ACK~0x10}}
+\label{usock_8h_362dae974cf06bab2b79b70f0cde524f}
+
+
+\hypertarget{usock_8h_1cec9b372679734fcd8394d779442ddb}{
+\index{usock.h@{usock.h}!TH\_\-FIN@{TH\_\-FIN}}
+\index{TH\_\-FIN@{TH\_\-FIN}!usock.h@{usock.h}}
+\subsubsection[{TH\_\-FIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define TH\_\-FIN~0x01}}
+\label{usock_8h_1cec9b372679734fcd8394d779442ddb}
+
+
+\hypertarget{usock_8h_45b9964096064c9a0c84fbddd2c80d38}{
+\index{usock.h@{usock.h}!TH\_\-PUSH@{TH\_\-PUSH}}
+\index{TH\_\-PUSH@{TH\_\-PUSH}!usock.h@{usock.h}}
+\subsubsection[{TH\_\-PUSH}]{\setlength{\rightskip}{0pt plus 5cm}\#define TH\_\-PUSH~0x08}}
+\label{usock_8h_45b9964096064c9a0c84fbddd2c80d38}
+
+
+\hypertarget{usock_8h_7f2ce15991898c8d3397045087c4381f}{
+\index{usock.h@{usock.h}!TH\_\-RST@{TH\_\-RST}}
+\index{TH\_\-RST@{TH\_\-RST}!usock.h@{usock.h}}
+\subsubsection[{TH\_\-RST}]{\setlength{\rightskip}{0pt plus 5cm}\#define TH\_\-RST~0x04}}
+\label{usock_8h_7f2ce15991898c8d3397045087c4381f}
+
+
+\hypertarget{usock_8h_91006117f7ae427b957773ab0e80bfa4}{
+\index{usock.h@{usock.h}!TH\_\-SYN@{TH\_\-SYN}}
+\index{TH\_\-SYN@{TH\_\-SYN}!usock.h@{usock.h}}
+\subsubsection[{TH\_\-SYN}]{\setlength{\rightskip}{0pt plus 5cm}\#define TH\_\-SYN~0x02}}
+\label{usock_8h_91006117f7ae427b957773ab0e80bfa4}
+
+
+\hypertarget{usock_8h_7b18ca973f14696013696a00c5235f32}{
+\index{usock.h@{usock.h}!TH\_\-URG@{TH\_\-URG}}
+\index{TH\_\-URG@{TH\_\-URG}!usock.h@{usock.h}}
+\subsubsection[{TH\_\-URG}]{\setlength{\rightskip}{0pt plus 5cm}\#define TH\_\-URG~0x20}}
+\label{usock_8h_7b18ca973f14696013696a00c5235f32}
+
+

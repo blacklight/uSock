@@ -1,0 +1,29 @@
+======================================
+ _ _ _                          _    
+| (_) |                        | |   
+| |_| |__  _   _ ___  ___   ___| | __
+| | | '_ \| | | / __|/ _ \ / __| |/ /
+| | | |_) | |_| \__ \ (_) | (__|   < 
+|_|_|_.__/ \__,_|___/\___/ \___|_|\_\
+
+======================================
+
+by BlackLight <blacklight[AT]autistici[DOT]org>, copyright 2009
+Web: http://0x00.ath.cx
+
+This software is released under GNU GPL licence v.3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+uSock (formerely known as "MicroSock") is a high-level interface for managing
+network sockets. The developer can manage sockets of different type and on
+different levels (TCP or UDP client/server sockets, ICMP sockets, or raw
+sockets), just using a few lines of C++ code. The library code will manage
+sockets on a lower level, and will manage exceptions too.
+
+Full HTML and LaTeX documentation (generated via Doxygen) is available in doc/
+directory.
+
+Some examples of use are also available in examples/ directory.
+
+For installation instructions -> goto INSTALL.
+

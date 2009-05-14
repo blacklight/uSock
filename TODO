@@ -1,0 +1,4 @@
+- Support for IPv6 protocol (so far the library only supports IPv4);
+- Support for SSL sockets;
+- High-level support for the main application layers (HTTP, FTP, SMTP,...).
+

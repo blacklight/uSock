@@ -1,0 +1,106 @@
+\hypertarget{classServerSocket}{
+\section{ServerSocket Class Reference}
+\label{classServerSocket}\index{ServerSocket@{ServerSocket}}
+}
+Class for managing server sockets.  
+
+
+{\tt \#include $<$usock.h$>$}
+
+Inheritance diagram for ServerSocket::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classServerSocket}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classServerSocket_81dab62f8db79ce3e9bf0c6ea2e4799d}{ServerSocket} (int \hyperlink{classSocket_8b042d9fe02795041a5e045604c8b7ec}{domain}, int \hyperlink{classSocket_c7f6980f36023df2004271c336217cb8}{type}, int m)  throw ()
+\begin{CompactList}\small\item\em \hyperlink{classServerSocket}{ServerSocket} constructor. \item\end{CompactList}\item 
+\hyperlink{classServerSocket_4300657777580374a86d1d25ac3318cd}{ServerSocket} (u\_\-int16\_\-t port, u\_\-int32\_\-t m=DEFAULT\_\-MAXCON)  throw ()
+\begin{CompactList}\small\item\em \hyperlink{classServerSocket}{ServerSocket} high-level constructor. \item\end{CompactList}\item 
+\hyperlink{classSocket}{Socket} \hyperlink{classServerSocket_19d273ccd11c4358b3079e3d39de23ac}{accept} ()  throw ()
+\begin{CompactList}\small\item\em Wrap around \hyperlink{classServerSocket_19d273ccd11c4358b3079e3d39de23ac}{accept()} function. \item\end{CompactList}\item 
+void \hyperlink{classServerSocket_5f06d9894c131e56ca57d4f8eb0743e7}{bind} (u\_\-int16\_\-t port)  throw ()
+\begin{CompactList}\small\item\em Bind \hyperlink{classServerSocket}{ServerSocket} onto a port. \item\end{CompactList}\item 
+void \hyperlink{classServerSocket_de19b5aa12a8bccfa1d020f12de1c857}{listen} ()  throw ()
+\begin{CompactList}\small\item\em Wrap around \hyperlink{classServerSocket_de19b5aa12a8bccfa1d020f12de1c857}{listen()} function. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class for managing server sockets. 
+
+\begin{Desc}
+\item[Author:]BlackLight \end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classServerSocket_81dab62f8db79ce3e9bf0c6ea2e4799d}{
+\index{ServerSocket@{ServerSocket}!ServerSocket@{ServerSocket}}
+\index{ServerSocket@{ServerSocket}!ServerSocket@{ServerSocket}}
+\subsubsection[{ServerSocket}]{\setlength{\rightskip}{0pt plus 5cm}ServerSocket::ServerSocket (int {\em domain}, \/  int {\em type}, \/  int {\em m})  throw ()}}
+\label{classServerSocket_81dab62f8db79ce3e9bf0c6ea2e4799d}
+
+
+\hyperlink{classServerSocket}{ServerSocket} constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em domain}]\hyperlink{classSocket}{Socket} domain \item[{\em type}]\hyperlink{classSocket}{Socket} type \item[{\em m}]Maximum number of allowed connections \end{description}
+\end{Desc}
+\hypertarget{classServerSocket_4300657777580374a86d1d25ac3318cd}{
+\index{ServerSocket@{ServerSocket}!ServerSocket@{ServerSocket}}
+\index{ServerSocket@{ServerSocket}!ServerSocket@{ServerSocket}}
+\subsubsection[{ServerSocket}]{\setlength{\rightskip}{0pt plus 5cm}ServerSocket::ServerSocket (u\_\-int16\_\-t {\em port}, \/  u\_\-int32\_\-t {\em m} = {\tt DEFAULT\_\-MAXCON})  throw ()}}
+\label{classServerSocket_4300657777580374a86d1d25ac3318cd}
+
+
+\hyperlink{classServerSocket}{ServerSocket} high-level constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em port}]Port the server will listen onto \item[{\em m}]Maximum number of allowed connections \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classServerSocket_19d273ccd11c4358b3079e3d39de23ac}{
+\index{ServerSocket@{ServerSocket}!accept@{accept}}
+\index{accept@{accept}!ServerSocket@{ServerSocket}}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Socket} ServerSocket::accept ()  throw ()}}
+\label{classServerSocket_19d273ccd11c4358b3079e3d39de23ac}
+
+
+Wrap around \hyperlink{classServerSocket_19d273ccd11c4358b3079e3d39de23ac}{accept()} function. 
+
+\hypertarget{classServerSocket_5f06d9894c131e56ca57d4f8eb0743e7}{
+\index{ServerSocket@{ServerSocket}!bind@{bind}}
+\index{bind@{bind}!ServerSocket@{ServerSocket}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}void ServerSocket::bind (u\_\-int16\_\-t {\em port})  throw ()}}
+\label{classServerSocket_5f06d9894c131e56ca57d4f8eb0743e7}
+
+
+Bind \hyperlink{classServerSocket}{ServerSocket} onto a port. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em port}]Port \end{description}
+\end{Desc}
+\hypertarget{classServerSocket_de19b5aa12a8bccfa1d020f12de1c857}{
+\index{ServerSocket@{ServerSocket}!listen@{listen}}
+\index{listen@{listen}!ServerSocket@{ServerSocket}}
+\subsubsection[{listen}]{\setlength{\rightskip}{0pt plus 5cm}void ServerSocket::listen ()  throw ()}}
+\label{classServerSocket_de19b5aa12a8bccfa1d020f12de1c857}
+
+
+Wrap around \hyperlink{classServerSocket_de19b5aa12a8bccfa1d020f12de1c857}{listen()} function. 
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{usock_8h}{usock.h}\end{CompactItemize}

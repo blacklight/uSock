@@ -1,0 +1,152 @@
+\hypertarget{classUDPSocket}{
+\section{UDPSocket Class Reference}
+\label{classUDPSocket}\index{UDPSocket@{UDPSocket}}
+}
+Class for managing UDP sockets.  
+
+
+{\tt \#include $<$usock.h$>$}
+
+Inheritance diagram for UDPSocket::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classUDPSocket}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classUDPSocket_7e2e6eb3a4c3eec5538bdfd89441802b}{UDPSocket} (int \hyperlink{classSocket_c7f6980f36023df2004271c336217cb8}{type}=AF\_\-INET)  throw ()
+\begin{CompactList}\small\item\em \hyperlink{classUDPSocket}{UDPSocket} constructor. \item\end{CompactList}\item 
+void \hyperlink{classUDPSocket_c7fbe4769e529544104649e6d9254d7d}{send} (const string \&buf, const string \&host, u\_\-int16\_\-t port)  throw ()
+\begin{CompactList}\small\item\em Send a string onto an UDP socket. \item\end{CompactList}\item 
+void \hyperlink{classUDPSocket_5bbc712a57056d84e0682541fe2f19cd}{send} (const void $\ast$buf, u\_\-int32\_\-t size, const string \&host, u\_\-int16\_\-t port)  throw ()
+\begin{CompactList}\small\item\em Send a binary buffer onto an UDP socket. \item\end{CompactList}\item 
+void \hyperlink{classUDPSocket_93ca497a5e6539eab464c4bd59a85de2}{bind} (u\_\-int16\_\-t port)  throw ()
+\begin{CompactList}\small\item\em Bind an UDP socket onto a port. \item\end{CompactList}\item 
+void \hyperlink{classUDPSocket_0ac43ab32b13c76ea9c639f6fc2314f3}{recv} (void $\ast$buf, u\_\-int32\_\-t size, const string \&host=\char`\"{}\char`\"{}, u\_\-int16\_\-t port=0)  throw ()
+\begin{CompactList}\small\item\em Receive a binary buffer from an UDP socket. \item\end{CompactList}\item 
+string \hyperlink{classUDPSocket_55f7c286551162013cf4011405d5e8eb}{recv} (const string \&host=\char`\"{}\char`\"{}, u\_\-int16\_\-t port=0)  throw ()
+\begin{CompactList}\small\item\em Receive an ASCII string from an UDP socket. \item\end{CompactList}\item 
+string \hyperlink{classUDPSocket_f1643ac194b84e7e8e99e536736f9ff6}{readline} (const string \&host=\char`\"{}\char`\"{}, u\_\-int16\_\-t port=0)  throw ()
+\begin{CompactList}\small\item\em Read an ASCII line from an UDP socket. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class for managing UDP sockets. 
+
+\begin{Desc}
+\item[Author:]BlackLight \end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classUDPSocket_7e2e6eb3a4c3eec5538bdfd89441802b}{
+\index{UDPSocket@{UDPSocket}!UDPSocket@{UDPSocket}}
+\index{UDPSocket@{UDPSocket}!UDPSocket@{UDPSocket}}
+\subsubsection[{UDPSocket}]{\setlength{\rightskip}{0pt plus 5cm}UDPSocket::UDPSocket (int {\em type} = {\tt AF\_\-INET})  throw ()}}
+\label{classUDPSocket_7e2e6eb3a4c3eec5538bdfd89441802b}
+
+
+\hyperlink{classUDPSocket}{UDPSocket} constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em type}]\hyperlink{classSocket}{Socket} type (default = AF\_\-INET) \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classUDPSocket_93ca497a5e6539eab464c4bd59a85de2}{
+\index{UDPSocket@{UDPSocket}!bind@{bind}}
+\index{bind@{bind}!UDPSocket@{UDPSocket}}
+\subsubsection[{bind}]{\setlength{\rightskip}{0pt plus 5cm}void UDPSocket::bind (u\_\-int16\_\-t {\em port})  throw ()}}
+\label{classUDPSocket_93ca497a5e6539eab464c4bd59a85de2}
+
+
+Bind an UDP socket onto a port. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Port}]\end{description}
+\end{Desc}
+\hypertarget{classUDPSocket_f1643ac194b84e7e8e99e536736f9ff6}{
+\index{UDPSocket@{UDPSocket}!readline@{readline}}
+\index{readline@{readline}!UDPSocket@{UDPSocket}}
+\subsubsection[{readline}]{\setlength{\rightskip}{0pt plus 5cm}string UDPSocket::readline (const string \& {\em host} = {\tt \char`\"{}\char`\"{}}, \/  u\_\-int16\_\-t {\em port} = {\tt 0})  throw ()}}
+\label{classUDPSocket_f1643ac194b84e7e8e99e536736f9ff6}
+
+
+Read an ASCII line from an UDP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em host}]Remote host name/address \item[{\em port}]Remote port \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]String received \end{Desc}
+\hypertarget{classUDPSocket_55f7c286551162013cf4011405d5e8eb}{
+\index{UDPSocket@{UDPSocket}!recv@{recv}}
+\index{recv@{recv}!UDPSocket@{UDPSocket}}
+\subsubsection[{recv}]{\setlength{\rightskip}{0pt plus 5cm}string UDPSocket::recv (const string \& {\em host} = {\tt \char`\"{}\char`\"{}}, \/  u\_\-int16\_\-t {\em port} = {\tt 0})  throw ()}}
+\label{classUDPSocket_55f7c286551162013cf4011405d5e8eb}
+
+
+Receive an ASCII string from an UDP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em host}]Remote host name/address \item[{\em port}]Remote port \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]String received \end{Desc}
+\hypertarget{classUDPSocket_0ac43ab32b13c76ea9c639f6fc2314f3}{
+\index{UDPSocket@{UDPSocket}!recv@{recv}}
+\index{recv@{recv}!UDPSocket@{UDPSocket}}
+\subsubsection[{recv}]{\setlength{\rightskip}{0pt plus 5cm}void UDPSocket::recv (void $\ast$ {\em buf}, \/  u\_\-int32\_\-t {\em size}, \/  const string \& {\em host} = {\tt \char`\"{}\char`\"{}}, \/  u\_\-int16\_\-t {\em port} = {\tt 0})  throw ()}}
+\label{classUDPSocket_0ac43ab32b13c76ea9c639f6fc2314f3}
+
+
+Receive a binary buffer from an UDP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]Buffer where we're going to place our data \item[{\em size}]Number of bytes to be read \item[{\em host}]Remote host name/address \item[{\em port}]Remote port \end{description}
+\end{Desc}
+\hypertarget{classUDPSocket_5bbc712a57056d84e0682541fe2f19cd}{
+\index{UDPSocket@{UDPSocket}!send@{send}}
+\index{send@{send}!UDPSocket@{UDPSocket}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void UDPSocket::send (const void $\ast$ {\em buf}, \/  u\_\-int32\_\-t {\em size}, \/  const string \& {\em host}, \/  u\_\-int16\_\-t {\em port})  throw ()}}
+\label{classUDPSocket_5bbc712a57056d84e0682541fe2f19cd}
+
+
+Send a binary buffer onto an UDP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]Binary buffer to be sent \item[{\em size}]buf's size \item[{\em host}]Remote host name/address \item[{\em port}]Remote port \end{description}
+\end{Desc}
+\hypertarget{classUDPSocket_c7fbe4769e529544104649e6d9254d7d}{
+\index{UDPSocket@{UDPSocket}!send@{send}}
+\index{send@{send}!UDPSocket@{UDPSocket}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void UDPSocket::send (const string \& {\em buf}, \/  const string \& {\em host}, \/  u\_\-int16\_\-t {\em port})  throw ()}}
+\label{classUDPSocket_c7fbe4769e529544104649e6d9254d7d}
+
+
+Send a string onto an UDP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]String to be sent \item[{\em host}]Remote host name/address \item[{\em port}]Remote port \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{usock_8h}{usock.h}\end{CompactItemize}

@@ -1,0 +1,13 @@
+$ make
+% make install
+
+To compile applications using libuSock, just use -lusock option on g++, or use
+the dynamically linked library libusock.so.1 (yes, two versions of libuSock are
+generated and placed in your lib directory, a static one and a shared one).
+
+To clean temporary object files:
+$ make clean
+
+To uninstall the library from your system:
+% make uninstall
+

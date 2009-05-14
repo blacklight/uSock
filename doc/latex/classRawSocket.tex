@@ -1,0 +1,219 @@
+\hypertarget{classRawSocket}{
+\section{RawSocket Class Reference}
+\label{classRawSocket}\index{RawSocket@{RawSocket}}
+}
+Class for managing raw sockets.  
+
+
+{\tt \#include $<$usock.h$>$}
+
+Inheritance diagram for RawSocket::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classRawSocket}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classRawSocket_482e84c15438bb5b83d884f969d21e57}{RawSocket} (string i=\char`\"{}lo\char`\"{})
+\begin{CompactList}\small\item\em \hyperlink{classRawSocket}{RawSocket} constructor. \item\end{CompactList}\item 
+string \hyperlink{classRawSocket_334b006f4b102e3546ec444172d39a55}{getIPv4addr} ()  throw ()
+\begin{CompactList}\small\item\em Get the IPv4 address associated to the network interface. \item\end{CompactList}\item 
+string \hyperlink{classRawSocket_b2bcc0a5f1714d4d7a119332428c10ae}{getHWaddr} ()  throw ()
+\begin{CompactList}\small\item\em Get the HW address associated to the network interface. \item\end{CompactList}\item 
+u\_\-int16\_\-t \hyperlink{classRawSocket_973b337d963bdcff3ce68d0ef7ffb7e1}{csum} (u\_\-int16\_\-t $\ast$buf, int nwords)
+\begin{CompactList}\small\item\em Compute the checksum of a buffer. \item\end{CompactList}\item 
+void \hyperlink{classRawSocket_6c33975e6641e7d2e5ea34d3749c5cc5}{buildIPv4} (string dst, string src=\char`\"{}\char`\"{}, u\_\-int8\_\-t proto=IPPROTO\_\-TCP, u\_\-int16\_\-t len=0, u\_\-int8\_\-t ttl=32, u\_\-int8\_\-t tos=0, u\_\-int16\_\-t id=0, u\_\-int16\_\-t frag=0, u\_\-int16\_\-t sum=0)
+\begin{CompactList}\small\item\em Build an IPv4 header for the raw socket. \item\end{CompactList}\item 
+void \hyperlink{classRawSocket_ba3cca3e8ff995d5edbf064b3af8ca05}{buildTCP} (u\_\-int16\_\-t sport, u\_\-int16\_\-t dport, u\_\-int8\_\-t flags, u\_\-int32\_\-t seq=0, u\_\-int32\_\-t ack=0, u\_\-int16\_\-t window=0x1000, u\_\-int16\_\-t urgent=0, u\_\-int16\_\-t sum=0)
+\begin{CompactList}\small\item\em Build a TCP header for the raw socket. \item\end{CompactList}\item 
+void \hyperlink{classRawSocket_90915831a7ac1046e07635da346a54fe}{buildUDP} (u\_\-int16\_\-t sport, u\_\-int16\_\-t dport, u\_\-int16\_\-t len=0, u\_\-int16\_\-t sum=0)
+\begin{CompactList}\small\item\em Build an UDP header for the raw socket. \item\end{CompactList}\item 
+void \hyperlink{classRawSocket_07d676b2f5becf9fad465b7f63f9d3a3}{buildICMPv4} (u\_\-int8\_\-t \hyperlink{classSocket_c7f6980f36023df2004271c336217cb8}{type}, u\_\-int16\_\-t id=0x100, u\_\-int16\_\-t seq=0x100, u\_\-int8\_\-t code=0, u\_\-int16\_\-t sum=0)
+\begin{CompactList}\small\item\em Build an ICMPv4 header for the raw socket. \item\end{CompactList}\item 
+void \hyperlink{classRawSocket_4969ba6947943aed82dc3cebb5c0f708}{setPayload} (void $\ast$payload, int length)
+\begin{CompactList}\small\item\em Set a binary payload for the raw socket. \item\end{CompactList}\item 
+void \hyperlink{classRawSocket_a987d5f171d49fab97e1b3d6f56b4bb4}{setPayload} (string payload)
+\begin{CompactList}\small\item\em Set a payload for the raw socket as a string. \item\end{CompactList}\item 
+void \hyperlink{classRawSocket_149999a5d231c93e206be89eec9732b8}{write} ()  throw ()
+\begin{CompactList}\small\item\em Write the raw packet onto the network interface. \item\end{CompactList}\item 
+void $\ast$ \hyperlink{classRawSocket_18c53c49d965a0ce7652162af8b7a571}{read} (u\_\-int32\_\-t len, const string \&host=\char`\"{}\char`\"{})  throw ()
+\begin{CompactList}\small\item\em Read binary data from the raw socket. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class for managing raw sockets. 
+
+\begin{Desc}
+\item[Author:]BlackLight \end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRawSocket_482e84c15438bb5b83d884f969d21e57}{
+\index{RawSocket@{RawSocket}!RawSocket@{RawSocket}}
+\index{RawSocket@{RawSocket}!RawSocket@{RawSocket}}
+\subsubsection[{RawSocket}]{\setlength{\rightskip}{0pt plus 5cm}RawSocket::RawSocket (string {\em i} = {\tt \char`\"{}lo\char`\"{}})}}
+\label{classRawSocket_482e84c15438bb5b83d884f969d21e57}
+
+
+\hyperlink{classRawSocket}{RawSocket} constructor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em i}]Interface on which we're going to bind our raw socket \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRawSocket_07d676b2f5becf9fad465b7f63f9d3a3}{
+\index{RawSocket@{RawSocket}!buildICMPv4@{buildICMPv4}}
+\index{buildICMPv4@{buildICMPv4}!RawSocket@{RawSocket}}
+\subsubsection[{buildICMPv4}]{\setlength{\rightskip}{0pt plus 5cm}void RawSocket::buildICMPv4 (u\_\-int8\_\-t {\em type}, \/  u\_\-int16\_\-t {\em id} = {\tt 0x100}, \/  u\_\-int16\_\-t {\em seq} = {\tt 0x100}, \/  u\_\-int8\_\-t {\em code} = {\tt 0}, \/  u\_\-int16\_\-t {\em sum} = {\tt 0})}}
+\label{classRawSocket_07d676b2f5becf9fad465b7f63f9d3a3}
+
+
+Build an ICMPv4 header for the raw socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em type}]ICMP type \item[{\em id}]Packet ID (default: 0x100) \item[{\em seq}]Sequence number (default: 0x100) \item[{\em code}]ICMP code (default: 0) \item[{\em sum}]ICMP checksum (default: auto-computed) \end{description}
+\end{Desc}
+\hypertarget{classRawSocket_6c33975e6641e7d2e5ea34d3749c5cc5}{
+\index{RawSocket@{RawSocket}!buildIPv4@{buildIPv4}}
+\index{buildIPv4@{buildIPv4}!RawSocket@{RawSocket}}
+\subsubsection[{buildIPv4}]{\setlength{\rightskip}{0pt plus 5cm}void RawSocket::buildIPv4 (string {\em dst}, \/  string {\em src} = {\tt \char`\"{}\char`\"{}}, \/  u\_\-int8\_\-t {\em proto} = {\tt IPPROTO\_\-TCP}, \/  u\_\-int16\_\-t {\em len} = {\tt 0}, \/  u\_\-int8\_\-t {\em ttl} = {\tt 32}, \/  u\_\-int8\_\-t {\em tos} = {\tt 0}, \/  u\_\-int16\_\-t {\em id} = {\tt 0}, \/  u\_\-int16\_\-t {\em frag} = {\tt 0}, \/  u\_\-int16\_\-t {\em sum} = {\tt 0})}}
+\label{classRawSocket_6c33975e6641e7d2e5ea34d3749c5cc5}
+
+
+Build an IPv4 header for the raw socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em dst}]Destination hostname/address \item[{\em src}]Source hostname/address (default: IPv4 address associated to the network interface) \item[{\em proto}]Transport protocol (default: TCP) \item[{\em len}]Total length of the IPv4 datagram (default: header length + payload length) \item[{\em ttl}]Time To Live (default: 32) \item[{\em tos}]Type Of Service (default: 0) \item[{\em id}]Datagram ID (default: 0) \item[{\em frag}]Fragmentation flag (default: 0) \item[{\em sum}]IPv4 checksum (default: auto-computed) \end{description}
+\end{Desc}
+\hypertarget{classRawSocket_ba3cca3e8ff995d5edbf064b3af8ca05}{
+\index{RawSocket@{RawSocket}!buildTCP@{buildTCP}}
+\index{buildTCP@{buildTCP}!RawSocket@{RawSocket}}
+\subsubsection[{buildTCP}]{\setlength{\rightskip}{0pt plus 5cm}void RawSocket::buildTCP (u\_\-int16\_\-t {\em sport}, \/  u\_\-int16\_\-t {\em dport}, \/  u\_\-int8\_\-t {\em flags}, \/  u\_\-int32\_\-t {\em seq} = {\tt 0}, \/  u\_\-int32\_\-t {\em ack} = {\tt 0}, \/  u\_\-int16\_\-t {\em window} = {\tt 0x1000}, \/  u\_\-int16\_\-t {\em urgent} = {\tt 0}, \/  u\_\-int16\_\-t {\em sum} = {\tt 0})}}
+\label{classRawSocket_ba3cca3e8ff995d5edbf064b3af8ca05}
+
+
+Build a TCP header for the raw socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sport}]Source port \item[{\em dport}]Destination port \item[{\em flags}]TCP flags \item[{\em seq}]Sequence number (default: randomly generated) \item[{\em ack}]ACK number (default: 0) \item[{\em window}]Window size (default: 16) \item[{\em urgent}]Urgent pointer (default: 0) \item[{\em sum}]TCP checksum (default: auto-computed) \end{description}
+\end{Desc}
+\hypertarget{classRawSocket_90915831a7ac1046e07635da346a54fe}{
+\index{RawSocket@{RawSocket}!buildUDP@{buildUDP}}
+\index{buildUDP@{buildUDP}!RawSocket@{RawSocket}}
+\subsubsection[{buildUDP}]{\setlength{\rightskip}{0pt plus 5cm}void RawSocket::buildUDP (u\_\-int16\_\-t {\em sport}, \/  u\_\-int16\_\-t {\em dport}, \/  u\_\-int16\_\-t {\em len} = {\tt 0}, \/  u\_\-int16\_\-t {\em sum} = {\tt 0})}}
+\label{classRawSocket_90915831a7ac1046e07635da346a54fe}
+
+
+Build an UDP header for the raw socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sport}]Source port \item[{\em dport}]Destination port \item[{\em len}]UDP header + payload length (default: auto-computed) \item[{\em sum}]UDP checksum (default: auto-computed) \end{description}
+\end{Desc}
+\hypertarget{classRawSocket_973b337d963bdcff3ce68d0ef7ffb7e1}{
+\index{RawSocket@{RawSocket}!csum@{csum}}
+\index{csum@{csum}!RawSocket@{RawSocket}}
+\subsubsection[{csum}]{\setlength{\rightskip}{0pt plus 5cm}u\_\-int16\_\-t RawSocket::csum (u\_\-int16\_\-t $\ast$ {\em buf}, \/  int {\em nwords})}}
+\label{classRawSocket_973b337d963bdcff3ce68d0ef7ffb7e1}
+
+
+Compute the checksum of a buffer. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]Buffer \item[{\em nwords}]Number of 16-bits words inside buf \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]Checksum \end{Desc}
+\hypertarget{classRawSocket_b2bcc0a5f1714d4d7a119332428c10ae}{
+\index{RawSocket@{RawSocket}!getHWaddr@{getHWaddr}}
+\index{getHWaddr@{getHWaddr}!RawSocket@{RawSocket}}
+\subsubsection[{getHWaddr}]{\setlength{\rightskip}{0pt plus 5cm}string RawSocket::getHWaddr ()  throw ()}}
+\label{classRawSocket_b2bcc0a5f1714d4d7a119332428c10ae}
+
+
+Get the HW address associated to the network interface. 
+
+\begin{Desc}
+\item[Returns:]The HW/MAC address, if the interface is valid, up and running \end{Desc}
+\hypertarget{classRawSocket_334b006f4b102e3546ec444172d39a55}{
+\index{RawSocket@{RawSocket}!getIPv4addr@{getIPv4addr}}
+\index{getIPv4addr@{getIPv4addr}!RawSocket@{RawSocket}}
+\subsubsection[{getIPv4addr}]{\setlength{\rightskip}{0pt plus 5cm}string RawSocket::getIPv4addr ()  throw ()}}
+\label{classRawSocket_334b006f4b102e3546ec444172d39a55}
+
+
+Get the IPv4 address associated to the network interface. 
+
+\begin{Desc}
+\item[Returns:]IPv4 address, if the interface is valid, up and running \end{Desc}
+\hypertarget{classRawSocket_18c53c49d965a0ce7652162af8b7a571}{
+\index{RawSocket@{RawSocket}!read@{read}}
+\index{read@{read}!RawSocket@{RawSocket}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ RawSocket::read (u\_\-int32\_\-t {\em len}, \/  const string \& {\em host} = {\tt \char`\"{}\char`\"{}})  throw ()}}
+\label{classRawSocket_18c53c49d965a0ce7652162af8b7a571}
+
+
+Read binary data from the raw socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em len}]Number of bytes to be read \item[{\em host}]Host name/address we're going to receive our packet from (default: any) \end{description}
+\end{Desc}
+\hypertarget{classRawSocket_a987d5f171d49fab97e1b3d6f56b4bb4}{
+\index{RawSocket@{RawSocket}!setPayload@{setPayload}}
+\index{setPayload@{setPayload}!RawSocket@{RawSocket}}
+\subsubsection[{setPayload}]{\setlength{\rightskip}{0pt plus 5cm}void RawSocket::setPayload (string {\em payload})}}
+\label{classRawSocket_a987d5f171d49fab97e1b3d6f56b4bb4}
+
+
+Set a payload for the raw socket as a string. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em payload}]Our payload \end{description}
+\end{Desc}
+\hypertarget{classRawSocket_4969ba6947943aed82dc3cebb5c0f708}{
+\index{RawSocket@{RawSocket}!setPayload@{setPayload}}
+\index{setPayload@{setPayload}!RawSocket@{RawSocket}}
+\subsubsection[{setPayload}]{\setlength{\rightskip}{0pt plus 5cm}void RawSocket::setPayload (void $\ast$ {\em payload}, \/  int {\em length})}}
+\label{classRawSocket_4969ba6947943aed82dc3cebb5c0f708}
+
+
+Set a binary payload for the raw socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em payload}]Binary payload \item[{\em length}]payload's length \end{description}
+\end{Desc}
+\hypertarget{classRawSocket_149999a5d231c93e206be89eec9732b8}{
+\index{RawSocket@{RawSocket}!write@{write}}
+\index{write@{write}!RawSocket@{RawSocket}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}void RawSocket::write ()  throw ()}}
+\label{classRawSocket_149999a5d231c93e206be89eec9732b8}
+
+
+Write the raw packet onto the network interface. 
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{usock_8h}{usock.h}\end{CompactItemize}
