@@ -1,4 +1,8 @@
+#include <iostream>
 #include <usock.h>
+
+using std::cout;
+using std::cerr;
 
 int main(int argc, char **argv)  {
 	if (argc<3)  {

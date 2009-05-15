@@ -41,21 +41,21 @@ Inheritance diagram for RawSocket:</div>
 <a href="classRawSocket-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#482e84c15438bb5b83d884f969d21e57">RawSocket</a> (string i=&quot;lo&quot;)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#10fc562aa855e7f4b184af1d4f842ae0">RawSocket</a> (std::string i=&quot;lo&quot;)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="classRawSocket.html" title="Class for managing raw sockets.">RawSocket</a> constructor.  <a href="#482e84c15438bb5b83d884f969d21e57"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#334b006f4b102e3546ec444172d39a55">getIPv4addr</a> ()  throw ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="classRawSocket.html" title="Class for managing raw sockets.">RawSocket</a> constructor.  <a href="#10fc562aa855e7f4b184af1d4f842ae0"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#dda64a716b48c1527283c026bda208d6">getIPv4addr</a> ()  throw ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the IPv4 address associated to the network interface.  <a href="#334b006f4b102e3546ec444172d39a55"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#b2bcc0a5f1714d4d7a119332428c10ae">getHWaddr</a> ()  throw ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the IPv4 address associated to the network interface.  <a href="#dda64a716b48c1527283c026bda208d6"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#b35260c4a551194b50925537785bcf47">getHWaddr</a> ()  throw ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the HW address associated to the network interface.  <a href="#b2bcc0a5f1714d4d7a119332428c10ae"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the HW address associated to the network interface.  <a href="#b35260c4a551194b50925537785bcf47"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">u_int16_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#973b337d963bdcff3ce68d0ef7ffb7e1">csum</a> (u_int16_t *buf, int nwords)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Compute the checksum of a buffer.  <a href="#973b337d963bdcff3ce68d0ef7ffb7e1"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#6c33975e6641e7d2e5ea34d3749c5cc5">buildIPv4</a> (string dst, string src=&quot;&quot;, u_int8_t proto=IPPROTO_TCP, u_int16_t len=0, u_int8_t ttl=32, u_int8_t tos=0, u_int16_t id=0, u_int16_t frag=0, u_int16_t sum=0)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#9536928bd82c99ef2b615b0ffcb87f21">buildIPv4</a> (std::string dst, std::string src=&quot;&quot;, u_int8_t proto=IPPROTO_TCP, u_int16_t len=0, u_int8_t ttl=32, u_int8_t tos=0, u_int16_t id=0, u_int16_t frag=0, u_int16_t sum=0)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Build an IPv4 header for the raw socket.  <a href="#6c33975e6641e7d2e5ea34d3749c5cc5"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Build an IPv4 header for the raw socket.  <a href="#9536928bd82c99ef2b615b0ffcb87f21"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#ba3cca3e8ff995d5edbf064b3af8ca05">buildTCP</a> (u_int16_t sport, u_int16_t dport, u_int8_t flags, u_int32_t seq=0, u_int32_t ack=0, u_int16_t window=0x1000, u_int16_t urgent=0, u_int16_t sum=0)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Build a TCP header for the raw socket.  <a href="#ba3cca3e8ff995d5edbf064b3af8ca05"></a><br></td></tr>
@@ -68,29 +68,29 @@ Inheritance diagram for RawSocket:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#4969ba6947943aed82dc3cebb5c0f708">setPayload</a> (void *payload, int length)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set a binary payload for the raw socket.  <a href="#4969ba6947943aed82dc3cebb5c0f708"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#a987d5f171d49fab97e1b3d6f56b4bb4">setPayload</a> (string payload)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#2e97eed0b10d4f48012eedde25099fd1">setPayload</a> (std::string payload)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set a payload for the raw socket as a string.  <a href="#a987d5f171d49fab97e1b3d6f56b4bb4"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set a payload for the raw socket as a string.  <a href="#2e97eed0b10d4f48012eedde25099fd1"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#149999a5d231c93e206be89eec9732b8">write</a> ()  throw ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Write the raw packet onto the network interface.  <a href="#149999a5d231c93e206be89eec9732b8"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#18c53c49d965a0ce7652162af8b7a571">read</a> (u_int32_t len, const string &amp;host=&quot;&quot;)  throw ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRawSocket.html#f41dd9eca89c3e4bb5c5bbf5af10dbd7">read</a> (u_int32_t len, const std::string &amp;host=&quot;&quot;)  throw ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Read binary data from the raw socket.  <a href="#18c53c49d965a0ce7652162af8b7a571"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Read binary data from the raw socket.  <a href="#f41dd9eca89c3e4bb5c5bbf5af10dbd7"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Class for managing raw sockets. 
 <p>
 <dl class="author" compact><dt><b>Author:</b></dt><dd>BlackLight </dd></dl>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="482e84c15438bb5b83d884f969d21e57"></a><!-- doxytag: member="RawSocket::RawSocket" ref="482e84c15438bb5b83d884f969d21e57" args="(string i=&quot;lo&quot;)" -->
+<a class="anchor" name="10fc562aa855e7f4b184af1d4f842ae0"></a><!-- doxytag: member="RawSocket::RawSocket" ref="10fc562aa855e7f4b184af1d4f842ae0" args="(std::string i=&quot;lo&quot;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">RawSocket::RawSocket           </td>
           <td>(</td>
-          <td class="paramtype">string&nbsp;</td>
+          <td class="paramtype">std::string&nbsp;</td>
           <td class="paramname"> <em>i</em> = <code>&quot;lo&quot;</code>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -169,20 +169,20 @@ Build an ICMPv4 header for the raw socket.
 
 </div>
 </div><p>
-<a class="anchor" name="6c33975e6641e7d2e5ea34d3749c5cc5"></a><!-- doxytag: member="RawSocket::buildIPv4" ref="6c33975e6641e7d2e5ea34d3749c5cc5" args="(string dst, string src=&quot;&quot;, u_int8_t proto=IPPROTO_TCP, u_int16_t len=0, u_int8_t ttl=32, u_int8_t tos=0, u_int16_t id=0, u_int16_t frag=0, u_int16_t sum=0)" -->
+<a class="anchor" name="9536928bd82c99ef2b615b0ffcb87f21"></a><!-- doxytag: member="RawSocket::buildIPv4" ref="9536928bd82c99ef2b615b0ffcb87f21" args="(std::string dst, std::string src=&quot;&quot;, u_int8_t proto=IPPROTO_TCP, u_int16_t len=0, u_int8_t ttl=32, u_int8_t tos=0, u_int16_t id=0, u_int16_t frag=0, u_int16_t sum=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void RawSocket::buildIPv4           </td>
           <td>(</td>
-          <td class="paramtype">string&nbsp;</td>
+          <td class="paramtype">std::string&nbsp;</td>
           <td class="paramname"> <em>dst</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">string&nbsp;</td>
+          <td class="paramtype">std::string&nbsp;</td>
           <td class="paramname"> <em>src</em> = <code>&quot;&quot;</code>, </td>
         </tr>
         <tr>
@@ -423,12 +423,12 @@ Compute the checksum of a buffer.
 
 </div>
 </div><p>
-<a class="anchor" name="b2bcc0a5f1714d4d7a119332428c10ae"></a><!-- doxytag: member="RawSocket::getHWaddr" ref="b2bcc0a5f1714d4d7a119332428c10ae" args="()" -->
+<a class="anchor" name="b35260c4a551194b50925537785bcf47"></a><!-- doxytag: member="RawSocket::getHWaddr" ref="b35260c4a551194b50925537785bcf47" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string RawSocket::getHWaddr           </td>
+          <td class="memname">std::string RawSocket::getHWaddr           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -445,12 +445,12 @@ Get the HW address associated to the network interface.
 
 </div>
 </div><p>
-<a class="anchor" name="334b006f4b102e3546ec444172d39a55"></a><!-- doxytag: member="RawSocket::getIPv4addr" ref="334b006f4b102e3546ec444172d39a55" args="()" -->
+<a class="anchor" name="dda64a716b48c1527283c026bda208d6"></a><!-- doxytag: member="RawSocket::getIPv4addr" ref="dda64a716b48c1527283c026bda208d6" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">string RawSocket::getIPv4addr           </td>
+          <td class="memname">std::string RawSocket::getIPv4addr           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -467,7 +467,7 @@ Get the IPv4 address associated to the network interface.
 
 </div>
 </div><p>
-<a class="anchor" name="18c53c49d965a0ce7652162af8b7a571"></a><!-- doxytag: member="RawSocket::read" ref="18c53c49d965a0ce7652162af8b7a571" args="(u_int32_t len, const string &amp;host=&quot;&quot;)" -->
+<a class="anchor" name="f41dd9eca89c3e4bb5c5bbf5af10dbd7"></a><!-- doxytag: member="RawSocket::read" ref="f41dd9eca89c3e4bb5c5bbf5af10dbd7" args="(u_int32_t len, const std::string &amp;host=&quot;&quot;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -480,7 +480,7 @@ Get the IPv4 address associated to the network interface.
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const string &amp;&nbsp;</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
           <td class="paramname"> <em>host</em> = <code>&quot;&quot;</code></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -504,14 +504,14 @@ Read binary data from the raw socket.
 
 </div>
 </div><p>
-<a class="anchor" name="a987d5f171d49fab97e1b3d6f56b4bb4"></a><!-- doxytag: member="RawSocket::setPayload" ref="a987d5f171d49fab97e1b3d6f56b4bb4" args="(string payload)" -->
+<a class="anchor" name="2e97eed0b10d4f48012eedde25099fd1"></a><!-- doxytag: member="RawSocket::setPayload" ref="2e97eed0b10d4f48012eedde25099fd1" args="(std::string payload)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void RawSocket::setPayload           </td>
           <td>(</td>
-          <td class="paramtype">string&nbsp;</td>
+          <td class="paramtype">std::string&nbsp;</td>
           <td class="paramname"> <em>payload</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -592,7 +592,7 @@ Write the raw packet onto the network interface.
 <hr>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="usock_8h-source.html">usock.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu May 14 11:19:37 2009 for libusock by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 15 14:40:52 2009 for libusock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7 </small></address>
 </body>

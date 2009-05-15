@@ -4,10 +4,10 @@ PREFIX=/usr/local
 LIB=usock
 
 all:
-	g++ -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/socket.cpp
-	g++ -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/rawsocket.cpp
-	g++ -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/serversocket.cpp
-	g++ -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/udpsocket.cpp
+	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/socket.cpp
+	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/rawsocket.cpp
+	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/serversocket.cpp
+	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/udpsocket.cpp
 	g++ -shared -Wl,-soname,lib$(LIB).so.1 -o lib$(LIB).so.1.0.0 socket.o rawsocket.o serversocket.o udpsocket.o
 	ar rcs lib$(LIB).a socket.o rawsocket.o serversocket.o udpsocket.o
 

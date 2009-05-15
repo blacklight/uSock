@@ -42,6 +42,7 @@
  * this file might be covered by the GNU General Public License.
  */
 
+#include <arpa/inet.h>
 #include "usock.h"
 #include "usock_exception.h"
 
@@ -127,7 +128,6 @@ string UDPSocket::readline(const string& host, u_int16_t port) throw()  {
 	string line, addr;
 	bool isEOF = false;
 	bool isEOL = false;
-	u_int32_t size = 0;
 
 	struct sockaddr_in sock;
 

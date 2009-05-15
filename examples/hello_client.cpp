@@ -1,4 +1,6 @@
+#include <iostream>
 #include <usock.h>
+using std::cout;
 
 main()  {
 	Socket s("localhost",9999);

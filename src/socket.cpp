@@ -42,6 +42,15 @@
  * this file might be covered by the GNU General Public License.
  */
 
+#include <sstream>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <netdb.h>
+
 #include "usock.h"
 #include "usock_exception.h"
 
@@ -171,7 +180,6 @@ string Socket::readline() throw()  {
 	string line;
 	bool isEOF = false;
 	bool isEOL = false;
-	u_int32_t size = 0;
 
 	while (!isEOL && !isEOF)  {
 		char buf;

@@ -49,30 +49,7 @@
 #ifndef __USOCK_H
 #define __USOCK_H
 
-#include <iostream>
-#include <sstream>
 #include <string>
-#include <cstdio>
-#include <cstdlib>
-#include <ctime>
-
-#include <netinet/in.h>
-#include <sys/socket.h>
-#include <sys/ioctl.h>
-#include <sys/types.h>
-#include <arpa/inet.h>
-#include <fcntl.h>
-#include <netdb.h>
-
-#include <net/if.h>
-#include <net/ethernet.h>
-#include <netpacket/packet.h>
-#include <netinet/ip.h>
-#include <netinet/ip6.h>
-#include <netinet/ip_icmp.h>
-#include <netinet/tcp.h>
-#include <netinet/udp.h>
-using namespace std;
 
 #define	BUFRECV_SIZE	1024
 #define	DEFAULT_MAXCON	10
@@ -127,7 +104,7 @@ public:
 	 * @param host Host name/address
 	 * @param port Remote port
 	 */
-	Socket (const string& host, u_int16_t port) throw();
+	Socket (const std::string& host, u_int16_t port) throw();
 
 	/**
 	 * @brief Constructor for the Socket class using an already existent socket descriptor
@@ -147,7 +124,7 @@ public:
 	 * @param host Host name/address
 	 * @param port Remote port
 	 */
-	void connect (const string& host, u_int16_t port) throw();
+	void connect (const std::string& host, u_int16_t port) throw();
 
 	/**
 	 * @brief Close the socket descriptor
@@ -158,7 +135,7 @@ public:
 	 * @brief Send a string onto a TCP socket
 	 * @param buf String to send
 	 */
-	void send (const string& buf) throw();
+	void send (const std::string& buf) throw();
 
 	/**
 	 * @brief Send a binary buffer onto a TCP socket
@@ -175,27 +152,27 @@ public:
 	void operator<< (const int& buf) throw();
 	void operator<< (const float& buf) throw();
 	void operator<< (const double& buf) throw();
-	void operator<< (const string& buf) throw();
+	void operator<< (const std::string& buf) throw();
 
 	/**
 	 * @brief Overloaded operator to receive a buffer from a socket (default size: BUFRECV_SIZE)
 	 * @param buf String object where we're going to put our received stuff
 	 */
-	void operator>> (string& buf) throw();
+	void operator>> (std::string& buf) throw();
 
 	/**
 	 * @brief Wrap method around gethostbyname() function
 	 * @param name Host name
 	 * @return IP address of our host name, if found, NULL otherwise
 	 */
-	string getHostByName (const string& name) throw();
+	std::string getHostByName (const std::string& name) throw();
 
 	/**
 	 * @brief Receive a buffer from a TCP socket
 	 * @param nbytes Number of bytes to be read
 	 * @return A string containing the bytes read from the socket
 	 */
-	string recv (u_int32_t nbytes = BUFRECV_SIZE) throw();
+	std::string recv (u_int32_t nbytes = BUFRECV_SIZE) throw();
 
 	/**
 	 * @brief Receive a binary buffer from a TCP socket
@@ -220,17 +197,17 @@ public:
 	 * @brief Read an ASCII line from the socket
 	 * @return String containing the read line
 	 */
-	string readline() throw();
+	std::string readline() throw();
 
 	/**
 	 * @brief Return the local address assigned to a socket descriptor
 	 */
-	string localAddr() throw();
+	std::string localAddr() throw();
 
 	/**
 	 * @brief Return the remote address to which the socket is linked
 	 */
-	string remoteAddr() throw();
+	std::string remoteAddr() throw();
 
 	/**
 	 * @brief Return the local port
@@ -255,7 +232,7 @@ public:
 	/**
 	 * @brief Wrap around inet_ntoa() function
 	 */
-	string ntoa (in_addr_t addr) throw();
+	std::string ntoa (in_addr_t addr) throw();
 	
 };
 
@@ -323,7 +300,7 @@ public:
 	 * @param host Remote host name/address
 	 * @param port Remote port
 	 */
-	void send (const string& buf, const string& host, u_int16_t port) throw();
+	void send (const std::string& buf, const std::string& host, u_int16_t port) throw();
 
 	/**
 	 * @brief Send a binary buffer onto an UDP socket
@@ -332,7 +309,7 @@ public:
 	 * @param host Remote host name/address
 	 * @param port Remote port
 	 */
-	void send (const void* buf, u_int32_t size, const string& host, u_int16_t port) throw();
+	void send (const void* buf, u_int32_t size, const std::string& host, u_int16_t port) throw();
 
 	/**
 	 * @brief Bind an UDP socket onto a port
@@ -347,7 +324,7 @@ public:
 	 * @param host Remote host name/address
 	 * @param port Remote port
 	 */
-	void recv (void* buf, u_int32_t size, const string& host = "", u_int16_t port = 0) throw();
+	void recv (void* buf, u_int32_t size, const std::string& host = "", u_int16_t port = 0) throw();
 
 	/**
 	 * @brief Receive an ASCII string from an UDP socket
@@ -355,7 +332,7 @@ public:
 	 * @param port Remote port
 	 * @return String received
 	 */
-	string recv(const string& host = "", u_int16_t port = 0) throw();
+	std::string recv(const std::string& host = "", u_int16_t port = 0) throw();
 
 	/**
 	 * @brief Read an ASCII line from an UDP socket
@@ -363,7 +340,7 @@ public:
 	 * @param port Remote port
 	 * @return String received
 	 */
-	string readline(const string& host = "", u_int16_t port = 0) throw();
+	std::string readline(const std::string& host = "", u_int16_t port = 0) throw();
 };
 
 /**
@@ -372,7 +349,7 @@ public:
  * @author BlackLight
  */
 class RawSocket : public Socket  {
-	string iface;
+	std::string iface;
 	u_int8_t head[1024];
 	u_int8_t *payload;
 	int head_len, payload_len;
@@ -383,19 +360,19 @@ public:
 	 * @brief RawSocket constructor
 	 * @param i Interface on which we're going to bind our raw socket
 	 */
-	RawSocket (string i = "lo");
+	RawSocket (std::string i = "lo");
 
 	/**
 	 * @brief Get the IPv4 address associated to the network interface
 	 * @return IPv4 address, if the interface is valid, up and running
 	 */
-	string getIPv4addr() throw();
+	std::string getIPv4addr() throw();
 
 	/**
 	 * @brief Get the HW address associated to the network interface
 	 * @return The HW/MAC address, if the interface is valid, up and running
 	 */
-	string getHWaddr() throw();
+	std::string getHWaddr() throw();
 
 	/**
 	 * @brief Compute the checksum of a buffer
@@ -417,7 +394,7 @@ public:
 	 * @param frag Fragmentation flag (default: 0)
 	 * @param sum IPv4 checksum (default: auto-computed)
 	 */
-	void buildIPv4 (string dst, string src = "", u_int8_t proto = IPPROTO_TCP, u_int16_t len = 0, u_int8_t ttl = 32,
+	void buildIPv4 (std::string dst, std::string src = "", u_int8_t proto = IPPROTO_TCP, u_int16_t len = 0, u_int8_t ttl = 32,
 			u_int8_t tos = 0, u_int16_t id = 0, u_int16_t frag = 0, u_int16_t sum = 0);
 
 	/**
@@ -464,7 +441,7 @@ public:
 	 * @brief Set a payload for the raw socket as a string
 	 * @param payload Our payload
 	 */
-	void setPayload (string payload);
+	void setPayload (std::string payload);
 
 	/**
 	 * @brief Write the raw packet onto the network interface
@@ -476,7 +453,7 @@ public:
 	 * @param len Number of bytes to be read
 	 * @param host Host name/address we're going to receive our packet from (default: any)
 	 */
-	void* read (u_int32_t len, const string& host = "") throw();
+	void* read (u_int32_t len, const std::string& host = "") throw();
 };
 
 #endif

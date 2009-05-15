@@ -18,17 +18,17 @@ Inheritance diagram for Socket::\begin{figure}[H]
 \item 
 \hyperlink{classSocket_08ec85e71ecfde6ee952624696b3e1cb}{Socket} (int \hyperlink{classSocket_8b042d9fe02795041a5e045604c8b7ec}{domain}=AF\_\-INET, int \hyperlink{classSocket_c7f6980f36023df2004271c336217cb8}{type}=SOCK\_\-STREAM)  throw ()
 \begin{CompactList}\small\item\em Constructor for the \hyperlink{classSocket}{Socket} class. \item\end{CompactList}\item 
-\hyperlink{classSocket_b1d662fa225adb4d63ca40b0747496a7}{Socket} (const string \&host, u\_\-int16\_\-t port)  throw ()
+\hyperlink{classSocket_07d73b007fcdfa7cc4b8b90820b563de}{Socket} (const std::string \&host, u\_\-int16\_\-t port)  throw ()
 \begin{CompactList}\small\item\em Constructor for the \hyperlink{classSocket}{Socket} class, builds a TCP socket and connects onto it. \item\end{CompactList}\item 
 \hyperlink{classSocket_c95777f24c2c8e076ff6084ecb139884}{Socket} (int \hyperlink{classSocket_d9e40b6c9a69e0168c27962cc6c60ef7}{sd}, int \hyperlink{classSocket_8b042d9fe02795041a5e045604c8b7ec}{domain}, int \hyperlink{classSocket_c7f6980f36023df2004271c336217cb8}{type})  throw ()
 \begin{CompactList}\small\item\em Constructor for the \hyperlink{classSocket}{Socket} class using an already existent socket descriptor. \item\end{CompactList}\item 
 \hyperlink{classSocket_eac4eb6379a543d38ed88977d3b6630a}{$\sim$Socket} ()
 \begin{CompactList}\small\item\em Destroyer for the \hyperlink{classSocket}{Socket} class (it just destroyes our socket descriptor). \item\end{CompactList}\item 
-void \hyperlink{classSocket_b5a8796547ecffdbb048fd295bb8390d}{connect} (const string \&host, u\_\-int16\_\-t port)  throw ()
+void \hyperlink{classSocket_6aea9340963adc8f277d1bbf28175954}{connect} (const std::string \&host, u\_\-int16\_\-t port)  throw ()
 \begin{CompactList}\small\item\em Create a TCP connection on the socket. \item\end{CompactList}\item 
 void \hyperlink{classSocket_75ee749264ccbcfc4dfbf5442e55dcb8}{close} ()  throw ()
 \begin{CompactList}\small\item\em Close the socket descriptor. \item\end{CompactList}\item 
-void \hyperlink{classSocket_58193259e85351165b60e6cad9e8e1ac}{send} (const string \&buf)  throw ()
+void \hyperlink{classSocket_d9819dba14b732d575bf3dc1e376677c}{send} (const std::string \&buf)  throw ()
 \begin{CompactList}\small\item\em Send a string onto a TCP socket. \item\end{CompactList}\item 
 void \hyperlink{classSocket_e19472a87361143b4e3e2730e69b5955}{send} (const void $\ast$buf, u\_\-int32\_\-t size)  throw ()
 \begin{CompactList}\small\item\em Send a binary buffer onto a TCP socket. \item\end{CompactList}\item 
@@ -40,13 +40,13 @@ void \hyperlink{classSocket_6ea159d9fa113f2e9f5a01f2e29fb295}{operator$<$$<$} (c
 \item 
 void \hyperlink{classSocket_41b423cfc8d93f8a66de428f8699cdd7}{operator$<$$<$} (const double \&buf)  throw ()
 \item 
-void \hyperlink{classSocket_007dc764a2d2bfb7b38fef1f9b7a9a91}{operator$<$$<$} (const string \&buf)  throw ()
+void \hyperlink{classSocket_5bcc8d8ed10662161b8c3e07f9c31421}{operator$<$$<$} (const std::string \&buf)  throw ()
 \item 
-void \hyperlink{classSocket_fa79720d97b16058c2ce8dad82256ce2}{operator$>$$>$} (string \&buf)  throw ()
+void \hyperlink{classSocket_a24765df6a964745bf202573ff79e543}{operator$>$$>$} (std::string \&buf)  throw ()
 \begin{CompactList}\small\item\em Overloaded operator to receive a buffer from a socket (default size: BUFRECV\_\-SIZE). \item\end{CompactList}\item 
-char $\ast$ \hyperlink{classSocket_c065c8091357f3d3b11d63f43bea734a}{getHostByName} (const string \&name)  throw ()
+std::string \hyperlink{classSocket_a87721ea6aaa95397bca49ed7c45b897}{getHostByName} (const std::string \&name)  throw ()
 \begin{CompactList}\small\item\em Wrap method around gethostbyname() function. \item\end{CompactList}\item 
-string \hyperlink{classSocket_58b58a3abc4914cfce721f7389327241}{recv} (u\_\-int32\_\-t nbytes=BUFRECV\_\-SIZE)  throw ()
+std::string \hyperlink{classSocket_57cc2a29735f60474e5f274db39c9e0c}{recv} (u\_\-int32\_\-t nbytes=BUFRECV\_\-SIZE)  throw ()
 \begin{CompactList}\small\item\em Receive a buffer from a TCP socket. \item\end{CompactList}\item 
 void \hyperlink{classSocket_21a85ab2cc66b4e6f399c6b119f8263d}{recv} (void $\ast$buf, u\_\-int32\_\-t size)  throw ()
 \begin{CompactList}\small\item\em Receive a binary buffer from a TCP socket. \item\end{CompactList}\item 
@@ -54,11 +54,11 @@ void \hyperlink{classSocket_cb7309a2f56ab9ed7769dccb39178200}{setBlocking} (bool
 \begin{CompactList}\small\item\em Set or unset the blocking flag on a socket. \item\end{CompactList}\item 
 bool \hyperlink{classSocket_b09cfdaf17af3afd7c9cd7324aee9789}{isBlocking} ()  throw ()
 \begin{CompactList}\small\item\em Checks whether a socket is blocking. \item\end{CompactList}\item 
-string \hyperlink{classSocket_2e44502bb59aa3d338436e830c14fe27}{readline} ()  throw ()
+std::string \hyperlink{classSocket_8e6666aa80f6b3be532f382c8fe52a57}{readline} ()  throw ()
 \begin{CompactList}\small\item\em Read an ASCII line from the socket. \item\end{CompactList}\item 
-string \hyperlink{classSocket_4d5155fc72ee36856c0d9ae9b0f24f7d}{localAddr} ()  throw ()
+std::string \hyperlink{classSocket_43966682734e24ae021c9ab21b69d9f7}{localAddr} ()  throw ()
 \begin{CompactList}\small\item\em Return the local address assigned to a socket descriptor. \item\end{CompactList}\item 
-string \hyperlink{classSocket_242310b19dfd0a252d3bf106512bd569}{remoteAddr} ()  throw ()
+std::string \hyperlink{classSocket_34aae0bd63e43ba30f91e77e52e95461}{remoteAddr} ()  throw ()
 \begin{CompactList}\small\item\em Return the remote address to which the socket is linked. \item\end{CompactList}\item 
 u\_\-int16\_\-t \hyperlink{classSocket_ca6ab90fa2a1098a143cc59bb4841d80}{localPort} ()  throw ()
 \begin{CompactList}\small\item\em Return the local port. \item\end{CompactList}\item 
@@ -67,7 +67,9 @@ u\_\-int16\_\-t \hyperlink{classSocket_7cb1ce737346cbc92f7d1cc3d9578d38}{remoteP
 void \hyperlink{classSocket_25b831123a5914c6203c72cb8a48026b}{getSockOpt} (int level, int optname, void $\ast$optval, socklen\_\-t $\ast$optlen)  throw ()
 \begin{CompactList}\small\item\em Wrap around getsockopt() function. \item\end{CompactList}\item 
 void \hyperlink{classSocket_5930d6cd7bc34b6de1126b80aad7bedd}{setSockOpt} (int level, int optname, void $\ast$optval, socklen\_\-t optlen)  throw ()
-\begin{CompactList}\small\item\em Wrap around setsockopt() function. \item\end{CompactList}\end{CompactItemize}
+\begin{CompactList}\small\item\em Wrap around setsockopt() function. \item\end{CompactList}\item 
+std::string \hyperlink{classSocket_6e7824108afe85f1004d17b4e3749cc7}{ntoa} (in\_\-addr\_\-t addr)  throw ()
+\begin{CompactList}\small\item\em Wrap around inet\_\-ntoa() function. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Protected Attributes}
 \begin{CompactItemize}
 \item 
@@ -101,11 +103,11 @@ Constructor for the \hyperlink{classSocket}{Socket} class.
 \begin{description}
 \item[{\em domain}]\hyperlink{classSocket}{Socket} domain (default = AF\_\-INET) \item[{\em type}]\hyperlink{classSocket}{Socket} type (default = SOCK\_\-STREAM) \end{description}
 \end{Desc}
-\hypertarget{classSocket_b1d662fa225adb4d63ca40b0747496a7}{
+\hypertarget{classSocket_07d73b007fcdfa7cc4b8b90820b563de}{
 \index{Socket@{Socket}!Socket@{Socket}}
 \index{Socket@{Socket}!Socket@{Socket}}
-\subsubsection[{Socket}]{\setlength{\rightskip}{0pt plus 5cm}Socket::Socket (const string \& {\em host}, \/  u\_\-int16\_\-t {\em port})  throw ()}}
-\label{classSocket_b1d662fa225adb4d63ca40b0747496a7}
+\subsubsection[{Socket}]{\setlength{\rightskip}{0pt plus 5cm}Socket::Socket (const std::string \& {\em host}, \/  u\_\-int16\_\-t {\em port})  throw ()}}
+\label{classSocket_07d73b007fcdfa7cc4b8b90820b563de}
 
 
 Constructor for the \hyperlink{classSocket}{Socket} class, builds a TCP socket and connects onto it. 
@@ -150,11 +152,11 @@ Destroyer for the \hyperlink{classSocket}{Socket} class (it just destroyes our s
 
 Close the socket descriptor. 
 
-\hypertarget{classSocket_b5a8796547ecffdbb048fd295bb8390d}{
+\hypertarget{classSocket_6aea9340963adc8f277d1bbf28175954}{
 \index{Socket@{Socket}!connect@{connect}}
 \index{connect@{connect}!Socket@{Socket}}
-\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}void Socket::connect (const string \& {\em host}, \/  u\_\-int16\_\-t {\em port})  throw ()}}
-\label{classSocket_b5a8796547ecffdbb048fd295bb8390d}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}void Socket::connect (const std::string \& {\em host}, \/  u\_\-int16\_\-t {\em port})  throw ()}}
+\label{classSocket_6aea9340963adc8f277d1bbf28175954}
 
 
 Create a TCP connection on the socket. 
@@ -164,11 +166,11 @@ Create a TCP connection on the socket.
 \begin{description}
 \item[{\em host}]Host name/address \item[{\em port}]Remote port \end{description}
 \end{Desc}
-\hypertarget{classSocket_c065c8091357f3d3b11d63f43bea734a}{
+\hypertarget{classSocket_a87721ea6aaa95397bca49ed7c45b897}{
 \index{Socket@{Socket}!getHostByName@{getHostByName}}
 \index{getHostByName@{getHostByName}!Socket@{Socket}}
-\subsubsection[{getHostByName}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Socket::getHostByName (const string \& {\em name})  throw ()}}
-\label{classSocket_c065c8091357f3d3b11d63f43bea734a}
+\subsubsection[{getHostByName}]{\setlength{\rightskip}{0pt plus 5cm}std::string Socket::getHostByName (const std::string \& {\em name})  throw ()}}
+\label{classSocket_a87721ea6aaa95397bca49ed7c45b897}
 
 
 Wrap method around gethostbyname() function. 
@@ -200,11 +202,11 @@ Checks whether a socket is blocking.
 
 \begin{Desc}
 \item[Returns:]true if the socket is blocking, false otherwise \end{Desc}
-\hypertarget{classSocket_4d5155fc72ee36856c0d9ae9b0f24f7d}{
+\hypertarget{classSocket_43966682734e24ae021c9ab21b69d9f7}{
 \index{Socket@{Socket}!localAddr@{localAddr}}
 \index{localAddr@{localAddr}!Socket@{Socket}}
-\subsubsection[{localAddr}]{\setlength{\rightskip}{0pt plus 5cm}string Socket::localAddr ()  throw ()}}
-\label{classSocket_4d5155fc72ee36856c0d9ae9b0f24f7d}
+\subsubsection[{localAddr}]{\setlength{\rightskip}{0pt plus 5cm}std::string Socket::localAddr ()  throw ()}}
+\label{classSocket_43966682734e24ae021c9ab21b69d9f7}
 
 
 Return the local address assigned to a socket descriptor. 
@@ -218,11 +220,20 @@ Return the local address assigned to a socket descriptor.
 
 Return the local port. 
 
-\hypertarget{classSocket_007dc764a2d2bfb7b38fef1f9b7a9a91}{
+\hypertarget{classSocket_6e7824108afe85f1004d17b4e3749cc7}{
+\index{Socket@{Socket}!ntoa@{ntoa}}
+\index{ntoa@{ntoa}!Socket@{Socket}}
+\subsubsection[{ntoa}]{\setlength{\rightskip}{0pt plus 5cm}std::string Socket::ntoa (in\_\-addr\_\-t {\em addr})  throw ()}}
+\label{classSocket_6e7824108afe85f1004d17b4e3749cc7}
+
+
+Wrap around inet\_\-ntoa() function. 
+
+\hypertarget{classSocket_5bcc8d8ed10662161b8c3e07f9c31421}{
 \index{Socket@{Socket}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!Socket@{Socket}}
-\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}void Socket::operator$<$$<$ (const string \& {\em buf})  throw ()}}
-\label{classSocket_007dc764a2d2bfb7b38fef1f9b7a9a91}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}void Socket::operator$<$$<$ (const std::string \& {\em buf})  throw ()}}
+\label{classSocket_5bcc8d8ed10662161b8c3e07f9c31421}
 
 
 \hypertarget{classSocket_41b423cfc8d93f8a66de428f8699cdd7}{
@@ -260,11 +271,11 @@ Overloaded operator to send a buffer onto a TCP socket.
 \begin{description}
 \item[{\em buf}]Stuff to be sent \end{description}
 \end{Desc}
-\hypertarget{classSocket_fa79720d97b16058c2ce8dad82256ce2}{
+\hypertarget{classSocket_a24765df6a964745bf202573ff79e543}{
 \index{Socket@{Socket}!operator$>$$>$@{operator$>$$>$}}
 \index{operator$>$$>$@{operator$>$$>$}!Socket@{Socket}}
-\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}void Socket::operator$>$$>$ (string \& {\em buf})  throw ()}}
-\label{classSocket_fa79720d97b16058c2ce8dad82256ce2}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}void Socket::operator$>$$>$ (std::string \& {\em buf})  throw ()}}
+\label{classSocket_a24765df6a964745bf202573ff79e543}
 
 
 Overloaded operator to receive a buffer from a socket (default size: BUFRECV\_\-SIZE). 
@@ -274,11 +285,11 @@ Overloaded operator to receive a buffer from a socket (default size: BUFRECV\_\-
 \begin{description}
 \item[{\em buf}]String object where we're going to put our received stuff \end{description}
 \end{Desc}
-\hypertarget{classSocket_2e44502bb59aa3d338436e830c14fe27}{
+\hypertarget{classSocket_8e6666aa80f6b3be532f382c8fe52a57}{
 \index{Socket@{Socket}!readline@{readline}}
 \index{readline@{readline}!Socket@{Socket}}
-\subsubsection[{readline}]{\setlength{\rightskip}{0pt plus 5cm}string Socket::readline ()  throw ()}}
-\label{classSocket_2e44502bb59aa3d338436e830c14fe27}
+\subsubsection[{readline}]{\setlength{\rightskip}{0pt plus 5cm}std::string Socket::readline ()  throw ()}}
+\label{classSocket_8e6666aa80f6b3be532f382c8fe52a57}
 
 
 Read an ASCII line from the socket. 
@@ -299,11 +310,11 @@ Receive a binary buffer from a TCP socket.
 \begin{description}
 \item[{\em buf}]Buffer where the read stuff will be placed \item[{\em size}]Number of bytes to be read \end{description}
 \end{Desc}
-\hypertarget{classSocket_58b58a3abc4914cfce721f7389327241}{
+\hypertarget{classSocket_57cc2a29735f60474e5f274db39c9e0c}{
 \index{Socket@{Socket}!recv@{recv}}
 \index{recv@{recv}!Socket@{Socket}}
-\subsubsection[{recv}]{\setlength{\rightskip}{0pt plus 5cm}string Socket::recv (u\_\-int32\_\-t {\em nbytes} = {\tt BUFRECV\_\-SIZE})  throw ()}}
-\label{classSocket_58b58a3abc4914cfce721f7389327241}
+\subsubsection[{recv}]{\setlength{\rightskip}{0pt plus 5cm}std::string Socket::recv (u\_\-int32\_\-t {\em nbytes} = {\tt BUFRECV\_\-SIZE})  throw ()}}
+\label{classSocket_57cc2a29735f60474e5f274db39c9e0c}
 
 
 Receive a buffer from a TCP socket. 
@@ -315,11 +326,11 @@ Receive a buffer from a TCP socket.
 \end{Desc}
 \begin{Desc}
 \item[Returns:]A string containing the bytes read from the socket \end{Desc}
-\hypertarget{classSocket_242310b19dfd0a252d3bf106512bd569}{
+\hypertarget{classSocket_34aae0bd63e43ba30f91e77e52e95461}{
 \index{Socket@{Socket}!remoteAddr@{remoteAddr}}
 \index{remoteAddr@{remoteAddr}!Socket@{Socket}}
-\subsubsection[{remoteAddr}]{\setlength{\rightskip}{0pt plus 5cm}string Socket::remoteAddr ()  throw ()}}
-\label{classSocket_242310b19dfd0a252d3bf106512bd569}
+\subsubsection[{remoteAddr}]{\setlength{\rightskip}{0pt plus 5cm}std::string Socket::remoteAddr ()  throw ()}}
+\label{classSocket_34aae0bd63e43ba30f91e77e52e95461}
 
 
 Return the remote address to which the socket is linked. 
@@ -347,11 +358,11 @@ Send a binary buffer onto a TCP socket.
 \begin{description}
 \item[{\em buf}]Buffer to be sent \item[{\em size}]buf's size \end{description}
 \end{Desc}
-\hypertarget{classSocket_58193259e85351165b60e6cad9e8e1ac}{
+\hypertarget{classSocket_d9819dba14b732d575bf3dc1e376677c}{
 \index{Socket@{Socket}!send@{send}}
 \index{send@{send}!Socket@{Socket}}
-\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void Socket::send (const string \& {\em buf})  throw ()}}
-\label{classSocket_58193259e85351165b60e6cad9e8e1ac}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void Socket::send (const std::string \& {\em buf})  throw ()}}
+\label{classSocket_d9819dba14b732d575bf3dc1e376677c}
 
 
 Send a string onto a TCP socket. 

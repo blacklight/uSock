@@ -42,6 +42,18 @@
  * this file might be covered by the GNU General Public License.
  */
 
+#include <sys/ioctl.h>
+#include <net/if.h>
+#include <net/ethernet.h>
+#include <netpacket/packet.h>
+#include <netinet/ip.h>
+#include <netinet/ip6.h>
+#include <netinet/ip_icmp.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+
 #include "usock.h"
 #include "usock_exception.h"
 
@@ -125,7 +137,7 @@ void RawSocket::buildIPv4 (string dst, string src, u_int8_t proto, u_int16_t len
 	ip.frag_off = frag;
 	ip.ttl = ttl;
 	ip.protocol = proto;
-	ip.check = (sum) ? sum : 0;
+	ip.check = sum;
 	ip.saddr = inet_addr(src.c_str());
 	ip.daddr = inet_addr(dst.c_str());
 
@@ -139,7 +151,7 @@ void RawSocket::buildICMPv4 (u_int8_t type, u_int16_t id, u_int16_t seq, u_int8_
 
 	icmp.type = type;
 	icmp.code = code;
-	icmp.checksum = (sum) ? sum : 0;
+	icmp.checksum = sum;
 	icmp.id = 1;
 	icmp.sequence = seq;
 
@@ -187,7 +199,7 @@ void RawSocket::buildTCP (u_int16_t sport, u_int16_t dport, u_int8_t flags, u_in
 	tcp.urg = (flags & TH_URG)  ? 1 : 0;
 
 	tcp.window = window;
-	tcp.check = (sum) ? sum : 0;
+	tcp.check = sum;
 	tcp.urg_ptr = urgent;
 
 	memcpy (head + ((is_IPv4) ? sizeof(struct iphdr) : sizeof(struct ip6_hdr)), &tcp, sizeof(struct tcphdr));
