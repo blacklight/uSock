@@ -46,6 +46,9 @@
 #error "usock library can only be used in C++ code"
 #endif
 
+#ifndef __USOCK_H
+#define __USOCK_H
+
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -475,4 +478,6 @@ public:
 	 */
 	void* read (u_int32_t len, const string& host = "") throw();
 };
+
+#endif
 
