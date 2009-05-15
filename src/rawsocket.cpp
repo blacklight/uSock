@@ -57,6 +57,8 @@
 #include "usock.h"
 #include "usock_exception.h"
 
+using std::string;
+
 RawSocket::RawSocket (string i)  {
 	iface = i;
 

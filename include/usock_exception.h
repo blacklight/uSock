@@ -44,11 +44,12 @@
 
 #include <exception>
 #include <cerrno>
-using namespace std;
+
+using std::exception;
 
 #define	ERRBUF_SIZE	1024
 
-class SocketException : public exception  {
+class SocketException : public std::exception  {
 	char *errbuf;
 
 public:

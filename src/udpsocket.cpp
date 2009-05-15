@@ -46,6 +46,8 @@
 #include "usock.h"
 #include "usock_exception.h"
 
+using std::string;
+
 UDPSocket::UDPSocket (int domain) throw()  {
 	this->domain = domain;
 	this->type = SOCK_DGRAM;

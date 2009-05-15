@@ -54,6 +54,9 @@
 #include "usock.h"
 #include "usock_exception.h"
 
+using std::string;
+using std::stringstream;
+
 Socket::Socket (int domain, int type) throw()  {
 	this->domain = domain;
 	this->type = type;
