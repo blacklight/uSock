@@ -49,6 +49,13 @@
 #ifndef __USOCK_H
 #define __USOCK_H
 
+#include <netinet/in.h>
+#include <netpacket/packet.h>
+#include <netinet/ip.h>
+#include <netinet/ip6.h>
+#include <netinet/ip_icmp.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
 #include <string>
 
 #define	BUFRECV_SIZE	1024

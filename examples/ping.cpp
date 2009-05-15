@@ -1,8 +1,6 @@
 #include <iostream>
 #include <usock.h>
-
-using std::cout;
-using std::cerr;
+using namespace std;
 
 int main(int argc, char **argv)  {
 	if (argc<3)  {
@@ -17,7 +15,7 @@ int main(int argc, char **argv)  {
 
 	RawSocket s(argv[1]);
 	s.buildIPv4(argv[2], s.getIPv4addr(), IPPROTO_ICMP);
-	s.buildICMPv4(ICMP_ECHO);
+	s.buildICMPv4(8);
 	s.setPayload(payload, sizeof(payload));
 	
 	cout << "Sending a ping request to " << argv[2] << endl;

@@ -46,7 +46,6 @@
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>
-#include <netinet/in.h>
 #include <arpa/inet.h>
 #include <fcntl.h>
 #include <netdb.h>
@@ -103,9 +102,7 @@ void Socket::connect (const string& host, u_int16_t port) throw()  {
 	string addr;
 	struct sockaddr_in sin;
 
-	try  { addr = getHostByName(host); }
-	catch (exception e)  { return; }
-
+	addr = getHostByName(host);
 	sin.sin_family = domain;
 	sin.sin_port = htons(port);
 	sin.sin_addr.s_addr = inet_addr(addr.c_str());

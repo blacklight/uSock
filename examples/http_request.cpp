@@ -1,6 +1,6 @@
 #include <iostream>
 #include <usock.h>
-using std::cout;
+using namespace std;
 
 main()  {
 	string buf;

@@ -42,7 +42,6 @@
  * this file might be covered by the GNU General Public License.
  */
 
-#include <netinet/in.h>
 #include "usock.h"
 #include "usock_exception.h"
 

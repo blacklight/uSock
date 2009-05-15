@@ -45,12 +45,6 @@
 #include <sys/ioctl.h>
 #include <net/if.h>
 #include <net/ethernet.h>
-#include <netpacket/packet.h>
-#include <netinet/ip.h>
-#include <netinet/ip6.h>
-#include <netinet/ip_icmp.h>
-#include <netinet/tcp.h>
-#include <netinet/udp.h>
 #include <arpa/inet.h>
 #include <netdb.h>
 
