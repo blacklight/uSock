@@ -71,7 +71,7 @@ Socket::Socket (int sd, int domain, int type) throw()  {
 
 Socket::~Socket()  { ::close(sd); }
 
-char* Socket::getHostByName (const string& name) throw()  {
+string Socket::getHostByName (const string& name) throw()  {
 	char* addr = new char[INET6_ADDRSTRLEN];
 	struct hostent *host;
 
@@ -84,7 +84,7 @@ char* Socket::getHostByName (const string& name) throw()  {
 			(unsigned char) host->h_addr[2],
 			(unsigned char) host->h_addr[3]);
 
-	return addr;
+	return string(addr);
 }
 
 void Socket::connect (const string& host, u_int16_t port) throw()  {
@@ -269,5 +269,16 @@ bool Socket::isBlocking() throw()  {
 		throw SocketException("fcntl exception");
 
 	return ((flags & O_NONBLOCK) ? true : false);
+}
+
+string Socket::ntoa (in_addr_t addr) throw()  {
+	in_addr a;
+	a.s_addr = addr;
+	char* str = inet_ntoa(a);
+
+	if (!str)
+		throw SocketException("inet_ntoa() exception");
+
+	return string(str);
 }
 

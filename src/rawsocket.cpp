@@ -389,7 +389,7 @@ void* RawSocket::read (u_int32_t len, const string& host) throw()  {
 		if (host.empty())
 			sin.sin_addr.s_addr = INADDR_ANY;
 		else
-			sin.sin_addr.s_addr = inet_addr(getHostByName(host.c_str()));
+			sin.sin_addr.s_addr = inet_addr(getHostByName(host.c_str()).c_str());
 
 		if (recvfrom(sd, buf, len, 0, (struct sockaddr*) &sin, &slen) < 0)
 			throw SocketException("recvfrom error");

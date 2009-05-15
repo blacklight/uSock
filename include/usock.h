@@ -185,7 +185,7 @@ public:
 	 * @param name Host name
 	 * @return IP address of our host name, if found, NULL otherwise
 	 */
-	char* getHostByName (const string& name) throw();
+	string getHostByName (const string& name) throw();
 
 	/**
 	 * @brief Receive a buffer from a TCP socket
@@ -248,6 +248,11 @@ public:
 	 * @brief Wrap around setsockopt() function
 	 */
 	void setSockOpt (int level, int optname, void* optval, socklen_t optlen) throw();
+
+	/**
+	 * @brief Wrap around inet_ntoa() function
+	 */
+	string ntoa (in_addr_t addr) throw();
 	
 };
 

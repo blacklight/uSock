@@ -22,10 +22,9 @@ int main(int argc, char **argv)  {
 	unsigned char* buf = (unsigned char*) s.read(64, argv[2]);
 	struct iphdr ip;
 	memcpy (&ip, buf, sizeof(struct iphdr));
+	string addr = s.ntoa(ip.saddr);
 
-	in_addr addr;
-	addr.s_addr = ip.saddr;
-	cout << "Reply from " << inet_ntoa(addr) << endl;
+	cout << "Reply from " << addr << endl;
 	s.close();
 }
 
