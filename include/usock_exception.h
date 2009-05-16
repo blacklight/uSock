@@ -48,16 +48,23 @@ using std::exception;
 
 #define	ERRBUF_SIZE	1024
 
-class SocketException : public exception  {
-	char *errbuf;
+namespace usock  {
+	/**
+	 * @class SocketException
+	 * @brief Class for managing exceptions in usock class
+	 * @author BlackLight
+	 */
+	class SocketException : public exception  {
+		char *errbuf;
 
-public:
-	SocketException(const char* str)  {
-		errbuf = new char[ERRBUF_SIZE];
-		snprintf (errbuf, ERRBUF_SIZE, "%s: %s",
-				str, strerror(errno));
-	}
+	public:
+		SocketException(const char* str)  {
+			errbuf = new char[ERRBUF_SIZE];
+			snprintf (errbuf, ERRBUF_SIZE, "%s: %s",
+					str, strerror(errno));
+		}
 
-	const char* what() const throw()  { return errbuf; }
-};
+		const char* what() const throw()  { return errbuf; }
+	};
+}
 

@@ -48,12 +48,35 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 
+#include <netinet/ip.h>
+#include <netinet/ip6.h>
+#include <netinet/ip_icmp.h>
+#include <netinet/tcp.h>
+#include <netinet/udp.h>
+
 #include "usock.h"
 #include "usock_exception.h"
 
 using std::string;
+using namespace usock;
 
-RawSocket::RawSocket (string i)  {
+struct icmp_hdr {
+	u_int8_t		type;
+	u_int8_t		code;
+	u_int16_t		checksum;
+	u_int16_t		id;
+	u_int16_t		sequence;
+};
+
+struct pseudohdr  {
+	u_int32_t src;
+	u_int32_t dst;
+	u_int8_t  padd;
+	u_int8_t  proto;
+	u_int16_t len;
+};
+
+RawSocket::RawSocket (string i) : BaseSocket(AF_INET, SOCK_RAW, IPPROTO_TCP)  {
 	iface = i;
 
 	is_IPv4 = false;
@@ -370,8 +393,35 @@ void RawSocket::write() throw()  {
 
 		sin.sin_addr.s_addr = ip.daddr;
 
-		if (sendto(sd, pkt, len, 0, (struct sockaddr*) &sin, sizeof(struct sockaddr)) < 0)
-			throw SocketException("sendto error");
+		if (timeout == 0.0)  {
+			if (sendto(sd, pkt, len, 0, (struct sockaddr*) &sin, sizeof(struct sockaddr)) < 0)
+				throw SocketException("sendto error");
+		} else {
+			if (sendto(sd, pkt, len, 0, (struct sockaddr*) &sin, sizeof(struct sockaddr)) < 0)  {
+				if (errno == EINPROGRESS)  {
+					int ret;
+
+					do  {
+						struct timeval tv;
+						fd_set set;
+
+						tv.tv_sec = (int) timeout;
+						tv.tv_usec = (int) ((timeout*1000) - (double) (tv.tv_sec*1000));
+						FD_ZERO(&set);
+						FD_SET(sd, &set);
+
+						if ((ret = select(sd+1, NULL, &set, NULL, &tv)) < 0)  {
+							if (errno == EINTR)
+								throw SocketException("connection exception");
+						} else if (ret>0)
+							break;
+						else
+							throw SocketException("connection timeout");
+					} while(1);
+				} else
+					throw SocketException("connection exception");
+			}
+		}
 	}
 }
 
@@ -399,8 +449,35 @@ void* RawSocket::read (u_int32_t len, const string& host) throw()  {
 		else
 			sin.sin_addr.s_addr = inet_addr(getHostByName(host.c_str()).c_str());
 
-		if (recvfrom(sd, buf, len, 0, (struct sockaddr*) &sin, &slen) < 0)
-			throw SocketException("recvfrom error");
+		if (timeout == 0.0)  {
+			if (recvfrom(sd, buf, len, 0, (struct sockaddr*) &sin, &slen) < 0)
+				throw SocketException("recvfrom error");
+		} else {
+			if (recvfrom(sd, buf, len, 0, (struct sockaddr*) &sin, &slen) < 0)  {
+				if (errno == EINPROGRESS)  {
+					int ret;
+
+					do  {
+						struct timeval tv;
+						fd_set set;
+
+						tv.tv_sec = (int) timeout;
+						tv.tv_usec = (int) ((timeout*1000) - (double) (tv.tv_sec*1000));
+						FD_ZERO(&set);
+						FD_SET(sd, &set);
+
+						if ((ret = select(sd+1, NULL, &set, NULL, &tv)) < 0)  {
+							if (errno == EINTR)
+								throw SocketException("connection exception");
+						} else if (ret>0)
+							break;
+						else
+							throw SocketException("connection timeout");
+					} while(1);
+				} else
+					throw SocketException("connection exception");
+			}
+		}
 	}
 
 	return (void*) buf;

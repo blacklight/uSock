@@ -2,22 +2,26 @@
 \section{usock.h File Reference}
 \label{usock_8h}\index{usock.h@{usock.h}}
 }
+{\tt \#include $<$netinet/in.h$>$}\par
 {\tt \#include $<$string$>$}\par
 \subsection*{Classes}
 \begin{CompactItemize}
 \item 
-struct \hyperlink{structicmp__hdr}{icmp\_\-hdr}
-\item 
-struct \hyperlink{structpseudohdr}{pseudohdr}
-\item 
-class \hyperlink{classSocket}{Socket}
-\begin{CompactList}\small\item\em Base socket class for building, by default, TCP sockets. \item\end{CompactList}\item 
-class \hyperlink{classServerSocket}{ServerSocket}
-\begin{CompactList}\small\item\em Class for managing server sockets. \item\end{CompactList}\item 
-class \hyperlink{classUDPSocket}{UDPSocket}
+class \hyperlink{classusock_1_1BaseSocket}{usock::BaseSocket}
+\begin{CompactList}\small\item\em Class for describing basic sockets. \item\end{CompactList}\item 
+class \hyperlink{classusock_1_1Socket}{usock::Socket}
+\begin{CompactList}\small\item\em Class for building TCP sockets. \item\end{CompactList}\item 
+class \hyperlink{classusock_1_1ServerSocket}{usock::ServerSocket}
+\begin{CompactList}\small\item\em Class for managing TCP server sockets. \item\end{CompactList}\item 
+class \hyperlink{classusock_1_1UDPSocket}{usock::UDPSocket}
 \begin{CompactList}\small\item\em Class for managing UDP sockets. \item\end{CompactList}\item 
-class \hyperlink{classRawSocket}{RawSocket}
+class \hyperlink{classusock_1_1RawSocket}{usock::RawSocket}
 \begin{CompactList}\small\item\em Class for managing raw sockets. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace \hyperlink{namespaceusock}{usock}
+\end{CompactItemize}
 \subsection*{Defines}
 \begin{CompactItemize}
 \item 

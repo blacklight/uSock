@@ -1,10 +1,12 @@
 #include <iostream>
 #include <usock.h>
+
 using namespace std;
+using namespace usock;
 
 main()  {
 	string buf;
-	Socket s("www.google.it",80);
+	Socket s("www.google.it", 80);
 
 	s << "HEAD / HTTP/1.1\r\n"
 		"Host: www.google.it\r\n"

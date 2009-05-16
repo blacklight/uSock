@@ -55,47 +55,20 @@
 
 using std::string;
 using std::stringstream;
+using namespace usock;
 
-Socket::Socket (int domain, int type) throw()  {
-	this->domain = domain;
-	this->type = type;
-	
-	if ((sd = socket(domain, type, 0)) < 0)
-		throw SocketException("socket error");
-}
+Socket::Socket() throw() : BaseSocket(AF_INET, SOCK_STREAM, IPPROTO_TCP)  {}
 
-Socket::Socket (const string& host, u_int16_t port)  throw()  {
-	this->domain = AF_INET;
-	this->type = SOCK_STREAM;
-	
-	if ((sd = socket(domain, type, 0)) < 0)
-		throw SocketException("socket error");
-
-	connect(host,port);
-}
-
-Socket::Socket (int sd, int domain, int type) throw()  {
+Socket::Socket (int sd, double timeout) throw()  {
 	this->sd = sd;
-	this->domain = domain;
-	this->type = type;
+	domain = AF_INET;
+	type = SOCK_STREAM;
+	protocol = IPPROTO_TCP;
+	this->timeout = timeout;
 }
 
-Socket::~Socket()  { ::close(sd); }
-
-string Socket::getHostByName (const string& name) throw()  {
-	char* addr = new char[INET6_ADDRSTRLEN];
-	struct hostent *host;
-
-	if (! (host = gethostbyname(name.c_str())) )
-		throw SocketException("gethostbyname exception");
-
-	snprintf (addr, INET6_ADDRSTRLEN, "%u.%u.%u.%u",
-			(unsigned char) host->h_addr[0],
-			(unsigned char) host->h_addr[1],
-			(unsigned char) host->h_addr[2],
-			(unsigned char) host->h_addr[3]);
-
-	return string(addr);
+Socket::Socket (const string& host, u_int16_t port, double timeout) throw() : BaseSocket(AF_INET, SOCK_STREAM, IPPROTO_TCP, timeout)  {
+	connect(host,port);
 }
 
 void Socket::connect (const string& host, u_int16_t port) throw()  {
@@ -107,13 +80,75 @@ void Socket::connect (const string& host, u_int16_t port) throw()  {
 	sin.sin_port = htons(port);
 	sin.sin_addr.s_addr = inet_addr(addr.c_str());
 
-	if (::connect(sd, (struct sockaddr*) &sin, sizeof(struct sockaddr))<0)
-		throw SocketException("connect exception");
+	if (timeout == 0.0)  {
+		if (::connect(sd, (struct sockaddr*) &sin, sizeof(struct sockaddr)) < 0)
+			throw SocketException("connect exception");
+	} else {
+		setBlocking(false);
+
+		if (::connect(sd, (struct sockaddr*) &sin, sizeof(struct sockaddr)) < 0)  {
+			if (errno == EINPROGRESS)  {
+				int ret;
+
+				do  {
+					struct timeval tv;
+					fd_set set;
+
+					tv.tv_sec = (int) timeout;
+					tv.tv_usec = (int) ((timeout*1000) - (double) (tv.tv_sec*1000));
+					FD_ZERO(&set);
+					FD_SET(sd, &set);
+
+					if ((ret = select(sd+1, NULL, &set, NULL, &tv)) < 0)  {
+						if (errno == EINTR)
+							throw SocketException("connection exception");
+					} else if (ret>0)
+						break;
+					else
+						throw SocketException("connection timeout");
+				} while(1);
+			} else
+				throw SocketException("connection exception");
+		}
+
+		setBlocking(true);
+	}
 }
 
 void Socket::send (const string& buf) throw()  {
-	if (::send(sd, buf.c_str(), buf.length(), 0) < 0)
-		throw SocketException("send exception");
+	if (timeout == 0.0)  {
+		if (::send(sd, buf.c_str(), buf.length(), 0) < 0)
+			throw SocketException("send exception");
+	} else {
+		setBlocking(false);
+
+		if (::send(sd, buf.c_str(), buf.length(), 0) < 0)  {
+			if (errno == EINPROGRESS)  {
+				int ret;
+
+				do  {
+					struct timeval tv;
+					fd_set set;
+
+					tv.tv_sec = (int) timeout;
+					tv.tv_usec = (int) ((timeout*1000) - (double) (tv.tv_sec*1000));
+					FD_ZERO(&set);
+					FD_SET(sd, &set);
+
+					if ((ret = select(sd+1, NULL, &set, NULL, &tv)) < 0)  {
+						if (errno == EINTR)
+							throw SocketException("connection exception");
+					} else if (ret>0)
+						break;
+					else
+						throw SocketException("connection timeout");
+				} while(1);
+			} else
+				throw SocketException("connection exception");
+		}
+
+		setBlocking(true);
+	}
 }
 
 void Socket::operator<< (const string& buf) throw()  { send(buf); }
@@ -146,8 +181,39 @@ string Socket::recv (u_int32_t nbytes) throw()  {
 	char* buf = new char[nbytes];
 	u_int32_t n;
 
-	if ((n = ::recv(sd, buf, nbytes, 0)) < 0)
-		throw SocketException("recv exception");
+	if (timeout == 0.0)  {
+		if ((n = ::recv(sd, buf, nbytes, 0)) < 0)
+			throw SocketException("recv exception");
+	} else {
+		setBlocking(false);
+
+		if ((n = ::recv(sd, buf, nbytes, 0)) < 0)  {
+			if (errno == EINPROGRESS)  {
+				int ret;
+
+				do  {
+					struct timeval tv;
+					fd_set set;
+
+					tv.tv_sec = (int) timeout;
+					tv.tv_usec = (int) ((timeout*1000) - (double) (tv.tv_sec*1000));
+					FD_ZERO(&set);
+					FD_SET(sd, &set);
+
+					if ((ret = select(sd+1, NULL, &set, NULL, &tv)) < 0)  {
+						if (errno == EINTR)
+							throw SocketException("connection exception");
+					} else if (ret>0)
+						break;
+					else
+						throw SocketException("connection timeout");
+				} while(1);
+			} else
+				throw SocketException("connection exception");
+		}
+
+		setBlocking(true);
+	}
 
 	if (!n) return string("");
 	return string(buf);
@@ -156,20 +222,41 @@ string Socket::recv (u_int32_t nbytes) throw()  {
 void Socket::recv (void* buf, u_int32_t size) throw()  {
 	u_int32_t n;
 
-	if ((n = ::recv(sd, buf, size, 0)) < 0)
-		throw SocketException("recv exception");
+	if (timeout == 0.0)  {
+		if ((n = ::recv(sd, buf, size, 0)) < 0)
+			throw SocketException("recv exception");
+	} else {
+		setBlocking(false);
+
+		if ((n = ::recv(sd, buf, size, 0)) < 0)  {
+			if (errno == EINPROGRESS)  {
+				int ret;
+
+				do  {
+					struct timeval tv;
+					fd_set set;
+
+					tv.tv_sec = (int) timeout;
+					tv.tv_usec = (int) ((timeout*1000) - (double) (tv.tv_sec*1000));
+					FD_ZERO(&set);
+					FD_SET(sd, &set);
+
+					if ((ret = select(sd+1, NULL, &set, NULL, &tv)) < 0)  {
+						if (errno == EINTR)
+							throw SocketException("connection exception");
+					} else if (ret>0)
+						break;
+					else
+						throw SocketException("connection timeout");
+				} while(1);
+			} else
+				throw SocketException("connection exception");
+		}
+
+		setBlocking(true);
+	}
 
 	if (!n) buf = NULL;
-}
-
-void Socket::getSockOpt (int level, int optname, void* optval, socklen_t* optlen) throw()  {
-	if (::getsockopt(sd, level, optname, optval, optlen) < 0)
-		throw SocketException("getsockopt error");
-}
-
-void Socket::setSockOpt (int level, int optname, void* optval, socklen_t optlen) throw()  {
-	if (::setsockopt(sd, level, optname, optval, optlen) < 0)
-		throw SocketException("setsockopt error");
 }
 
 void Socket::operator>> (string& buf) throw()  {
@@ -201,92 +288,5 @@ string Socket::readline() throw()  {
 	}
 
 	return string(line);
-}
-
-void Socket::close() throw()  {
-	if (::close(sd)<0)
-		throw SocketException("close exception");
-}
-
-string Socket::remoteAddr() throw()  {
-	struct in_addr addr;
-	struct sockaddr_in sock;
-	socklen_t len = sizeof(struct sockaddr_in);
-
-	if (getpeername(sd, (struct sockaddr*) &sock, &len) < 0)  {
-		if (errno == ENOTCONN) return string("");
-		else throw SocketException("getpeername exception");
-	}
-
-	addr.s_addr = sock.sin_addr.s_addr;
-	return string(inet_ntoa(addr));
-}
-
-string Socket::localAddr() throw()  {
-	struct in_addr addr;
-	struct sockaddr_in sock;
-	socklen_t len = sizeof(struct sockaddr_in);
-
-	if (getsockname(sd, (struct sockaddr*) &sock, &len) < 0)  {
-		if (errno == ENOTCONN) return string("");
-		else throw SocketException("getsockname exception");
-	}
-
-	addr.s_addr = sock.sin_addr.s_addr;
-	return string(inet_ntoa(addr));
-}
-
-u_int16_t Socket::remotePort() throw()  {
-	struct sockaddr_in sock;
-	socklen_t len = sizeof(struct sockaddr_in);
-
-	if (getpeername(sd, (struct sockaddr*) &sock, &len) < 0)  {
-		if (errno == ENOTCONN) return 0;
-		else throw SocketException("getpeername exception");
-	}
-
-	return htons(sock.sin_port);
-}
-
-u_int16_t Socket::localPort() throw()  {
-	struct sockaddr_in sock;
-	socklen_t len = sizeof(struct sockaddr_in);
-
-	if (getsockname(sd, (struct sockaddr*) &sock, &len) < 0)  {
-		if (errno == ENOTCONN) return 0;
-		else throw SocketException("getsockname exception");
-	}
-
-	return htons(sock.sin_port);
-}
-
-void Socket::setBlocking (bool f) throw()  {
-	u_int32_t flags;
-	
-	if ((flags = fcntl(sd, F_GETFL, 0)) < 0)
-		throw SocketException("fcntl exception");
-
-	if (fcntl(sd, F_SETFL, (f ? flags & ~O_NONBLOCK : flags & O_NONBLOCK)) < 0)
-		throw SocketException("fcntl exception");
-}
-
-bool Socket::isBlocking() throw()  {
-	u_int32_t flags;
-
-	if ((flags = fcntl(sd, F_GETFL, 0)) < 0)
-		throw SocketException("fcntl exception");
-
-	return ((flags & O_NONBLOCK) ? true : false);
-}
-
-string Socket::ntoa (in_addr_t addr) throw()  {
-	in_addr a;
-	a.s_addr = addr;
-	char* str = inet_ntoa(a);
-
-	if (!str)
-		throw SocketException("inet_ntoa() exception");
-
-	return string(str);
 }
 

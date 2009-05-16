@@ -42,20 +42,17 @@
  * this file might be covered by the GNU General Public License.
  */
 
+#include <arpa/inet.h>
 #include "usock.h"
 #include "usock_exception.h"
+using namespace usock;
 
-ServerSocket::ServerSocket (int domain, int type, int m) throw() : Socket(domain, type)  {
-	maxconn = m;
-	sock_index = 0;
-}
-
-ServerSocket::ServerSocket (u_int16_t port, u_int32_t m) throw() : Socket(domain = AF_INET, type = SOCK_STREAM)  {
+ServerSocket::ServerSocket (u_int16_t port, u_int32_t m, const std::string& addr) throw()  {
 	struct sockaddr_in sin;
 
 	sin.sin_family = domain;
 	sin.sin_port = htons(port);
-	sin.sin_addr.s_addr = INADDR_ANY;
+	sin.sin_addr.s_addr = (addr.empty()) ? INADDR_ANY : inet_addr(getHostByName(addr).c_str());
 	
 	maxconn = m;
 	sock_index = 0;
@@ -91,6 +88,7 @@ Socket ServerSocket::accept() throw()  {
 	if ( (new_sd = ::accept(sd, (struct sockaddr*) &addr, &len)) < 0)
 		throw SocketException("accept error");
 
-	return Socket(new_sd, domain, type);
+	sock_index++;
+	return Socket(new_sd);
 }
 

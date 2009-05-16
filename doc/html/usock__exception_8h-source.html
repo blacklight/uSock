@@ -9,6 +9,7 @@
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
     </ul>
@@ -20,28 +21,29 @@
     </ul>
   </div>
 <h1>usock_exception.h</h1><a href="usock__exception_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
-<a name="l00045"></a>00045 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00046"></a>00046 <span class="preprocessor">#include &lt;exception&gt;</span>
-<a name="l00047"></a>00047 <span class="preprocessor">#include &lt;cerrno&gt;</span>
-<a name="l00048"></a>00048 <span class="keyword">using namespace </span>std;
-<a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="usock__exception_8h.html#8aa7a302e0160545c42054cfa6e3b743">00050</a> <span class="preprocessor">#define ERRBUF_SIZE     1024</span>
-<a name="l00051"></a>00051 <span class="preprocessor"></span>
-<a name="l00052"></a><a class="code" href="classSocketException.html">00052</a> <span class="keyword">class </span><a class="code" href="classSocketException.html">SocketException</a> : <span class="keyword">public</span> exception  {
-<a name="l00053"></a>00053         <span class="keywordtype">char</span> *errbuf;
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="keyword">public</span>:
-<a name="l00056"></a><a class="code" href="classSocketException.html#f439f2ef10e06643b4a40f4fbda853c1">00056</a>         <a class="code" href="classSocketException.html#f439f2ef10e06643b4a40f4fbda853c1">SocketException</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str)  {
-<a name="l00057"></a>00057                 errbuf = <span class="keyword">new</span> <span class="keywordtype">char</span>[<a class="code" href="usock__exception_8h.html#8aa7a302e0160545c42054cfa6e3b743">ERRBUF_SIZE</a>];
-<a name="l00058"></a>00058                 snprintf (errbuf, <a class="code" href="usock__exception_8h.html#8aa7a302e0160545c42054cfa6e3b743">ERRBUF_SIZE</a>, <span class="stringliteral">"%s: %s"</span>,
-<a name="l00059"></a>00059                                 str, strerror(errno));
-<a name="l00060"></a>00060         }
-<a name="l00061"></a>00061 
-<a name="l00062"></a><a class="code" href="classSocketException.html#ba95967e3d7a0496d831d9608f6ead97">00062</a>         <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classSocketException.html#ba95967e3d7a0496d831d9608f6ead97">what</a>() <span class="keyword">const</span> throw()  { <span class="keywordflow">return</span> errbuf; }
-<a name="l00063"></a>00063 };
-<a name="l00064"></a>00064 
+<a name="l00045"></a>00045 <span class="preprocessor">#include &lt;exception&gt;</span>
+<a name="l00046"></a>00046 <span class="preprocessor">#include &lt;cerrno&gt;</span>
+<a name="l00047"></a>00047 <span class="keyword">using</span> std::exception;
+<a name="l00048"></a>00048 
+<a name="l00049"></a><a class="code" href="usock__exception_8h.html#8aa7a302e0160545c42054cfa6e3b743">00049</a> <span class="preprocessor">#define ERRBUF_SIZE     1024</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span>
+<a name="l00051"></a>00051 <span class="keyword">namespace </span>usock  {
+<a name="l00057"></a><a class="code" href="classusock_1_1SocketException.html">00057</a>         <span class="keyword">class </span><a class="code" href="classusock_1_1SocketException.html" title="Class for managing exceptions in usock class.">SocketException</a> : <span class="keyword">public</span> exception  {
+<a name="l00058"></a>00058                 <span class="keywordtype">char</span> *errbuf;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060         <span class="keyword">public</span>:
+<a name="l00061"></a><a class="code" href="classusock_1_1SocketException.html#070830054f67291432f897e77bd9be48">00061</a>                 <a class="code" href="classusock_1_1SocketException.html#070830054f67291432f897e77bd9be48">SocketException</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str)  {
+<a name="l00062"></a>00062                         errbuf = <span class="keyword">new</span> <span class="keywordtype">char</span>[<a class="code" href="usock__exception_8h.html#8aa7a302e0160545c42054cfa6e3b743">ERRBUF_SIZE</a>];
+<a name="l00063"></a>00063                         snprintf (errbuf, <a class="code" href="usock__exception_8h.html#8aa7a302e0160545c42054cfa6e3b743">ERRBUF_SIZE</a>, <span class="stringliteral">"%s: %s"</span>,
+<a name="l00064"></a>00064                                         str, strerror(errno));
+<a name="l00065"></a>00065                 }
+<a name="l00066"></a>00066 
+<a name="l00067"></a><a class="code" href="classusock_1_1SocketException.html#8ad4730be89374b7ee56d56b2617f7a1">00067</a>                 <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classusock_1_1SocketException.html#8ad4730be89374b7ee56d56b2617f7a1">what</a>() <span class="keyword">const</span> throw()  { <span class="keywordflow">return</span> errbuf; }
+<a name="l00068"></a>00068         };
+<a name="l00069"></a>00069 }
+<a name="l00070"></a>00070 
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Fri May 15 14:40:51 2009 for libusock by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 00:18:31 2009 for libusock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7 </small></address>
 </body>

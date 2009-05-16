@@ -1,6 +1,9 @@
 #include <iostream>
 #include <usock.h>
+#include <netinet/ip.h>
+
 using namespace std;
+using namespace usock;
 
 int main(int argc, char **argv)  {
 	if (argc<3)  {
@@ -19,14 +22,23 @@ int main(int argc, char **argv)  {
 	s.setPayload(payload, sizeof(payload));
 	
 	cout << "Sending a ping request to " << argv[2] << endl;
-	s.write();
+	s.setTimeout(1.0);
 
-	unsigned char* buf = (unsigned char*) s.read(64, argv[2]);
-	struct iphdr ip;
-	memcpy (&ip, buf, sizeof(struct iphdr));
-	string addr = s.ntoa(ip.saddr);
+	try  {
+		s.write();
+		
+		unsigned char* buf = (unsigned char*) s.read(64, argv[2]);
+		struct iphdr ip;
+		memcpy (&ip, buf, sizeof(struct iphdr));
+		string addr = s.ntoa(ip.saddr);
 
-	cout << "Reply from " << addr << endl;
+		cout << "Reply from " << addr << endl;
+	}
+
+	catch (exception e)  {
+		cerr << e.what() << endl;
+	}
+
 	s.close();
 }
 

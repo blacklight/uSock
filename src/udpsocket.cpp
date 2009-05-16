@@ -47,14 +47,9 @@
 #include "usock_exception.h"
 
 using std::string;
+using namespace usock;
 
-UDPSocket::UDPSocket (int domain) throw()  {
-	this->domain = domain;
-	this->type = SOCK_DGRAM;
-	
-	if ((sd = socket(domain, type, IPPROTO_UDP)) < 0)
-		throw SocketException("socket error");
-}
+UDPSocket::UDPSocket (int domain) throw() : BaseSocket(domain, SOCK_DGRAM, IPPROTO_UDP)  {}
 
 void UDPSocket::send (const string& buf, const string& host, u_int16_t port) throw()  {
 	string addr = getHostByName(host);

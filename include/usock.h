@@ -50,12 +50,6 @@
 #define __USOCK_H
 
 #include <netinet/in.h>
-#include <netpacket/packet.h>
-#include <netinet/ip.h>
-#include <netinet/ip6.h>
-#include <netinet/ip_icmp.h>
-#include <netinet/tcp.h>
-#include <netinet/udp.h>
 #include <string>
 
 #define	BUFRECV_SIZE	1024
@@ -70,102 +64,73 @@
 #define TH_URG	 0x20
 #endif
 
-struct icmp_hdr {
-	u_int8_t		type;
-	u_int8_t		code;
-	u_int16_t		checksum;
-	u_int16_t		id;
-	u_int16_t		sequence;
-};
-
-struct pseudohdr  {
-	u_int32_t src;
-	u_int32_t dst;
-	u_int8_t  padd;
-	u_int8_t  proto;
-	u_int16_t len;
-};
+namespace usock  {
 
 /**
- * @class Socket
- * @brief Base socket class for building, by default, TCP sockets
+ * @class BaseSocket
+ * @brief Class for describing basic sockets
  * @author BlackLight
  */
-class Socket  {
+class BaseSocket  {
 
 protected:
 	int sd;
 	int domain;
 	int type;
+	int protocol;
+	double timeout;
+
+	/**
+	 * @brief Empty BaseSocket constructor - ONLY used inside the children classes
+	 * to initialize a Socket object using an already existen socket descriptor
+	 */
+	BaseSocket()  {}
 
 public:
-	/**
-	 * @brief Constructor for the Socket class
-	 * @param domain Socket domain (default = AF_INET)
-	 * @param type Socket type (default = SOCK_STREAM)
-	 */
-	Socket (int domain = AF_INET, int type = SOCK_STREAM) throw();
+	static const int inaddr_any = INADDR_ANY;
+	static const int inaddr_broadcat = INADDR_BROADCAST;
+	static const int inaddr_loopback = INADDR_LOOPBACK;
+	static const int inaddr_none = INADDR_NONE;
+
+	enum domain  {
+		inet = AF_INET,
+		inet6 = AF_INET6
+	};
+
+	enum type  {
+		sock_stream = SOCK_STREAM,
+		sock_dgram = SOCK_DGRAM,
+		sock_raw = SOCK_RAW,
+		sock_rdm = SOCK_RDM,
+		sock_seq = SOCK_SEQPACKET
+	};
+
+	enum protocol  {
+		ip = IPPROTO_IP,
+		tcp = IPPROTO_TCP,
+		udp = IPPROTO_UDP,
+		raw = IPPROTO_RAW,
+		icmp = IPPROTO_ICMP
+	};
 
 	/**
-	 * @brief Constructor for the Socket class, builds a TCP socket and connects onto it
-	 * @param host Host name/address
-	 * @param port Remote port
-	 */
-	Socket (const std::string& host, u_int16_t port) throw();
-
-	/**
-	 * @brief Constructor for the Socket class using an already existent socket descriptor
-	 * @param sd Socket descriptor
+	 * @brief Constructor for the BaseSocket class
 	 * @param domain Socket domain
 	 * @param type Socket type
+	 * @param protocol Socket protocol
+	 * @param timeout Socket timeout for send/recv/connect operations
 	 */
-	Socket (int sd, int domain, int type) throw();
+	BaseSocket (int domain, int type, int protocol, double timeout = 0.0) throw();
 
 	/**
 	 * @brief Destroyer for the Socket class (it just destroyes our socket descriptor)
 	 */
-	~Socket();
-
-	/**
-	 * @brief Create a TCP connection on the socket
-	 * @param host Host name/address
-	 * @param port Remote port
-	 */
-	void connect (const std::string& host, u_int16_t port) throw();
+	~BaseSocket();
 
 	/**
 	 * @brief Close the socket descriptor
 	 */
-	void close() throw();
-
-	/**
-	 * @brief Send a string onto a TCP socket
-	 * @param buf String to send
-	 */
-	void send (const std::string& buf) throw();
-
-	/**
-	 * @brief Send a binary buffer onto a TCP socket
-	 * @param buf Buffer to be sent
-	 * @param size buf's size
-	 */
-	void send (const void* buf, u_int32_t size) throw();
-
-	/**
-	 * @brief Overloaded operator to send a buffer onto a TCP socket
-	 * @param buf Stuff to be sent
-	 */
-	void operator<< (const char& buf) throw();
-	void operator<< (const int& buf) throw();
-	void operator<< (const float& buf) throw();
-	void operator<< (const double& buf) throw();
-	void operator<< (const std::string& buf) throw();
-
-	/**
-	 * @brief Overloaded operator to receive a buffer from a socket (default size: BUFRECV_SIZE)
-	 * @param buf String object where we're going to put our received stuff
-	 */
-	void operator>> (std::string& buf) throw();
+	void close();
 
 	/**
 	 * @brief Wrap method around gethostbyname() function
@@ -173,20 +138,6 @@ public:
 	 * @return IP address of our host name, if found, NULL otherwise
 	 */
 	std::string getHostByName (const std::string& name) throw();
-
-	/**
-	 * @brief Receive a buffer from a TCP socket
-	 * @param nbytes Number of bytes to be read
-	 * @return A string containing the bytes read from the socket
-	 */
-	std::string recv (u_int32_t nbytes = BUFRECV_SIZE) throw();
-
-	/**
-	 * @brief Receive a binary buffer from a TCP socket
-	 * @param buf Buffer where the read stuff will be placed
-	 * @param size Number of bytes to be read
-	 */
-	void recv (void* buf, u_int32_t size) throw();
 
 	/**
 	 * @brief Set or unset the blocking flag on a socket
@@ -199,12 +150,6 @@ public:
 	 * @return true if the socket is blocking, false otherwise
 	 */
 	bool isBlocking() throw();
-
-	/**
-	 * @brief Read an ASCII line from the socket
-	 * @return String containing the read line
-	 */
-	std::string readline() throw();
 
 	/**
 	 * @brief Return the local address assigned to a socket descriptor
@@ -237,15 +182,108 @@ public:
 	void setSockOpt (int level, int optname, void* optval, socklen_t optlen) throw();
 
 	/**
-	 * @brief Wrap around inet_ntoa() function
+	 * @brief Set a timeout (in seconds) on the socket
+	 * @param timeout Second we're going to wait. It's a double value, so you can specify decimal digits to have a granularity precision
+	 * bigger than the seconds
+	 */
+	void setTimeout (double timeout = 0.0) throw();
+
+	/**
+	 * @brief Wrap around inet_ntoa() function, it returns an ASCII string, given a 32 bit IPv4 address
+	 * @param addr IPv4 32 bit address
 	 */
 	std::string ntoa (in_addr_t addr) throw();
 	
 };
 
 /**
+ * @class Socket
+ * @brief Class for building TCP sockets
+ * @author BlackLight
+ */
+class Socket : public BaseSocket  {
+
+public:
+	/**
+	 * @brief Constructor for the Socket class
+	 */
+	Socket() throw();
+
+	/**
+	 * @brief Constructor for the Socket class using an already existent socket descriptor
+	 * @param sd Socket descriptor
+	 * @param timeout Timeout to be set on the socket
+	 */
+	Socket (int sd, double timeout = 0.0) throw();
+
+	/**
+	 * @brief Constructor for the Socket class, builds a TCP socket and connects onto it
+	 * @param host Host name/address
+	 * @param port Remote port
+	 * @param timeout Timeout to be set on the socket
+	 */
+	Socket (const std::string& host, u_int16_t port, double timeout = 0.0) throw();
+
+	/**
+	 * @brief Create a TCP connection on the socket
+	 * @param host Host name/address
+	 * @param port Remote port
+	 */
+	void connect (const std::string& host, u_int16_t port) throw();
+
+	/**
+	 * @brief Send a string onto a TCP socket
+	 * @param buf String to send
+	 */
+	void send (const std::string& buf) throw();
+
+	/**
+	 * @brief Send a binary buffer onto a TCP socket
+	 * @param buf Buffer to be sent
+	 * @param size buf's size
+	 */
+	void send (const void* buf, u_int32_t size) throw();
+
+	/**
+	 * @brief Overloaded operator to send a buffer onto a TCP socket
+	 * @param buf Stuff to be sent
+	 */
+	void operator<< (const char& buf) throw();
+	void operator<< (const int& buf) throw();
+	void operator<< (const float& buf) throw();
+	void operator<< (const double& buf) throw();
+	void operator<< (const std::string& buf) throw();
+
+	/**
+	 * @brief Overloaded operator to receive a buffer from a socket (default size: BUFRECV_SIZE)
+	 * @param buf String object where we're going to put our received stuff
+	 */
+	void operator>> (std::string& buf) throw();
+
+	/**
+	 * @brief Receive a buffer from a TCP socket
+	 * @param nbytes Number of bytes to be read
+	 * @return A string containing the bytes read from the socket
+	 */
+	std::string recv (u_int32_t nbytes = BUFRECV_SIZE) throw();
+
+	/**
+	 * @brief Receive a binary buffer from a TCP socket
+	 * @param buf Buffer where the read stuff will be placed
+	 * @param size Number of bytes to be read
+	 */
+	void recv (void* buf, u_int32_t size) throw();
+
+	/**
+	 * @brief Read an ASCII line from the socket
+	 * @return String containing the read line
+	 */
+	std::string readline() throw();
+};
+
+/**
  * @class ServerSocket
- * @brief Class for managing server sockets
+ * @brief Class for managing TCP server sockets
  * @author BlackLight
  */
 class ServerSocket : public Socket  {
@@ -256,22 +294,16 @@ private:
 
 public:
 	/**
-	 * @brief ServerSocket constructor
-	 * @param domain Socket domain
-	 * @param type Socket type
-	 * @param m Maximum number of allowed connections
-	 */
-	ServerSocket (int domain, int type, int m) throw();
-
-	/**
 	 * @brief ServerSocket high-level constructor
 	 * @param port Port the server will listen onto
-	 * @param m Maximum number of allowed connections
+	 * @param m Maximum number of allowed connections (default = DEFAULT_MAXCON)
+	 * @param addr Address the socket will listen from, as string (default = INADDR_ANY)
 	 */
-	ServerSocket (u_int16_t port, u_int32_t m = DEFAULT_MAXCON) throw();
+	ServerSocket (u_int16_t port, u_int32_t m = DEFAULT_MAXCON, const std::string& addr = "") throw();
 
 	/**
 	 * @brief Wrap around accept() function
+	 * @return A Socket object identifying the client connection, if successfully built
 	 */
 	Socket accept() throw();
 
@@ -292,7 +324,7 @@ public:
  * @brief Class for managing UDP sockets
  * @author BlackLight
  */
-class UDPSocket : public Socket  {
+class UDPSocket : public BaseSocket  {
 
 public:
 	/**
@@ -355,7 +387,9 @@ public:
  * @brief Class for managing raw sockets
  * @author BlackLight
  */
-class RawSocket : public Socket  {
+class RawSocket : public BaseSocket  {
+
+private:
 	std::string iface;
 	u_int8_t head[1024];
 	u_int8_t *payload;
@@ -462,6 +496,7 @@ public:
 	 */
 	void* read (u_int32_t len, const std::string& host = "") throw();
 };
+}
 
 #endif
 
