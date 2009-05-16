@@ -76,7 +76,7 @@ struct pseudohdr  {
 	u_int16_t len;
 };
 
-RawSocket::RawSocket (string i) : BaseSocket(AF_INET, SOCK_RAW, IPPROTO_TCP)  {
+RawSocket::RawSocket (string i)  {	
 	iface = i;
 
 	is_IPv4 = false;
