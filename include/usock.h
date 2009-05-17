@@ -111,8 +111,7 @@ public:
 	///@brief Enum for describing socket domains
 	enum domain  {
 		inet = AF_INET,
-		inet6 = AF_INET6,
-		unix = AF_UNIX
+		inet6 = AF_INET6
 	};
 
 	///@brief Enum for describing socket types

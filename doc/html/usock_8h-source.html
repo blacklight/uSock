@@ -74,171 +74,170 @@
 <a name="l00110"></a>00110 
 <a name="l00112"></a><a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90">00112</a>         <span class="keyword">enum</span> <a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90" title="Enum for describing socket domains.">domain</a>  {
 <a name="l00113"></a><a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73">00113</a>                 <a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73">inet</a> = AF_INET,
-<a name="l00114"></a><a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680">00114</a>                 <a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680">inet6</a> = AF_INET6,
-<a name="l00115"></a><a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90e69268b071304bbb353e8686f5c7a88a">00115</a>                 <a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90e69268b071304bbb353e8686f5c7a88a">unix</a> = AF_UNIX
-<a name="l00116"></a>00116         };
-<a name="l00117"></a>00117 
-<a name="l00119"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9">00119</a>         <span class="keyword">enum</span> <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9" title="Enum for describing socket types.">type</a>  {
-<a name="l00120"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e">00120</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e">sock_stream</a> = SOCK_STREAM,
-<a name="l00121"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365">00121</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365">sock_dgram</a> = SOCK_DGRAM,
-<a name="l00122"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9d3b8cbf378c46eb82b5a0039eab34ca7">00122</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9d3b8cbf378c46eb82b5a0039eab34ca7">sock_raw</a> = SOCK_RAW,
-<a name="l00123"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9e04a390261efe04335235f26a00b72d5">00123</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9e04a390261efe04335235f26a00b72d5">sock_rdm</a> = SOCK_RDM,
-<a name="l00124"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9adfa1bc59768fc0be580b4ba95c6f357">00124</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9adfa1bc59768fc0be580b4ba95c6f357">sock_seq</a> = SOCK_SEQPACKET
-<a name="l00125"></a>00125         };
-<a name="l00126"></a>00126 
-<a name="l00128"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa">00128</a>         <span class="keyword">enum</span> <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa" title="Enum for describing socket protocols.">protocol</a>  {
-<a name="l00129"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497">00129</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497">ip</a> = IPPROTO_IP,
-<a name="l00130"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a">00130</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a">tcp</a> = IPPROTO_TCP,
-<a name="l00131"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaae0719b1eee901237a5ec0ba9031cdfce">00131</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaae0719b1eee901237a5ec0ba9031cdfce">udp</a> = IPPROTO_UDP,
-<a name="l00132"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4">00132</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4">raw</a> = IPPROTO_RAW,
-<a name="l00133"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb">00133</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb">icmp</a> = IPPROTO_ICMP
-<a name="l00134"></a>00134         };
-<a name="l00135"></a>00135 
-<a name="l00143"></a>00143         <a class="code" href="classusock_1_1BaseSocket.html#20f598433d6c3a97656f0179f7371218" title="Empty BaseSocket constructor - ONLY used inside the children classes to initialize...">BaseSocket</a> (<span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90" title="Enum for describing socket domains.">domain</a>, <span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9" title="Enum for describing socket types.">type</a>, <span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa" title="Enum for describing socket protocols.">protocol</a>, <span class="keywordtype">double</span> <a class="code" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3" title="Optional timeout for connect/send/receive operations (default: no timeout, timeout...">timeout</a> = 0.0) throw();
-<a name="l00144"></a>00144 
-<a name="l00148"></a>00148         ~<a class="code" href="classusock_1_1BaseSocket.html" title="Class for describing basic sockets.">BaseSocket</a>();
-<a name="l00149"></a>00149 
-<a name="l00153"></a>00153         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#06383c7ad352244fb0e5e6276e5e86c2" title="Close the socket descriptor.">close</a>();
-<a name="l00154"></a>00154 
-<a name="l00160"></a>00160         std::<span class="keywordtype">string</span> <a class="code" href="classusock_1_1BaseSocket.html#7ffc3a11be4a9d7ba72a1f66f3dbad68" title="Wrap method around gethostbyname() function.">getHostByName</a> (const std::<span class="keywordtype">string</span>&amp; name) throw();
-<a name="l00161"></a>00161 
-<a name="l00166"></a>00166         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#143722edec56e119495fb8ded76582e5" title="Set or unset the blocking flag on a socket.">setBlocking</a>(<span class="keywordtype">bool</span> f = true) throw();
-<a name="l00167"></a>00167 
-<a name="l00172"></a>00172         <span class="keywordtype">bool</span> <a class="code" href="classusock_1_1BaseSocket.html#d29a1fabc8b4c7a86cd236473ef03177" title="Checks whether a socket is blocking.">isBlocking</a>() throw();
-<a name="l00173"></a>00173 
-<a name="l00177"></a>00177         std::<span class="keywordtype">string</span> <a class="code" href="classusock_1_1BaseSocket.html#479da55516dcda8117a356d8a3be3d83" title="Return the local address assigned to a socket descriptor.">localAddr</a>() throw();
-<a name="l00178"></a>00178 
-<a name="l00182"></a>00182         std::<span class="keywordtype">string</span> <a class="code" href="classusock_1_1BaseSocket.html#3842fc1ea6ac5575e988d4ee620089a7" title="Return the remote address to which the socket is linked.">remoteAddr</a>() throw();
-<a name="l00183"></a>00183 
-<a name="l00187"></a>00187         u_int16_t <a class="code" href="classusock_1_1BaseSocket.html#47218f0ff53693f2891573ec47d84f36" title="Return the local port.">localPort</a>() throw();
-<a name="l00188"></a>00188 
-<a name="l00192"></a>00192         u_int16_t <a class="code" href="classusock_1_1BaseSocket.html#e4e09d33779e097ada03144ff54286aa" title="Return the remote port.">remotePort</a>() throw();
-<a name="l00193"></a>00193 
-<a name="l00197"></a>00197         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#87925e8c3b89a50f8c8c2a68e0d2ab70" title="Wrap around getsockopt() function.">getSockOpt</a> (<span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keywordtype">void</span>* optval, socklen_t* optlen) throw();
-<a name="l00198"></a>00198 
-<a name="l00202"></a>00202         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#d0444de98899e9312bfa320d5a359e07" title="Wrap around setsockopt() function.">setSockOpt</a> (<span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keywordtype">void</span>* optval, socklen_t optlen) throw();
-<a name="l00203"></a>00203 
-<a name="l00209"></a>00209         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#e31552b42df68bc68fe557caf6e75128" title="Set a timeout (in seconds) on the socket.">setTimeout</a> (<span class="keywordtype">double</span> <a class="code" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3" title="Optional timeout for connect/send/receive operations (default: no timeout, timeout...">timeout</a> = 0.0) throw();
-<a name="l00210"></a>00210 
-<a name="l00215"></a>00215         std::<span class="keywordtype">string</span> <a class="code" href="classusock_1_1BaseSocket.html#3da108b8c23df3b521ded0bc4ae5295c" title="Wrap around inet_ntoa() function, it returns an ASCII string, given a 32 bit IPv4...">ntoa</a> (in_addr_t addr) throw();
-<a name="l00216"></a>00216         
-<a name="l00217"></a>00217 };
-<a name="l00218"></a>00218 
-<a name="l00224"></a><a class="code" href="classusock_1_1Socket.html">00224</a> class <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> : public <a class="code" href="classusock_1_1BaseSocket.html" title="Class for describing basic sockets.">BaseSocket</a>  {
-<a name="l00225"></a>00225 
-<a name="l00226"></a>00226 <span class="keyword">public</span>:
-<a name="l00230"></a>00230         <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a>() <span class="keywordflow">throw</span>();
-<a name="l00231"></a>00231 
-<a name="l00237"></a>00237         <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> (<span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#63b6c07fb14f937056148cbf8b3531c5" title="Private socket descriptor.">sd</a>, <span class="keywordtype">double</span> <a class="code" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3" title="Optional timeout for connect/send/receive operations (default: no timeout, timeout...">timeout</a> = 0.0) <span class="keywordflow">throw</span>();
-<a name="l00238"></a>00238 
-<a name="l00245"></a>00245         <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> (<span class="keyword">const</span> std::string&amp; host, u_int16_t port, <span class="keywordtype">double</span> <a class="code" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3" title="Optional timeout for connect/send/receive operations (default: no timeout, timeout...">timeout</a> = 0.0) <span class="keywordflow">throw</span>();
-<a name="l00246"></a>00246 
-<a name="l00252"></a>00252         <span class="keywordtype">void</span> connect (<span class="keyword">const</span> std::string&amp; host, u_int16_t port) <span class="keywordflow">throw</span>();
-<a name="l00253"></a>00253 
-<a name="l00258"></a>00258         <span class="keywordtype">void</span> send (<span class="keyword">const</span> std::string&amp; buf) <span class="keywordflow">throw</span>();
-<a name="l00259"></a>00259 
-<a name="l00265"></a>00265         <span class="keywordtype">void</span> send (<span class="keyword">const</span> <span class="keywordtype">void</span>* buf, u_int32_t size) <span class="keywordflow">throw</span>();
-<a name="l00266"></a>00266 
-<a name="l00271"></a>00271         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> <span class="keywordtype">char</span>&amp; buf) <span class="keywordflow">throw</span>();
-<a name="l00272"></a>00272         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; buf) <span class="keywordflow">throw</span>();
-<a name="l00273"></a>00273         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; buf) <span class="keywordflow">throw</span>();
-<a name="l00274"></a>00274         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; buf) <span class="keywordflow">throw</span>();
-<a name="l00275"></a>00275         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> std::string&amp; buf) <span class="keywordflow">throw</span>();
-<a name="l00276"></a>00276 
-<a name="l00281"></a>00281         <span class="keywordtype">void</span> operator&gt;&gt; (std::string&amp; buf) <span class="keywordflow">throw</span>();
-<a name="l00282"></a>00282 
-<a name="l00288"></a>00288         std::string recv (u_int32_t nbytes = <a class="code" href="usock_8h.html#29d0df17f4d361506734c2083f200ea3">BUFRECV_SIZE</a>) <span class="keywordflow">throw</span>();
-<a name="l00289"></a>00289 
-<a name="l00295"></a>00295         <span class="keywordtype">void</span> recv (<span class="keywordtype">void</span>* buf, u_int32_t size) <span class="keywordflow">throw</span>();
-<a name="l00296"></a>00296 
-<a name="l00301"></a>00301         std::string readline() <span class="keywordflow">throw</span>();
-<a name="l00302"></a>00302 };
-<a name="l00303"></a>00303 
-<a name="l00309"></a><a class="code" href="classusock_1_1ServerSocket.html">00309</a> <span class="keyword">class </span><a class="code" href="classusock_1_1ServerSocket.html" title="Class for managing TCP server sockets.">ServerSocket</a> : <span class="keyword">public</span> <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a>  {
-<a name="l00310"></a>00310 
-<a name="l00311"></a>00311 <span class="keyword">private</span>:
-<a name="l00313"></a>00313         u_int32_t maxconn;
-<a name="l00314"></a>00314 
-<a name="l00316"></a>00316         <span class="keywordtype">int</span> *client_pid;
-<a name="l00317"></a>00317 
-<a name="l00319"></a>00319         u_int32_t client_index;
-<a name="l00320"></a>00320 
-<a name="l00321"></a>00321 <span class="keyword">public</span>:
-<a name="l00328"></a>00328         <a class="code" href="classusock_1_1ServerSocket.html" title="Class for managing TCP server sockets.">ServerSocket</a> (u_int16_t port, u_int32_t m = <a class="code" href="usock_8h.html#fb2b62b61a722c73b8b798f010063863">DEFAULT_MAXCON</a>, <span class="keyword">const</span> std::string&amp; addr = <span class="stringliteral">""</span>) <span class="keywordflow">throw</span>();
-<a name="l00329"></a>00329 
-<a name="l00334"></a>00334         <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> accept() <span class="keywordflow">throw</span>();
-<a name="l00335"></a>00335 
-<a name="l00342"></a>00342         <span class="keywordtype">void</span> accept(<span class="keywordtype">void</span> (*handler)(<a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a>&amp; s)) <span class="keywordflow">throw</span>();
-<a name="l00343"></a>00343 
-<a name="l00348"></a>00348         <span class="keywordtype">void</span> bind (u_int16_t port) <span class="keywordflow">throw</span>();
-<a name="l00349"></a>00349 
-<a name="l00353"></a>00353         <span class="keywordtype">void</span> listen() <span class="keywordflow">throw</span>();
-<a name="l00354"></a>00354 };
-<a name="l00355"></a>00355 
-<a name="l00361"></a><a class="code" href="classusock_1_1UDPSocket.html">00361</a> <span class="keyword">class </span><a class="code" href="classusock_1_1UDPSocket.html" title="Class for managing UDP sockets.">UDPSocket</a> : <span class="keyword">public</span> <a class="code" href="classusock_1_1BaseSocket.html" title="Class for describing basic sockets.">BaseSocket</a>  {
-<a name="l00362"></a>00362 
-<a name="l00363"></a>00363 <span class="keyword">public</span>:
-<a name="l00368"></a>00368         <a class="code" href="classusock_1_1UDPSocket.html" title="Class for managing UDP sockets.">UDPSocket</a> (<span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9" title="Enum for describing socket types.">type</a> = AF_INET) <span class="keywordflow">throw</span>();
-<a name="l00369"></a>00369 
-<a name="l00376"></a>00376         <span class="keywordtype">void</span> send (<span class="keyword">const</span> std::string&amp; buf, <span class="keyword">const</span> std::string&amp; host, u_int16_t port) <span class="keywordflow">throw</span>();
-<a name="l00377"></a>00377 
-<a name="l00385"></a>00385         <span class="keywordtype">void</span> send (<span class="keyword">const</span> <span class="keywordtype">void</span>* buf, u_int32_t size, <span class="keyword">const</span> std::string&amp; host, u_int16_t port) <span class="keywordflow">throw</span>();
-<a name="l00386"></a>00386 
-<a name="l00391"></a>00391         <span class="keywordtype">void</span> bind (u_int16_t port) <span class="keywordflow">throw</span>();
-<a name="l00392"></a>00392         
-<a name="l00400"></a>00400         <span class="keywordtype">void</span> recv (<span class="keywordtype">void</span>* buf, u_int32_t size, <span class="keyword">const</span> std::string&amp; host = <span class="stringliteral">""</span>, u_int16_t port = 0) <span class="keywordflow">throw</span>();
-<a name="l00401"></a>00401 
-<a name="l00408"></a>00408         std::string recv(<span class="keyword">const</span> std::string&amp; host = <span class="stringliteral">""</span>, u_int16_t port = 0) <span class="keywordflow">throw</span>();
-<a name="l00409"></a>00409 
-<a name="l00416"></a>00416         std::string readline(<span class="keyword">const</span> std::string&amp; host = <span class="stringliteral">""</span>, u_int16_t port = 0) <span class="keywordflow">throw</span>();
-<a name="l00417"></a>00417 };
-<a name="l00418"></a>00418 
-<a name="l00424"></a><a class="code" href="classusock_1_1RawSocket.html">00424</a> <span class="keyword">class </span><a class="code" href="classusock_1_1RawSocket.html" title="Class for managing raw sockets.">RawSocket</a> : <span class="keyword">public</span> <a class="code" href="classusock_1_1BaseSocket.html" title="Class for describing basic sockets.">BaseSocket</a>  {
-<a name="l00425"></a>00425 
-<a name="l00426"></a>00426 <span class="keyword">private</span>:
-<a name="l00428"></a>00428         std::string iface;
-<a name="l00429"></a>00429 
-<a name="l00431"></a>00431         u_int8_t head[1024];
-<a name="l00432"></a>00432 
-<a name="l00434"></a>00434         u_int8_t *payload;
-<a name="l00435"></a>00435 
-<a name="l00437"></a>00437         <span class="keywordtype">int</span> head_len, payload_len;
-<a name="l00438"></a>00438 
-<a name="l00439"></a>00439         <span class="keywordtype">bool</span> is_IPv4, is_TCP, is_UDP, is_ICMPv4;
-<a name="l00440"></a>00440 
-<a name="l00441"></a>00441 <span class="keyword">public</span>:
-<a name="l00446"></a>00446         <a class="code" href="classusock_1_1RawSocket.html" title="Class for managing raw sockets.">RawSocket</a> (std::string i = <span class="stringliteral">"lo"</span>);
-<a name="l00447"></a>00447 
-<a name="l00452"></a>00452         std::string getIPv4addr() <span class="keywordflow">throw</span>();
-<a name="l00453"></a>00453 
-<a name="l00458"></a>00458         std::string getHWaddr() <span class="keywordflow">throw</span>();
-<a name="l00459"></a>00459 
-<a name="l00466"></a>00466         u_int16_t csum (u_int16_t *buf, <span class="keywordtype">int</span> nwords);
-<a name="l00467"></a>00467 
-<a name="l00480"></a>00480         <span class="keywordtype">void</span> buildIPv4 (std::string dst, std::string src = <span class="stringliteral">""</span>, u_int8_t proto = IPPROTO_TCP, u_int16_t len = 0, u_int8_t ttl = 32,
-<a name="l00481"></a>00481                         u_int8_t tos = 0, u_int16_t <span class="keywordtype">id</span> = 0, u_int16_t frag = 0, u_int16_t sum = 0);
-<a name="l00482"></a>00482 
-<a name="l00494"></a>00494         <span class="keywordtype">void</span> buildTCP (u_int16_t sport, u_int16_t dport, u_int8_t flags, u_int32_t seq = 0, u_int32_t ack = 0,
-<a name="l00495"></a>00495                         u_int16_t window = 0x1000, u_int16_t urgent = 0, u_int16_t sum = 0);
-<a name="l00496"></a>00496 
-<a name="l00504"></a>00504         <span class="keywordtype">void</span> buildUDP (u_int16_t sport, u_int16_t dport, u_int16_t len = 0, u_int16_t sum = 0);
-<a name="l00505"></a>00505 
-<a name="l00514"></a>00514         <span class="keywordtype">void</span> buildICMPv4 (u_int8_t <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9" title="Enum for describing socket types.">type</a>, u_int16_t <span class="keywordtype">id</span> = 0x100, u_int16_t seq = 0x100, u_int8_t code = 0, u_int16_t sum = 0);
-<a name="l00515"></a>00515 
-<a name="l00521"></a>00521         <span class="keywordtype">void</span> setPayload (<span class="keywordtype">void</span>* payload, <span class="keywordtype">int</span> length);
-<a name="l00522"></a>00522 
-<a name="l00527"></a>00527         <span class="keywordtype">void</span> setPayload (std::string payload);
-<a name="l00528"></a>00528 
-<a name="l00532"></a>00532         <span class="keywordtype">void</span> write() <span class="keywordflow">throw</span>();
-<a name="l00533"></a>00533 
-<a name="l00539"></a>00539         <span class="keywordtype">void</span>* read (u_int32_t len, <span class="keyword">const</span> std::string&amp; host = <span class="stringliteral">""</span>) <span class="keywordflow">throw</span>();
-<a name="l00540"></a>00540 };
-<a name="l00541"></a>00541 }
-<a name="l00542"></a>00542 
-<a name="l00543"></a>00543 <span class="preprocessor">#endif</span>
-<a name="l00544"></a>00544 <span class="preprocessor"></span>
+<a name="l00114"></a><a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680">00114</a>                 <a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680">inet6</a> = AF_INET6
+<a name="l00115"></a>00115         };
+<a name="l00116"></a>00116 
+<a name="l00118"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9">00118</a>         <span class="keyword">enum</span> <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9" title="Enum for describing socket types.">type</a>  {
+<a name="l00119"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e">00119</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e">sock_stream</a> = SOCK_STREAM,
+<a name="l00120"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365">00120</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365">sock_dgram</a> = SOCK_DGRAM,
+<a name="l00121"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9d3b8cbf378c46eb82b5a0039eab34ca7">00121</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9d3b8cbf378c46eb82b5a0039eab34ca7">sock_raw</a> = SOCK_RAW,
+<a name="l00122"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9e04a390261efe04335235f26a00b72d5">00122</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9e04a390261efe04335235f26a00b72d5">sock_rdm</a> = SOCK_RDM,
+<a name="l00123"></a><a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9adfa1bc59768fc0be580b4ba95c6f357">00123</a>                 <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9adfa1bc59768fc0be580b4ba95c6f357">sock_seq</a> = SOCK_SEQPACKET
+<a name="l00124"></a>00124         };
+<a name="l00125"></a>00125 
+<a name="l00127"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa">00127</a>         <span class="keyword">enum</span> <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa" title="Enum for describing socket protocols.">protocol</a>  {
+<a name="l00128"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497">00128</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497">ip</a> = IPPROTO_IP,
+<a name="l00129"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a">00129</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a">tcp</a> = IPPROTO_TCP,
+<a name="l00130"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaae0719b1eee901237a5ec0ba9031cdfce">00130</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaae0719b1eee901237a5ec0ba9031cdfce">udp</a> = IPPROTO_UDP,
+<a name="l00131"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4">00131</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4">raw</a> = IPPROTO_RAW,
+<a name="l00132"></a><a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb">00132</a>                 <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb">icmp</a> = IPPROTO_ICMP
+<a name="l00133"></a>00133         };
+<a name="l00134"></a>00134 
+<a name="l00142"></a>00142         <a class="code" href="classusock_1_1BaseSocket.html#20f598433d6c3a97656f0179f7371218" title="Empty BaseSocket constructor - ONLY used inside the children classes to initialize...">BaseSocket</a> (<span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90" title="Enum for describing socket domains.">domain</a>, <span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9" title="Enum for describing socket types.">type</a>, <span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa" title="Enum for describing socket protocols.">protocol</a>, <span class="keywordtype">double</span> <a class="code" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3" title="Optional timeout for connect/send/receive operations (default: no timeout, timeout...">timeout</a> = 0.0) throw();
+<a name="l00143"></a>00143 
+<a name="l00147"></a>00147         ~<a class="code" href="classusock_1_1BaseSocket.html" title="Class for describing basic sockets.">BaseSocket</a>();
+<a name="l00148"></a>00148 
+<a name="l00152"></a>00152         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#06383c7ad352244fb0e5e6276e5e86c2" title="Close the socket descriptor.">close</a>();
+<a name="l00153"></a>00153 
+<a name="l00159"></a>00159         std::<span class="keywordtype">string</span> <a class="code" href="classusock_1_1BaseSocket.html#7ffc3a11be4a9d7ba72a1f66f3dbad68" title="Wrap method around gethostbyname() function.">getHostByName</a> (const std::<span class="keywordtype">string</span>&amp; name) throw();
+<a name="l00160"></a>00160 
+<a name="l00165"></a>00165         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#143722edec56e119495fb8ded76582e5" title="Set or unset the blocking flag on a socket.">setBlocking</a>(<span class="keywordtype">bool</span> f = true) throw();
+<a name="l00166"></a>00166 
+<a name="l00171"></a>00171         <span class="keywordtype">bool</span> <a class="code" href="classusock_1_1BaseSocket.html#d29a1fabc8b4c7a86cd236473ef03177" title="Checks whether a socket is blocking.">isBlocking</a>() throw();
+<a name="l00172"></a>00172 
+<a name="l00176"></a>00176         std::<span class="keywordtype">string</span> <a class="code" href="classusock_1_1BaseSocket.html#479da55516dcda8117a356d8a3be3d83" title="Return the local address assigned to a socket descriptor.">localAddr</a>() throw();
+<a name="l00177"></a>00177 
+<a name="l00181"></a>00181         std::<span class="keywordtype">string</span> <a class="code" href="classusock_1_1BaseSocket.html#3842fc1ea6ac5575e988d4ee620089a7" title="Return the remote address to which the socket is linked.">remoteAddr</a>() throw();
+<a name="l00182"></a>00182 
+<a name="l00186"></a>00186         u_int16_t <a class="code" href="classusock_1_1BaseSocket.html#47218f0ff53693f2891573ec47d84f36" title="Return the local port.">localPort</a>() throw();
+<a name="l00187"></a>00187 
+<a name="l00191"></a>00191         u_int16_t <a class="code" href="classusock_1_1BaseSocket.html#e4e09d33779e097ada03144ff54286aa" title="Return the remote port.">remotePort</a>() throw();
+<a name="l00192"></a>00192 
+<a name="l00196"></a>00196         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#87925e8c3b89a50f8c8c2a68e0d2ab70" title="Wrap around getsockopt() function.">getSockOpt</a> (<span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keywordtype">void</span>* optval, socklen_t* optlen) throw();
+<a name="l00197"></a>00197 
+<a name="l00201"></a>00201         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#d0444de98899e9312bfa320d5a359e07" title="Wrap around setsockopt() function.">setSockOpt</a> (<span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keywordtype">void</span>* optval, socklen_t optlen) throw();
+<a name="l00202"></a>00202 
+<a name="l00208"></a>00208         <span class="keywordtype">void</span> <a class="code" href="classusock_1_1BaseSocket.html#e31552b42df68bc68fe557caf6e75128" title="Set a timeout (in seconds) on the socket.">setTimeout</a> (<span class="keywordtype">double</span> <a class="code" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3" title="Optional timeout for connect/send/receive operations (default: no timeout, timeout...">timeout</a> = 0.0) throw();
+<a name="l00209"></a>00209 
+<a name="l00214"></a>00214         std::<span class="keywordtype">string</span> <a class="code" href="classusock_1_1BaseSocket.html#3da108b8c23df3b521ded0bc4ae5295c" title="Wrap around inet_ntoa() function, it returns an ASCII string, given a 32 bit IPv4...">ntoa</a> (in_addr_t addr) throw();
+<a name="l00215"></a>00215         
+<a name="l00216"></a>00216 };
+<a name="l00217"></a>00217 
+<a name="l00223"></a><a class="code" href="classusock_1_1Socket.html">00223</a> class <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> : public <a class="code" href="classusock_1_1BaseSocket.html" title="Class for describing basic sockets.">BaseSocket</a>  {
+<a name="l00224"></a>00224 
+<a name="l00225"></a>00225 <span class="keyword">public</span>:
+<a name="l00229"></a>00229         <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a>() <span class="keywordflow">throw</span>();
+<a name="l00230"></a>00230 
+<a name="l00236"></a>00236         <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> (<span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#63b6c07fb14f937056148cbf8b3531c5" title="Private socket descriptor.">sd</a>, <span class="keywordtype">double</span> <a class="code" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3" title="Optional timeout for connect/send/receive operations (default: no timeout, timeout...">timeout</a> = 0.0) <span class="keywordflow">throw</span>();
+<a name="l00237"></a>00237 
+<a name="l00244"></a>00244         <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> (<span class="keyword">const</span> std::string&amp; host, u_int16_t port, <span class="keywordtype">double</span> <a class="code" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3" title="Optional timeout for connect/send/receive operations (default: no timeout, timeout...">timeout</a> = 0.0) <span class="keywordflow">throw</span>();
+<a name="l00245"></a>00245 
+<a name="l00251"></a>00251         <span class="keywordtype">void</span> connect (<span class="keyword">const</span> std::string&amp; host, u_int16_t port) <span class="keywordflow">throw</span>();
+<a name="l00252"></a>00252 
+<a name="l00257"></a>00257         <span class="keywordtype">void</span> send (<span class="keyword">const</span> std::string&amp; buf) <span class="keywordflow">throw</span>();
+<a name="l00258"></a>00258 
+<a name="l00264"></a>00264         <span class="keywordtype">void</span> send (<span class="keyword">const</span> <span class="keywordtype">void</span>* buf, u_int32_t size) <span class="keywordflow">throw</span>();
+<a name="l00265"></a>00265 
+<a name="l00270"></a>00270         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> <span class="keywordtype">char</span>&amp; buf) <span class="keywordflow">throw</span>();
+<a name="l00271"></a>00271         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; buf) <span class="keywordflow">throw</span>();
+<a name="l00272"></a>00272         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> <span class="keywordtype">float</span>&amp; buf) <span class="keywordflow">throw</span>();
+<a name="l00273"></a>00273         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; buf) <span class="keywordflow">throw</span>();
+<a name="l00274"></a>00274         <span class="keywordtype">void</span> operator&lt;&lt; (<span class="keyword">const</span> std::string&amp; buf) <span class="keywordflow">throw</span>();
+<a name="l00275"></a>00275 
+<a name="l00280"></a>00280         <span class="keywordtype">void</span> operator&gt;&gt; (std::string&amp; buf) <span class="keywordflow">throw</span>();
+<a name="l00281"></a>00281 
+<a name="l00287"></a>00287         std::string recv (u_int32_t nbytes = <a class="code" href="usock_8h.html#29d0df17f4d361506734c2083f200ea3">BUFRECV_SIZE</a>) <span class="keywordflow">throw</span>();
+<a name="l00288"></a>00288 
+<a name="l00294"></a>00294         <span class="keywordtype">void</span> recv (<span class="keywordtype">void</span>* buf, u_int32_t size) <span class="keywordflow">throw</span>();
+<a name="l00295"></a>00295 
+<a name="l00300"></a>00300         std::string readline() <span class="keywordflow">throw</span>();
+<a name="l00301"></a>00301 };
+<a name="l00302"></a>00302 
+<a name="l00308"></a><a class="code" href="classusock_1_1ServerSocket.html">00308</a> <span class="keyword">class </span><a class="code" href="classusock_1_1ServerSocket.html" title="Class for managing TCP server sockets.">ServerSocket</a> : <span class="keyword">public</span> <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a>  {
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310 <span class="keyword">private</span>:
+<a name="l00312"></a>00312         u_int32_t maxconn;
+<a name="l00313"></a>00313 
+<a name="l00315"></a>00315         <span class="keywordtype">int</span> *client_pid;
+<a name="l00316"></a>00316 
+<a name="l00318"></a>00318         u_int32_t client_index;
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320 <span class="keyword">public</span>:
+<a name="l00327"></a>00327         <a class="code" href="classusock_1_1ServerSocket.html" title="Class for managing TCP server sockets.">ServerSocket</a> (u_int16_t port, u_int32_t m = <a class="code" href="usock_8h.html#fb2b62b61a722c73b8b798f010063863">DEFAULT_MAXCON</a>, <span class="keyword">const</span> std::string&amp; addr = <span class="stringliteral">""</span>) <span class="keywordflow">throw</span>();
+<a name="l00328"></a>00328 
+<a name="l00333"></a>00333         <a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> accept() <span class="keywordflow">throw</span>();
+<a name="l00334"></a>00334 
+<a name="l00341"></a>00341         <span class="keywordtype">void</span> accept(<span class="keywordtype">void</span> (*handler)(<a class="code" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a>&amp; s)) <span class="keywordflow">throw</span>();
+<a name="l00342"></a>00342 
+<a name="l00347"></a>00347         <span class="keywordtype">void</span> bind (u_int16_t port) <span class="keywordflow">throw</span>();
+<a name="l00348"></a>00348 
+<a name="l00352"></a>00352         <span class="keywordtype">void</span> listen() <span class="keywordflow">throw</span>();
+<a name="l00353"></a>00353 };
+<a name="l00354"></a>00354 
+<a name="l00360"></a><a class="code" href="classusock_1_1UDPSocket.html">00360</a> <span class="keyword">class </span><a class="code" href="classusock_1_1UDPSocket.html" title="Class for managing UDP sockets.">UDPSocket</a> : <span class="keyword">public</span> <a class="code" href="classusock_1_1BaseSocket.html" title="Class for describing basic sockets.">BaseSocket</a>  {
+<a name="l00361"></a>00361 
+<a name="l00362"></a>00362 <span class="keyword">public</span>:
+<a name="l00367"></a>00367         <a class="code" href="classusock_1_1UDPSocket.html" title="Class for managing UDP sockets.">UDPSocket</a> (<span class="keywordtype">int</span> <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9" title="Enum for describing socket types.">type</a> = AF_INET) <span class="keywordflow">throw</span>();
+<a name="l00368"></a>00368 
+<a name="l00375"></a>00375         <span class="keywordtype">void</span> send (<span class="keyword">const</span> std::string&amp; buf, <span class="keyword">const</span> std::string&amp; host, u_int16_t port) <span class="keywordflow">throw</span>();
+<a name="l00376"></a>00376 
+<a name="l00384"></a>00384         <span class="keywordtype">void</span> send (<span class="keyword">const</span> <span class="keywordtype">void</span>* buf, u_int32_t size, <span class="keyword">const</span> std::string&amp; host, u_int16_t port) <span class="keywordflow">throw</span>();
+<a name="l00385"></a>00385 
+<a name="l00390"></a>00390         <span class="keywordtype">void</span> bind (u_int16_t port) <span class="keywordflow">throw</span>();
+<a name="l00391"></a>00391         
+<a name="l00399"></a>00399         <span class="keywordtype">void</span> recv (<span class="keywordtype">void</span>* buf, u_int32_t size, <span class="keyword">const</span> std::string&amp; host = <span class="stringliteral">""</span>, u_int16_t port = 0) <span class="keywordflow">throw</span>();
+<a name="l00400"></a>00400 
+<a name="l00407"></a>00407         std::string recv(<span class="keyword">const</span> std::string&amp; host = <span class="stringliteral">""</span>, u_int16_t port = 0) <span class="keywordflow">throw</span>();
+<a name="l00408"></a>00408 
+<a name="l00415"></a>00415         std::string readline(<span class="keyword">const</span> std::string&amp; host = <span class="stringliteral">""</span>, u_int16_t port = 0) <span class="keywordflow">throw</span>();
+<a name="l00416"></a>00416 };
+<a name="l00417"></a>00417 
+<a name="l00423"></a><a class="code" href="classusock_1_1RawSocket.html">00423</a> <span class="keyword">class </span><a class="code" href="classusock_1_1RawSocket.html" title="Class for managing raw sockets.">RawSocket</a> : <span class="keyword">public</span> <a class="code" href="classusock_1_1BaseSocket.html" title="Class for describing basic sockets.">BaseSocket</a>  {
+<a name="l00424"></a>00424 
+<a name="l00425"></a>00425 <span class="keyword">private</span>:
+<a name="l00427"></a>00427         std::string iface;
+<a name="l00428"></a>00428 
+<a name="l00430"></a>00430         u_int8_t head[1024];
+<a name="l00431"></a>00431 
+<a name="l00433"></a>00433         u_int8_t *payload;
+<a name="l00434"></a>00434 
+<a name="l00436"></a>00436         <span class="keywordtype">int</span> head_len, payload_len;
+<a name="l00437"></a>00437 
+<a name="l00438"></a>00438         <span class="keywordtype">bool</span> is_IPv4, is_TCP, is_UDP, is_ICMPv4;
+<a name="l00439"></a>00439 
+<a name="l00440"></a>00440 <span class="keyword">public</span>:
+<a name="l00445"></a>00445         <a class="code" href="classusock_1_1RawSocket.html" title="Class for managing raw sockets.">RawSocket</a> (std::string i = <span class="stringliteral">"lo"</span>);
+<a name="l00446"></a>00446 
+<a name="l00451"></a>00451         std::string getIPv4addr() <span class="keywordflow">throw</span>();
+<a name="l00452"></a>00452 
+<a name="l00457"></a>00457         std::string getHWaddr() <span class="keywordflow">throw</span>();
+<a name="l00458"></a>00458 
+<a name="l00465"></a>00465         u_int16_t csum (u_int16_t *buf, <span class="keywordtype">int</span> nwords);
+<a name="l00466"></a>00466 
+<a name="l00479"></a>00479         <span class="keywordtype">void</span> buildIPv4 (std::string dst, std::string src = <span class="stringliteral">""</span>, u_int8_t proto = IPPROTO_TCP, u_int16_t len = 0, u_int8_t ttl = 32,
+<a name="l00480"></a>00480                         u_int8_t tos = 0, u_int16_t <span class="keywordtype">id</span> = 0, u_int16_t frag = 0, u_int16_t sum = 0);
+<a name="l00481"></a>00481 
+<a name="l00493"></a>00493         <span class="keywordtype">void</span> buildTCP (u_int16_t sport, u_int16_t dport, u_int8_t flags, u_int32_t seq = 0, u_int32_t ack = 0,
+<a name="l00494"></a>00494                         u_int16_t window = 0x1000, u_int16_t urgent = 0, u_int16_t sum = 0);
+<a name="l00495"></a>00495 
+<a name="l00503"></a>00503         <span class="keywordtype">void</span> buildUDP (u_int16_t sport, u_int16_t dport, u_int16_t len = 0, u_int16_t sum = 0);
+<a name="l00504"></a>00504 
+<a name="l00513"></a>00513         <span class="keywordtype">void</span> buildICMPv4 (u_int8_t <a class="code" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9" title="Enum for describing socket types.">type</a>, u_int16_t <span class="keywordtype">id</span> = 0x100, u_int16_t seq = 0x100, u_int8_t code = 0, u_int16_t sum = 0);
+<a name="l00514"></a>00514 
+<a name="l00520"></a>00520         <span class="keywordtype">void</span> setPayload (<span class="keywordtype">void</span>* payload, <span class="keywordtype">int</span> length);
+<a name="l00521"></a>00521 
+<a name="l00526"></a>00526         <span class="keywordtype">void</span> setPayload (std::string payload);
+<a name="l00527"></a>00527 
+<a name="l00531"></a>00531         <span class="keywordtype">void</span> write() <span class="keywordflow">throw</span>();
+<a name="l00532"></a>00532 
+<a name="l00538"></a>00538         <span class="keywordtype">void</span>* read (u_int32_t len, <span class="keyword">const</span> std::string&amp; host = <span class="stringliteral">""</span>) <span class="keywordflow">throw</span>();
+<a name="l00539"></a>00539 };
+<a name="l00540"></a>00540 }
+<a name="l00541"></a>00541 
+<a name="l00542"></a>00542 <span class="preprocessor">#endif</span>
+<a name="l00543"></a>00543 <span class="preprocessor"></span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 14:30:47 2009 for libusock by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 23:32:45 2009 for libusock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7 </small></address>
 </body>

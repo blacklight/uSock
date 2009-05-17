@@ -109,9 +109,9 @@ void Socket::connect (const string& host, u_int16_t port) throw()  {
 				} while(1);
 			} else
 				throw SocketException("connection exception");
+		
+			setBlocking(true);
 		}
-
-		setBlocking(true);
 	}
 }
 
@@ -146,7 +146,7 @@ void Socket::send (const string& buf) throw()  {
 			} else
 				throw SocketException("connection exception");
 		}
-
+			
 		setBlocking(true);
 	}
 }
@@ -209,9 +209,9 @@ string Socket::recv (u_int32_t nbytes) throw()  {
 						throw SocketException("connection timeout");
 				} while(1);
 			} else
-				throw SocketException("connection exception");
+				throw SocketException("connection exception");	
 		}
-
+		
 		setBlocking(true);
 	}
 
@@ -252,7 +252,7 @@ void Socket::recv (void* buf, u_int32_t size) throw()  {
 			} else
 				throw SocketException("connection exception");
 		}
-
+		
 		setBlocking(true);
 	}
 
