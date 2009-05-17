@@ -20,8 +20,8 @@ Inheritance diagram for usock::ServerSocket::\begin{figure}[H]
 \begin{CompactList}\small\item\em \hyperlink{classusock_1_1ServerSocket}{ServerSocket} high-level constructor. \item\end{CompactList}\item 
 \hyperlink{classusock_1_1Socket}{Socket} \hyperlink{classusock_1_1ServerSocket_bf0477af52a725ced6afad86d7b3e794}{accept} ()  throw ()
 \begin{CompactList}\small\item\em Wrap around \hyperlink{classusock_1_1ServerSocket_bf0477af52a725ced6afad86d7b3e794}{accept()} function. \item\end{CompactList}\item 
-void \hyperlink{classusock_1_1ServerSocket_99fb8624c4eb79fbed48059f3c7ddfca}{accept} (void($\ast$)(\hyperlink{classusock_1_1Socket}{Socket} \&))  throw ()
-\item 
+void \hyperlink{classusock_1_1ServerSocket_0ef5b201140a37c5d7c42aced9a45f2e}{accept} (void($\ast$handler)(\hyperlink{classusock_1_1Socket}{Socket} \&s))  throw ()
+\begin{CompactList}\small\item\em Wrap around \hyperlink{classusock_1_1ServerSocket_bf0477af52a725ced6afad86d7b3e794}{accept()} function, allowing you to manage multiple connection on your server socket, with a process for each of them. \item\end{CompactList}\item 
 void \hyperlink{classusock_1_1ServerSocket_9ecf37cae8379df6eaf366ab88df244a}{bind} (u\_\-int16\_\-t port)  throw ()
 \begin{CompactList}\small\item\em Bind \hyperlink{classusock_1_1ServerSocket}{ServerSocket} onto a port. \item\end{CompactList}\item 
 void \hyperlink{classusock_1_1ServerSocket_c6cd2070380b84275c5f69265c57713b}{listen} ()  throw ()
@@ -53,13 +53,20 @@ Class for managing TCP server sockets.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classusock_1_1ServerSocket_99fb8624c4eb79fbed48059f3c7ddfca}{
+\hypertarget{classusock_1_1ServerSocket_0ef5b201140a37c5d7c42aced9a45f2e}{
 \index{usock::ServerSocket@{usock::ServerSocket}!accept@{accept}}
 \index{accept@{accept}!usock::ServerSocket@{usock::ServerSocket}}
-\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}void usock::ServerSocket::accept (void($\ast$)({\bf Socket} \&))  throw ()}}
-\label{classusock_1_1ServerSocket_99fb8624c4eb79fbed48059f3c7ddfca}
+\subsubsection[{accept}]{\setlength{\rightskip}{0pt plus 5cm}void usock::ServerSocket::accept (void($\ast$)({\bf Socket} \&s) {\em handler})  throw ()}}
+\label{classusock_1_1ServerSocket_0ef5b201140a37c5d7c42aced9a45f2e}
 
 
+Wrap around \hyperlink{classusock_1_1ServerSocket_bf0477af52a725ced6afad86d7b3e794}{accept()} function, allowing you to manage multiple connection on your server socket, with a process for each of them. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em handler}]Pointer to the function that will be called to manage each connection. The socket parameter s in it will be the descriptor of the client socket just opened \end{description}
+\end{Desc}
 \hypertarget{classusock_1_1ServerSocket_bf0477af52a725ced6afad86d7b3e794}{
 \index{usock::ServerSocket@{usock::ServerSocket}!accept@{accept}}
 \index{accept@{accept}!usock::ServerSocket@{usock::ServerSocket}}

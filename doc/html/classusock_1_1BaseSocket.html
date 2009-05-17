@@ -53,10 +53,13 @@ Inheritance diagram for usock::BaseSocket:</div>
 <a class="el" href="classusock_1_1BaseSocket.html#50d8769de87937b42f8cef370917aa0b2e5c5b23744de44c69004e477510d95b">none</a> =  INADDR_NONE
  }</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Enum for describing possible socket targets.  <a href="classusock_1_1BaseSocket.html#50d8769de87937b42f8cef370917aa0b">More...</a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90">domain</a> { <a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73">inet</a> =  AF_INET, 
-<a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680">inet6</a> =  AF_INET6
+<a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680">inet6</a> =  AF_INET6, 
+<a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90e69268b071304bbb353e8686f5c7a88a">unix</a> =  AF_UNIX
  }</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Enum for describing socket domains.  <a href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90">More...</a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9">type</a> { <br>
 &nbsp;&nbsp;<a class="el" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e">sock_stream</a> =  SOCK_STREAM, 
 <a class="el" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365">sock_dgram</a> =  SOCK_DGRAM, 
@@ -67,6 +70,7 @@ Inheritance diagram for usock::BaseSocket:</div>
 <br>
  }</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Enum for describing socket types.  <a href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9">More...</a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa">protocol</a> { <br>
 &nbsp;&nbsp;<a class="el" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497">ip</a> =  IPPROTO_IP, 
 <a class="el" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a">tcp</a> =  IPPROTO_TCP, 
@@ -77,6 +81,7 @@ Inheritance diagram for usock::BaseSocket:</div>
 <br>
  }</td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Enum for describing socket protocols.  <a href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa">More...</a><br></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#5cf4bfad30ea514f522101899592b97f">BaseSocket</a> (int <a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90">domain</a>, int <a class="el" href="classusock_1_1BaseSocket.html#8117d25c7b482eb594d68137868ce5f9">type</a>, int <a class="el" href="classusock_1_1BaseSocket.html#09208675b41c416fb402824742963eaa">protocol</a>, double <a class="el" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3">timeout</a>=0.0)  throw ()</td></tr>
 
@@ -127,14 +132,19 @@ Inheritance diagram for usock::BaseSocket:</div>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#63b6c07fb14f937056148cbf8b3531c5">sd</a></td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Private socket descriptor.  <a href="#63b6c07fb14f937056148cbf8b3531c5"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#9a7414d934aeccd1340292214a2aef0e">domain</a></td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Domain for the socket.  <a href="#9a7414d934aeccd1340292214a2aef0e"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#139a74d163977332762f349a73f4bd64">type</a></td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> type.  <a href="#139a74d163977332762f349a73f4bd64"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#91b9f72f183b6314891f7e1f93ead99a">protocol</a></td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> protocol.  <a href="#91b9f72f183b6314891f7e1f93ead99a"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#b419e8fd0b849c74b73a02d6bd9081e3">timeout</a></td></tr>
 
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Optional timeout for connect/send/receive operations (default: no timeout, timeout = 0.0).  <a href="#b419e8fd0b849c74b73a02d6bd9081e3"></a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Class for describing basic sockets. 
@@ -153,11 +163,15 @@ Class for describing basic sockets.
 <div class="memdoc">
 
 <p>
+Enum for describing socket domains. 
+<p>
 <dl compact><dt><b>Enumerator: </b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
 <tr><td valign="top"><em><a class="anchor" name="a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73"></a><!-- doxytag: member="inet" ref="a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73" args="" -->inet</em>&nbsp;</td><td>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" name="a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680"></a><!-- doxytag: member="inet6" ref="a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680" args="" -->inet6</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" name="a51cae0b366638a5f697f64174135d90e69268b071304bbb353e8686f5c7a88a"></a><!-- doxytag: member="unix" ref="a51cae0b366638a5f697f64174135d90e69268b071304bbb353e8686f5c7a88a" args="" -->unix</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dl>
@@ -175,6 +189,8 @@ Class for describing basic sockets.
 </div>
 <div class="memdoc">
 
+<p>
+Enum for describing socket protocols. 
 <p>
 <dl compact><dt><b>Enumerator: </b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
@@ -205,6 +221,8 @@ Class for describing basic sockets.
 <div class="memdoc">
 
 <p>
+Enum for describing possible socket targets. 
+<p>
 <dl compact><dt><b>Enumerator: </b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
 <tr><td valign="top"><em><a class="anchor" name="50d8769de87937b42f8cef370917aa0b13bac8e60708dc8451b1addafbd3dd77"></a><!-- doxytag: member="any" ref="50d8769de87937b42f8cef370917aa0b13bac8e60708dc8451b1addafbd3dd77" args="" -->any</em>&nbsp;</td><td>
@@ -231,6 +249,8 @@ Class for describing basic sockets.
 </div>
 <div class="memdoc">
 
+<p>
+Enum for describing socket types. 
 <p>
 <dl compact><dt><b>Enumerator: </b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
@@ -679,6 +699,8 @@ Set a timeout (in seconds) on the socket.
 <div class="memdoc">
 
 <p>
+Domain for the socket. 
+<p>
 
 </div>
 </div><p>
@@ -693,6 +715,8 @@ Set a timeout (in seconds) on the socket.
 </div>
 <div class="memdoc">
 
+<p>
+<a class="el" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> protocol. 
 <p>
 
 </div>
@@ -709,6 +733,8 @@ Set a timeout (in seconds) on the socket.
 <div class="memdoc">
 
 <p>
+Private socket descriptor. 
+<p>
 
 </div>
 </div><p>
@@ -723,6 +749,8 @@ Set a timeout (in seconds) on the socket.
 </div>
 <div class="memdoc">
 
+<p>
+Optional timeout for connect/send/receive operations (default: no timeout, timeout = 0.0). 
 <p>
 
 </div>
@@ -739,13 +767,15 @@ Set a timeout (in seconds) on the socket.
 <div class="memdoc">
 
 <p>
+<a class="el" href="classusock_1_1Socket.html" title="Class for building TCP sockets.">Socket</a> type. 
+<p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="usock_8h-source.html">usock.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 12:35:55 2009 for libusock by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 14:30:47 2009 for libusock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7 </small></address>
 </body>

@@ -78,10 +78,19 @@ namespace usock  {
 class BaseSocket  {
 
 protected:
+	///@brief Private socket descriptor
 	int sd;
+
+	///@brief Domain for the socket
 	int domain;
+
+	///@brief Socket type
 	int type;
+
+	///@brief Socket protocol
 	int protocol;
+
+	///@brief Optional timeout for connect/send/receive operations (default: no timeout, timeout = 0.0)
 	double timeout;
 
 	/**
@@ -91,6 +100,7 @@ protected:
 	BaseSocket()  {}
 
 public:
+	///@brief Enum for describing possible socket targets
 	enum target  {
 		any = INADDR_ANY,
 		broadcat = INADDR_BROADCAST,
@@ -98,11 +108,14 @@ public:
 		none = INADDR_NONE
 	};
 
+	///@brief Enum for describing socket domains
 	enum domain  {
 		inet = AF_INET,
-		inet6 = AF_INET6
+		inet6 = AF_INET6,
+		unix = AF_UNIX
 	};
 
+	///@brief Enum for describing socket types
 	enum type  {
 		sock_stream = SOCK_STREAM,
 		sock_dgram = SOCK_DGRAM,
@@ -111,6 +124,7 @@ public:
 		sock_seq = SOCK_SEQPACKET
 	};
 
+	///@brief Enum for describing socket protocols
 	enum protocol  {
 		ip = IPPROTO_IP,
 		tcp = IPPROTO_TCP,
@@ -295,10 +309,13 @@ public:
 class ServerSocket : public Socket  {
 
 private:
+	///@brief Maximum number of connections allowed at the same moment
 	u_int32_t maxconn;
-	u_int32_t sock_index;
 
+	///@brief Array with the process identifiers of the open client connections
 	int *client_pid;
+
+	///@brief Number of the currently open client connections
 	u_int32_t client_index;
 
 public:
@@ -315,8 +332,14 @@ public:
 	 * @return A Socket object identifying the client connection, if successfully built
 	 */
 	Socket accept() throw();
-	
-	void accept(void(*)(Socket&)) throw();
+
+	/**
+	 * @brief Wrap around accept() function, allowing you to manage multiple connection on your server socket,
+	 * with a process for each of them
+	 * @param handler Pointer to the function that will be called to manage each connection. The socket parameter
+	 * s in it will be the descriptor of the client socket just opened
+	 */
+	void accept(void (*handler)(Socket& s)) throw();
 
 	/**
 	 * @brief Bind ServerSocket onto a port
@@ -363,7 +386,7 @@ public:
 
 	/**
 	 * @brief Bind an UDP socket onto a port
-	 * @param Port
+	 * @param port Port to listen onto
 	 */
 	void bind (u_int16_t port) throw();
 	
@@ -401,10 +424,18 @@ public:
 class RawSocket : public BaseSocket  {
 
 private:
+	///@brief Network interface associated to the raw socket
 	std::string iface;
+
+	///@brief Network/transport header
 	u_int8_t head[1024];
+
+	///@brief Payload for the packet
 	u_int8_t *payload;
+
+	///@brief Header and payload length
 	int head_len, payload_len;
+
 	bool is_IPv4, is_TCP, is_UDP, is_ICMPv4;
 
 public:

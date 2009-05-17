@@ -21,11 +21,12 @@ enum \hyperlink{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b}{targe
 \hyperlink{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0bbefd2832243f347df978af6409917c38}{loopback} =  INADDR\_\-LOOPBACK, 
 \hyperlink{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b2e5c5b23744de44c69004e477510d95b}{none} =  INADDR\_\-NONE
  \}
-\item 
+\begin{CompactList}\small\item\em Enum for describing possible socket targets. \item\end{CompactList}\item 
 enum \hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90}{domain} \{ \hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73}{inet} =  AF\_\-INET, 
-\hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680}{inet6} =  AF\_\-INET6
+\hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680}{inet6} =  AF\_\-INET6, 
+\hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90e69268b071304bbb353e8686f5c7a88a}{unix} =  AF\_\-UNIX
  \}
-\item 
+\begin{CompactList}\small\item\em Enum for describing socket domains. \item\end{CompactList}\item 
 enum \hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9}{type} \{ \par
 \hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e}{sock\_\-stream} =  SOCK\_\-STREAM, 
 \hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365}{sock\_\-dgram} =  SOCK\_\-DGRAM, 
@@ -34,7 +35,7 @@ enum \hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9}{type}
 \par
 \hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9adfa1bc59768fc0be580b4ba95c6f357}{sock\_\-seq} =  SOCK\_\-SEQPACKET
  \}
-\item 
+\begin{CompactList}\small\item\em Enum for describing socket types. \item\end{CompactList}\item 
 enum \hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa}{protocol} \{ \par
 \hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497}{ip} =  IPPROTO\_\-IP, 
 \hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a}{tcp} =  IPPROTO\_\-TCP, 
@@ -43,7 +44,7 @@ enum \hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa}{proto
 \par
 \hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb}{icmp} =  IPPROTO\_\-ICMP
  \}
-\end{CompactItemize}
+\begin{CompactList}\small\item\em Enum for describing socket protocols. \item\end{CompactList}\end{CompactItemize}
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
@@ -84,15 +85,15 @@ std::string \hyperlink{classusock_1_1BaseSocket_3da108b8c23df3b521ded0bc4ae5295c
 \begin{CompactItemize}
 \item 
 int \hyperlink{classusock_1_1BaseSocket_63b6c07fb14f937056148cbf8b3531c5}{sd}
-\item 
+\begin{CompactList}\small\item\em Private socket descriptor. \item\end{CompactList}\item 
 int \hyperlink{classusock_1_1BaseSocket_9a7414d934aeccd1340292214a2aef0e}{domain}
-\item 
+\begin{CompactList}\small\item\em Domain for the socket. \item\end{CompactList}\item 
 int \hyperlink{classusock_1_1BaseSocket_139a74d163977332762f349a73f4bd64}{type}
-\item 
+\begin{CompactList}\small\item\em \hyperlink{classusock_1_1Socket}{Socket} type. \item\end{CompactList}\item 
 int \hyperlink{classusock_1_1BaseSocket_91b9f72f183b6314891f7e1f93ead99a}{protocol}
-\item 
+\begin{CompactList}\small\item\em \hyperlink{classusock_1_1Socket}{Socket} protocol. \item\end{CompactList}\item 
 double \hyperlink{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}{timeout}
-\end{CompactItemize}
+\begin{CompactList}\small\item\em Optional timeout for connect/send/receive operations (default: no timeout, timeout = 0.0). \item\end{CompactList}\end{CompactItemize}
 
 
 \subsection{Detailed Description}
@@ -110,6 +111,8 @@ Class for describing basic sockets.
 \label{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90}
 
 
+Enum for describing socket domains. 
+
 \begin{Desc}
 \item[Enumerator: ]\par
 \begin{description}
@@ -121,6 +124,10 @@ inet}
 \hypertarget{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680}{
 inet6}
 \label{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680}
+}]\index{unix@{unix}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!unix@{unix}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90e69268b071304bbb353e8686f5c7a88a}{
+unix}
+\label{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90e69268b071304bbb353e8686f5c7a88a}
 }]\end{description}
 \end{Desc}
 
@@ -130,6 +137,8 @@ inet6}
 \subsubsection[{protocol}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf usock::BaseSocket::protocol}}}
 \label{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa}
 
+
+Enum for describing socket protocols. 
 
 \begin{Desc}
 \item[Enumerator: ]\par
@@ -164,6 +173,8 @@ icmp}
 \label{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b}
 
 
+Enum for describing possible socket targets. 
+
 \begin{Desc}
 \item[Enumerator: ]\par
 \begin{description}
@@ -192,6 +203,8 @@ none}
 \subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf usock::BaseSocket::type}}}
 \label{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9}
 
+
+Enum for describing socket types. 
 
 \begin{Desc}
 \item[Enumerator: ]\par
@@ -399,12 +412,16 @@ Set a timeout (in seconds) on the socket.
 \label{classusock_1_1BaseSocket_9a7414d934aeccd1340292214a2aef0e}
 
 
+Domain for the socket. 
+
 \hypertarget{classusock_1_1BaseSocket_91b9f72f183b6314891f7e1f93ead99a}{
 \index{usock::BaseSocket@{usock::BaseSocket}!protocol@{protocol}}
 \index{protocol@{protocol}!usock::BaseSocket@{usock::BaseSocket}}
 \subsubsection[{protocol}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf usock::BaseSocket::protocol}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
 \label{classusock_1_1BaseSocket_91b9f72f183b6314891f7e1f93ead99a}
 
+
+\hyperlink{classusock_1_1Socket}{Socket} protocol. 
 
 \hypertarget{classusock_1_1BaseSocket_63b6c07fb14f937056148cbf8b3531c5}{
 \index{usock::BaseSocket@{usock::BaseSocket}!sd@{sd}}
@@ -413,6 +430,8 @@ Set a timeout (in seconds) on the socket.
 \label{classusock_1_1BaseSocket_63b6c07fb14f937056148cbf8b3531c5}
 
 
+Private socket descriptor. 
+
 \hypertarget{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}{
 \index{usock::BaseSocket@{usock::BaseSocket}!timeout@{timeout}}
 \index{timeout@{timeout}!usock::BaseSocket@{usock::BaseSocket}}
@@ -420,12 +439,16 @@ Set a timeout (in seconds) on the socket.
 \label{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}
 
 
+Optional timeout for connect/send/receive operations (default: no timeout, timeout = 0.0). 
+
 \hypertarget{classusock_1_1BaseSocket_139a74d163977332762f349a73f4bd64}{
 \index{usock::BaseSocket@{usock::BaseSocket}!type@{type}}
 \index{type@{type}!usock::BaseSocket@{usock::BaseSocket}}
 \subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf usock::BaseSocket::type}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
 \label{classusock_1_1BaseSocket_139a74d163977332762f349a73f4bd64}
 
+
+\hyperlink{classusock_1_1Socket}{Socket} type. 
 
 
 
