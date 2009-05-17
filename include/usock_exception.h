@@ -51,7 +51,7 @@ using std::exception;
 namespace usock  {
 	/**
 	 * @class SocketException
-	 * @brief Class for managing exceptions in usock class
+	 * @brief Class for managing exceptions in usock library
 	 * @author BlackLight
 	 */
 	class SocketException : public exception  {
