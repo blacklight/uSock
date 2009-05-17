@@ -1,0 +1,438 @@
+\hypertarget{classusock_1_1BaseSocket}{
+\section{usock::BaseSocket Class Reference}
+\label{classusock_1_1BaseSocket}\index{usock::BaseSocket@{usock::BaseSocket}}
+}
+Class for describing basic sockets.  
+
+
+{\tt \#include $<$usock.h$>$}
+
+Inheritance diagram for usock::BaseSocket::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classusock_1_1BaseSocket}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90}{domain} \{ \hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73}{inet} =  AF\_\-INET, 
+\hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680}{inet6} =  AF\_\-INET6
+ \}
+\item 
+enum \hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9}{type} \{ \par
+\hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e}{sock\_\-stream} =  SOCK\_\-STREAM, 
+\hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365}{sock\_\-dgram} =  SOCK\_\-DGRAM, 
+\hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9d3b8cbf378c46eb82b5a0039eab34ca7}{sock\_\-raw} =  SOCK\_\-RAW, 
+\hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9e04a390261efe04335235f26a00b72d5}{sock\_\-rdm} =  SOCK\_\-RDM, 
+\par
+\hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9adfa1bc59768fc0be580b4ba95c6f357}{sock\_\-seq} =  SOCK\_\-SEQPACKET
+ \}
+\item 
+enum \hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa}{protocol} \{ \par
+\hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497}{ip} =  IPPROTO\_\-IP, 
+\hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a}{tcp} =  IPPROTO\_\-TCP, 
+\hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaae0719b1eee901237a5ec0ba9031cdfce}{udp} =  IPPROTO\_\-UDP, 
+\hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4}{raw} =  IPPROTO\_\-RAW, 
+\par
+\hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb}{icmp} =  IPPROTO\_\-ICMP
+ \}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classusock_1_1BaseSocket_5cf4bfad30ea514f522101899592b97f}{BaseSocket} (int \hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90}{domain}, int \hyperlink{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9}{type}, int \hyperlink{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa}{protocol}, double \hyperlink{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}{timeout}=0.0)  throw ()
+\begin{CompactList}\small\item\em Constructor for the \hyperlink{classusock_1_1BaseSocket}{BaseSocket} class. \item\end{CompactList}\item 
+\hyperlink{classusock_1_1BaseSocket_60ad362afb927b4d4e7233c5e9735c7b}{$\sim$BaseSocket} ()
+\begin{CompactList}\small\item\em Destroyer for the \hyperlink{classusock_1_1Socket}{Socket} class (it just destroyes our socket descriptor). \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1BaseSocket_06383c7ad352244fb0e5e6276e5e86c2}{close} ()
+\begin{CompactList}\small\item\em Close the socket descriptor. \item\end{CompactList}\item 
+std::string \hyperlink{classusock_1_1BaseSocket_7ffc3a11be4a9d7ba72a1f66f3dbad68}{getHostByName} (const std::string \&name)  throw ()
+\begin{CompactList}\small\item\em Wrap method around gethostbyname() function. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1BaseSocket_143722edec56e119495fb8ded76582e5}{setBlocking} (bool f=true)  throw ()
+\begin{CompactList}\small\item\em Set or unset the blocking flag on a socket. \item\end{CompactList}\item 
+bool \hyperlink{classusock_1_1BaseSocket_d29a1fabc8b4c7a86cd236473ef03177}{isBlocking} ()  throw ()
+\begin{CompactList}\small\item\em Checks whether a socket is blocking. \item\end{CompactList}\item 
+std::string \hyperlink{classusock_1_1BaseSocket_479da55516dcda8117a356d8a3be3d83}{localAddr} ()  throw ()
+\begin{CompactList}\small\item\em Return the local address assigned to a socket descriptor. \item\end{CompactList}\item 
+std::string \hyperlink{classusock_1_1BaseSocket_3842fc1ea6ac5575e988d4ee620089a7}{remoteAddr} ()  throw ()
+\begin{CompactList}\small\item\em Return the remote address to which the socket is linked. \item\end{CompactList}\item 
+u\_\-int16\_\-t \hyperlink{classusock_1_1BaseSocket_47218f0ff53693f2891573ec47d84f36}{localPort} ()  throw ()
+\begin{CompactList}\small\item\em Return the local port. \item\end{CompactList}\item 
+u\_\-int16\_\-t \hyperlink{classusock_1_1BaseSocket_e4e09d33779e097ada03144ff54286aa}{remotePort} ()  throw ()
+\begin{CompactList}\small\item\em Return the remote port. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1BaseSocket_87925e8c3b89a50f8c8c2a68e0d2ab70}{getSockOpt} (int level, int optname, void $\ast$optval, socklen\_\-t $\ast$optlen)  throw ()
+\begin{CompactList}\small\item\em Wrap around getsockopt() function. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1BaseSocket_d0444de98899e9312bfa320d5a359e07}{setSockOpt} (int level, int optname, void $\ast$optval, socklen\_\-t optlen)  throw ()
+\begin{CompactList}\small\item\em Wrap around setsockopt() function. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1BaseSocket_e31552b42df68bc68fe557caf6e75128}{setTimeout} (double \hyperlink{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}{timeout}=0.0)  throw ()
+\begin{CompactList}\small\item\em Set a timeout (in seconds) on the socket. \item\end{CompactList}\item 
+std::string \hyperlink{classusock_1_1BaseSocket_3da108b8c23df3b521ded0bc4ae5295c}{ntoa} (in\_\-addr\_\-t addr)  throw ()
+\begin{CompactList}\small\item\em Wrap around inet\_\-ntoa() function, it returns an ASCII string, given a 32 bit IPv4 address. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static const int \hyperlink{classusock_1_1BaseSocket_7b468e99479cf6c1e78e7c11ffe3b7c4}{inaddr\_\-any} = INADDR\_\-ANY
+\item 
+static const int \hyperlink{classusock_1_1BaseSocket_0ecd3c3f3d1c7d39e5d208ff9ae05578}{inaddr\_\-broadcat} = INADDR\_\-BROADCAST
+\item 
+static const int \hyperlink{classusock_1_1BaseSocket_bb1df5061201886e6190acdbf0f197e4}{inaddr\_\-loopback} = INADDR\_\-LOOPBACK
+\item 
+static const int \hyperlink{classusock_1_1BaseSocket_47df56bb0f6fadf6d309517526704efd}{inaddr\_\-none} = INADDR\_\-NONE
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classusock_1_1BaseSocket_20f598433d6c3a97656f0179f7371218}{BaseSocket} ()
+\begin{CompactList}\small\item\em Empty \hyperlink{classusock_1_1BaseSocket}{BaseSocket} constructor - ONLY used inside the children classes to initialize a \hyperlink{classusock_1_1Socket}{Socket} object using an already existen socket descriptor. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int \hyperlink{classusock_1_1BaseSocket_63b6c07fb14f937056148cbf8b3531c5}{sd}
+\item 
+int \hyperlink{classusock_1_1BaseSocket_9a7414d934aeccd1340292214a2aef0e}{domain}
+\item 
+int \hyperlink{classusock_1_1BaseSocket_139a74d163977332762f349a73f4bd64}{type}
+\item 
+int \hyperlink{classusock_1_1BaseSocket_91b9f72f183b6314891f7e1f93ead99a}{protocol}
+\item 
+double \hyperlink{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}{timeout}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class for describing basic sockets. 
+
+\begin{Desc}
+\item[Author:]BlackLight \end{Desc}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90}{
+\index{usock::BaseSocket@{usock::BaseSocket}!domain@{domain}}
+\index{domain@{domain}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{domain}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf usock::BaseSocket::domain}}}
+\label{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{inet@{inet}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!inet@{inet}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73}{
+inet}
+\label{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73}
+}]\index{inet6@{inet6}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!inet6@{inet6}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680}{
+inet6}
+\label{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa}{
+\index{usock::BaseSocket@{usock::BaseSocket}!protocol@{protocol}}
+\index{protocol@{protocol}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{protocol}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf usock::BaseSocket::protocol}}}
+\label{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{ip@{ip}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!ip@{ip}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497}{
+ip}
+\label{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaabf22c7bfd50adb88e468d3744e932497}
+}]\index{tcp@{tcp}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!tcp@{tcp}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a}{
+tcp}
+\label{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa3a17ad9b4036c0957dc098c76e8fba2a}
+}]\index{udp@{udp}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!udp@{udp}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaae0719b1eee901237a5ec0ba9031cdfce}{
+udp}
+\label{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaae0719b1eee901237a5ec0ba9031cdfce}
+}]\index{raw@{raw}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!raw@{raw}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4}{
+raw}
+\label{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4}
+}]\index{icmp@{icmp}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!icmp@{icmp}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb}{
+icmp}
+\label{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9}{
+\index{usock::BaseSocket@{usock::BaseSocket}!type@{type}}
+\index{type@{type}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf usock::BaseSocket::type}}}
+\label{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{sock\_\-stream@{sock\_\-stream}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!sock\_\-stream@{sock\_\-stream}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e}{
+sock\_\-stream}
+\label{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f94052647af14af3924e9b994a5ab53b8e}
+}]\index{sock\_\-dgram@{sock\_\-dgram}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!sock\_\-dgram@{sock\_\-dgram}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365}{
+sock\_\-dgram}
+\label{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f95b0f0651f7544fbc1fedc8997d914365}
+}]\index{sock\_\-raw@{sock\_\-raw}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!sock\_\-raw@{sock\_\-raw}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9d3b8cbf378c46eb82b5a0039eab34ca7}{
+sock\_\-raw}
+\label{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9d3b8cbf378c46eb82b5a0039eab34ca7}
+}]\index{sock\_\-rdm@{sock\_\-rdm}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!sock\_\-rdm@{sock\_\-rdm}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9e04a390261efe04335235f26a00b72d5}{
+sock\_\-rdm}
+\label{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9e04a390261efe04335235f26a00b72d5}
+}]\index{sock\_\-seq@{sock\_\-seq}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!sock\_\-seq@{sock\_\-seq}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9adfa1bc59768fc0be580b4ba95c6f357}{
+sock\_\-seq}
+\label{classusock_1_1BaseSocket_8117d25c7b482eb594d68137868ce5f9adfa1bc59768fc0be580b4ba95c6f357}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classusock_1_1BaseSocket_20f598433d6c3a97656f0179f7371218}{
+\index{usock::BaseSocket@{usock::BaseSocket}!BaseSocket@{BaseSocket}}
+\index{BaseSocket@{BaseSocket}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{BaseSocket}]{\setlength{\rightskip}{0pt plus 5cm}usock::BaseSocket::BaseSocket ()\hspace{0.3cm}{\tt  \mbox{[}inline, protected\mbox{]}}}}
+\label{classusock_1_1BaseSocket_20f598433d6c3a97656f0179f7371218}
+
+
+Empty \hyperlink{classusock_1_1BaseSocket}{BaseSocket} constructor - ONLY used inside the children classes to initialize a \hyperlink{classusock_1_1Socket}{Socket} object using an already existen socket descriptor. 
+
+\hypertarget{classusock_1_1BaseSocket_5cf4bfad30ea514f522101899592b97f}{
+\index{usock::BaseSocket@{usock::BaseSocket}!BaseSocket@{BaseSocket}}
+\index{BaseSocket@{BaseSocket}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{BaseSocket}]{\setlength{\rightskip}{0pt plus 5cm}usock::BaseSocket::BaseSocket (int {\em domain}, \/  int {\em type}, \/  int {\em protocol}, \/  double {\em timeout} = {\tt 0.0})  throw ()}}
+\label{classusock_1_1BaseSocket_5cf4bfad30ea514f522101899592b97f}
+
+
+Constructor for the \hyperlink{classusock_1_1BaseSocket}{BaseSocket} class. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em domain}]\hyperlink{classusock_1_1Socket}{Socket} domain \item[{\em type}]\hyperlink{classusock_1_1Socket}{Socket} type \item[{\em protocol}]\hyperlink{classusock_1_1Socket}{Socket} protocol \item[{\em timeout}]\hyperlink{classusock_1_1Socket}{Socket} timeout for send/recv/connect operations \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1BaseSocket_60ad362afb927b4d4e7233c5e9735c7b}{
+\index{usock::BaseSocket@{usock::BaseSocket}!$\sim$BaseSocket@{$\sim$BaseSocket}}
+\index{$\sim$BaseSocket@{$\sim$BaseSocket}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{$\sim$BaseSocket}]{\setlength{\rightskip}{0pt plus 5cm}usock::BaseSocket::$\sim$BaseSocket ()}}
+\label{classusock_1_1BaseSocket_60ad362afb927b4d4e7233c5e9735c7b}
+
+
+Destroyer for the \hyperlink{classusock_1_1Socket}{Socket} class (it just destroyes our socket descriptor). 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classusock_1_1BaseSocket_06383c7ad352244fb0e5e6276e5e86c2}{
+\index{usock::BaseSocket@{usock::BaseSocket}!close@{close}}
+\index{close@{close}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}void usock::BaseSocket::close ()}}
+\label{classusock_1_1BaseSocket_06383c7ad352244fb0e5e6276e5e86c2}
+
+
+Close the socket descriptor. 
+
+\hypertarget{classusock_1_1BaseSocket_7ffc3a11be4a9d7ba72a1f66f3dbad68}{
+\index{usock::BaseSocket@{usock::BaseSocket}!getHostByName@{getHostByName}}
+\index{getHostByName@{getHostByName}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{getHostByName}]{\setlength{\rightskip}{0pt plus 5cm}std::string usock::BaseSocket::getHostByName (const std::string \& {\em name})  throw ()}}
+\label{classusock_1_1BaseSocket_7ffc3a11be4a9d7ba72a1f66f3dbad68}
+
+
+Wrap method around gethostbyname() function. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em name}]Host name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]IP address of our host name, if found, NULL otherwise \end{Desc}
+\hypertarget{classusock_1_1BaseSocket_87925e8c3b89a50f8c8c2a68e0d2ab70}{
+\index{usock::BaseSocket@{usock::BaseSocket}!getSockOpt@{getSockOpt}}
+\index{getSockOpt@{getSockOpt}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{getSockOpt}]{\setlength{\rightskip}{0pt plus 5cm}void usock::BaseSocket::getSockOpt (int {\em level}, \/  int {\em optname}, \/  void $\ast$ {\em optval}, \/  socklen\_\-t $\ast$ {\em optlen})  throw ()}}
+\label{classusock_1_1BaseSocket_87925e8c3b89a50f8c8c2a68e0d2ab70}
+
+
+Wrap around getsockopt() function. 
+
+\hypertarget{classusock_1_1BaseSocket_d29a1fabc8b4c7a86cd236473ef03177}{
+\index{usock::BaseSocket@{usock::BaseSocket}!isBlocking@{isBlocking}}
+\index{isBlocking@{isBlocking}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{isBlocking}]{\setlength{\rightskip}{0pt plus 5cm}bool usock::BaseSocket::isBlocking ()  throw ()}}
+\label{classusock_1_1BaseSocket_d29a1fabc8b4c7a86cd236473ef03177}
+
+
+Checks whether a socket is blocking. 
+
+\begin{Desc}
+\item[Returns:]true if the socket is blocking, false otherwise \end{Desc}
+\hypertarget{classusock_1_1BaseSocket_479da55516dcda8117a356d8a3be3d83}{
+\index{usock::BaseSocket@{usock::BaseSocket}!localAddr@{localAddr}}
+\index{localAddr@{localAddr}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{localAddr}]{\setlength{\rightskip}{0pt plus 5cm}std::string usock::BaseSocket::localAddr ()  throw ()}}
+\label{classusock_1_1BaseSocket_479da55516dcda8117a356d8a3be3d83}
+
+
+Return the local address assigned to a socket descriptor. 
+
+\hypertarget{classusock_1_1BaseSocket_47218f0ff53693f2891573ec47d84f36}{
+\index{usock::BaseSocket@{usock::BaseSocket}!localPort@{localPort}}
+\index{localPort@{localPort}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{localPort}]{\setlength{\rightskip}{0pt plus 5cm}u\_\-int16\_\-t usock::BaseSocket::localPort ()  throw ()}}
+\label{classusock_1_1BaseSocket_47218f0ff53693f2891573ec47d84f36}
+
+
+Return the local port. 
+
+\hypertarget{classusock_1_1BaseSocket_3da108b8c23df3b521ded0bc4ae5295c}{
+\index{usock::BaseSocket@{usock::BaseSocket}!ntoa@{ntoa}}
+\index{ntoa@{ntoa}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{ntoa}]{\setlength{\rightskip}{0pt plus 5cm}std::string usock::BaseSocket::ntoa (in\_\-addr\_\-t {\em addr})  throw ()}}
+\label{classusock_1_1BaseSocket_3da108b8c23df3b521ded0bc4ae5295c}
+
+
+Wrap around inet\_\-ntoa() function, it returns an ASCII string, given a 32 bit IPv4 address. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em addr}]IPv4 32 bit address \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1BaseSocket_3842fc1ea6ac5575e988d4ee620089a7}{
+\index{usock::BaseSocket@{usock::BaseSocket}!remoteAddr@{remoteAddr}}
+\index{remoteAddr@{remoteAddr}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{remoteAddr}]{\setlength{\rightskip}{0pt plus 5cm}std::string usock::BaseSocket::remoteAddr ()  throw ()}}
+\label{classusock_1_1BaseSocket_3842fc1ea6ac5575e988d4ee620089a7}
+
+
+Return the remote address to which the socket is linked. 
+
+\hypertarget{classusock_1_1BaseSocket_e4e09d33779e097ada03144ff54286aa}{
+\index{usock::BaseSocket@{usock::BaseSocket}!remotePort@{remotePort}}
+\index{remotePort@{remotePort}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{remotePort}]{\setlength{\rightskip}{0pt plus 5cm}u\_\-int16\_\-t usock::BaseSocket::remotePort ()  throw ()}}
+\label{classusock_1_1BaseSocket_e4e09d33779e097ada03144ff54286aa}
+
+
+Return the remote port. 
+
+\hypertarget{classusock_1_1BaseSocket_143722edec56e119495fb8ded76582e5}{
+\index{usock::BaseSocket@{usock::BaseSocket}!setBlocking@{setBlocking}}
+\index{setBlocking@{setBlocking}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{setBlocking}]{\setlength{\rightskip}{0pt plus 5cm}void usock::BaseSocket::setBlocking (bool {\em f} = {\tt true})  throw ()}}
+\label{classusock_1_1BaseSocket_143722edec56e119495fb8ded76582e5}
+
+
+Set or unset the blocking flag on a socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em f}]Boolean flag (true/false) \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1BaseSocket_d0444de98899e9312bfa320d5a359e07}{
+\index{usock::BaseSocket@{usock::BaseSocket}!setSockOpt@{setSockOpt}}
+\index{setSockOpt@{setSockOpt}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{setSockOpt}]{\setlength{\rightskip}{0pt plus 5cm}void usock::BaseSocket::setSockOpt (int {\em level}, \/  int {\em optname}, \/  void $\ast$ {\em optval}, \/  socklen\_\-t {\em optlen})  throw ()}}
+\label{classusock_1_1BaseSocket_d0444de98899e9312bfa320d5a359e07}
+
+
+Wrap around setsockopt() function. 
+
+\hypertarget{classusock_1_1BaseSocket_e31552b42df68bc68fe557caf6e75128}{
+\index{usock::BaseSocket@{usock::BaseSocket}!setTimeout@{setTimeout}}
+\index{setTimeout@{setTimeout}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{setTimeout}]{\setlength{\rightskip}{0pt plus 5cm}void usock::BaseSocket::setTimeout (double {\em timeout} = {\tt 0.0})  throw ()}}
+\label{classusock_1_1BaseSocket_e31552b42df68bc68fe557caf6e75128}
+
+
+Set a timeout (in seconds) on the socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em timeout}]Second we're going to wait. It's a double value, so you can specify decimal digits to have a granularity precision bigger than the seconds \end{description}
+\end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classusock_1_1BaseSocket_9a7414d934aeccd1340292214a2aef0e}{
+\index{usock::BaseSocket@{usock::BaseSocket}!domain@{domain}}
+\index{domain@{domain}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{domain}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf usock::BaseSocket::domain}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classusock_1_1BaseSocket_9a7414d934aeccd1340292214a2aef0e}
+
+
+\hypertarget{classusock_1_1BaseSocket_7b468e99479cf6c1e78e7c11ffe3b7c4}{
+\index{usock::BaseSocket@{usock::BaseSocket}!inaddr\_\-any@{inaddr\_\-any}}
+\index{inaddr\_\-any@{inaddr\_\-any}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{inaddr\_\-any}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf usock::BaseSocket::inaddr\_\-any} = INADDR\_\-ANY\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classusock_1_1BaseSocket_7b468e99479cf6c1e78e7c11ffe3b7c4}
+
+
+\hypertarget{classusock_1_1BaseSocket_0ecd3c3f3d1c7d39e5d208ff9ae05578}{
+\index{usock::BaseSocket@{usock::BaseSocket}!inaddr\_\-broadcat@{inaddr\_\-broadcat}}
+\index{inaddr\_\-broadcat@{inaddr\_\-broadcat}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{inaddr\_\-broadcat}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf usock::BaseSocket::inaddr\_\-broadcat} = INADDR\_\-BROADCAST\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classusock_1_1BaseSocket_0ecd3c3f3d1c7d39e5d208ff9ae05578}
+
+
+\hypertarget{classusock_1_1BaseSocket_bb1df5061201886e6190acdbf0f197e4}{
+\index{usock::BaseSocket@{usock::BaseSocket}!inaddr\_\-loopback@{inaddr\_\-loopback}}
+\index{inaddr\_\-loopback@{inaddr\_\-loopback}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{inaddr\_\-loopback}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf usock::BaseSocket::inaddr\_\-loopback} = INADDR\_\-LOOPBACK\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classusock_1_1BaseSocket_bb1df5061201886e6190acdbf0f197e4}
+
+
+\hypertarget{classusock_1_1BaseSocket_47df56bb0f6fadf6d309517526704efd}{
+\index{usock::BaseSocket@{usock::BaseSocket}!inaddr\_\-none@{inaddr\_\-none}}
+\index{inaddr\_\-none@{inaddr\_\-none}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{inaddr\_\-none}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf usock::BaseSocket::inaddr\_\-none} = INADDR\_\-NONE\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{classusock_1_1BaseSocket_47df56bb0f6fadf6d309517526704efd}
+
+
+\hypertarget{classusock_1_1BaseSocket_91b9f72f183b6314891f7e1f93ead99a}{
+\index{usock::BaseSocket@{usock::BaseSocket}!protocol@{protocol}}
+\index{protocol@{protocol}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{protocol}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf usock::BaseSocket::protocol}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classusock_1_1BaseSocket_91b9f72f183b6314891f7e1f93ead99a}
+
+
+\hypertarget{classusock_1_1BaseSocket_63b6c07fb14f937056148cbf8b3531c5}{
+\index{usock::BaseSocket@{usock::BaseSocket}!sd@{sd}}
+\index{sd@{sd}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{sd}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf usock::BaseSocket::sd}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classusock_1_1BaseSocket_63b6c07fb14f937056148cbf8b3531c5}
+
+
+\hypertarget{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}{
+\index{usock::BaseSocket@{usock::BaseSocket}!timeout@{timeout}}
+\index{timeout@{timeout}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{timeout}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf usock::BaseSocket::timeout}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}
+
+
+\hypertarget{classusock_1_1BaseSocket_139a74d163977332762f349a73f4bd64}{
+\index{usock::BaseSocket@{usock::BaseSocket}!type@{type}}
+\index{type@{type}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf usock::BaseSocket::type}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classusock_1_1BaseSocket_139a74d163977332762f349a73f4bd64}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{usock_8h}{usock.h}\end{CompactItemize}

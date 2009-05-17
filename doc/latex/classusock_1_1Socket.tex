@@ -1,0 +1,242 @@
+\hypertarget{classusock_1_1Socket}{
+\section{usock::Socket Class Reference}
+\label{classusock_1_1Socket}\index{usock::Socket@{usock::Socket}}
+}
+Class for building TCP sockets.  
+
+
+{\tt \#include $<$usock.h$>$}
+
+Inheritance diagram for usock::Socket::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{classusock_1_1Socket}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{classusock_1_1Socket_41721da25729d31889ad3b3312da8532}{Socket} ()  throw ()
+\begin{CompactList}\small\item\em Constructor for the \hyperlink{classusock_1_1Socket}{Socket} class. \item\end{CompactList}\item 
+\hyperlink{classusock_1_1Socket_157cd31365e1b52709a4abc2c9d7eb05}{Socket} (int \hyperlink{classusock_1_1BaseSocket_63b6c07fb14f937056148cbf8b3531c5}{sd}, double \hyperlink{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}{timeout}=0.0)  throw ()
+\begin{CompactList}\small\item\em Constructor for the \hyperlink{classusock_1_1Socket}{Socket} class using an already existent socket descriptor. \item\end{CompactList}\item 
+\hyperlink{classusock_1_1Socket_12fa74b5a9eebcea247aa00a1236c0ee}{Socket} (const std::string \&host, u\_\-int16\_\-t port, double \hyperlink{classusock_1_1BaseSocket_b419e8fd0b849c74b73a02d6bd9081e3}{timeout}=0.0)  throw ()
+\begin{CompactList}\small\item\em Constructor for the \hyperlink{classusock_1_1Socket}{Socket} class, builds a TCP socket and connects onto it. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1Socket_2036f820d8973a3e4a7cd9c60d6a5a24}{connect} (const std::string \&host, u\_\-int16\_\-t port)  throw ()
+\begin{CompactList}\small\item\em Create a TCP connection on the socket. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1Socket_6aa18c3c0131c826afe790a4c8c7aa77}{send} (const std::string \&buf)  throw ()
+\begin{CompactList}\small\item\em Send a string onto a TCP socket. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1Socket_a42fa11f66d5f75f37c67f3a31d1ea81}{send} (const void $\ast$buf, u\_\-int32\_\-t size)  throw ()
+\begin{CompactList}\small\item\em Send a binary buffer onto a TCP socket. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1Socket_07ccbad3e0d485df8111aec584c2f38e}{operator$<$$<$} (const char \&buf)  throw ()
+\begin{CompactList}\small\item\em Overloaded operator to send a buffer onto a TCP socket. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1Socket_41c1bddf8c1cc6bf2b7c06d9da38ebad}{operator$<$$<$} (const int \&buf)  throw ()
+\item 
+void \hyperlink{classusock_1_1Socket_da103da3dcc47ab072efd471deb4aa17}{operator$<$$<$} (const float \&buf)  throw ()
+\item 
+void \hyperlink{classusock_1_1Socket_b1da84bc5e90631c85b85e12852b5399}{operator$<$$<$} (const double \&buf)  throw ()
+\item 
+void \hyperlink{classusock_1_1Socket_1887be63ebc540949cfadf18fa5d9532}{operator$<$$<$} (const std::string \&buf)  throw ()
+\item 
+void \hyperlink{classusock_1_1Socket_9796319ece2e7d7f7463608f00413457}{operator$>$$>$} (std::string \&buf)  throw ()
+\begin{CompactList}\small\item\em Overloaded operator to receive a buffer from a socket (default size: BUFRECV\_\-SIZE). \item\end{CompactList}\item 
+std::string \hyperlink{classusock_1_1Socket_be79db8987d9d0dd3a534fca7a84f0f9}{recv} (u\_\-int32\_\-t nbytes=BUFRECV\_\-SIZE)  throw ()
+\begin{CompactList}\small\item\em Receive a buffer from a TCP socket. \item\end{CompactList}\item 
+void \hyperlink{classusock_1_1Socket_852c343031c5516f747577ee6f3fc96e}{recv} (void $\ast$buf, u\_\-int32\_\-t size)  throw ()
+\begin{CompactList}\small\item\em Receive a binary buffer from a TCP socket. \item\end{CompactList}\item 
+std::string \hyperlink{classusock_1_1Socket_179bbc1c0b837c0e73c22c1b9bc149eb}{readline} ()  throw ()
+\begin{CompactList}\small\item\em Read an ASCII line from the socket. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class for building TCP sockets. 
+
+\begin{Desc}
+\item[Author:]BlackLight \end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classusock_1_1Socket_41721da25729d31889ad3b3312da8532}{
+\index{usock::Socket@{usock::Socket}!Socket@{Socket}}
+\index{Socket@{Socket}!usock::Socket@{usock::Socket}}
+\subsubsection[{Socket}]{\setlength{\rightskip}{0pt plus 5cm}usock::Socket::Socket ()  throw ()}}
+\label{classusock_1_1Socket_41721da25729d31889ad3b3312da8532}
+
+
+Constructor for the \hyperlink{classusock_1_1Socket}{Socket} class. 
+
+\hypertarget{classusock_1_1Socket_157cd31365e1b52709a4abc2c9d7eb05}{
+\index{usock::Socket@{usock::Socket}!Socket@{Socket}}
+\index{Socket@{Socket}!usock::Socket@{usock::Socket}}
+\subsubsection[{Socket}]{\setlength{\rightskip}{0pt plus 5cm}usock::Socket::Socket (int {\em sd}, \/  double {\em timeout} = {\tt 0.0})  throw ()}}
+\label{classusock_1_1Socket_157cd31365e1b52709a4abc2c9d7eb05}
+
+
+Constructor for the \hyperlink{classusock_1_1Socket}{Socket} class using an already existent socket descriptor. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em sd}]\hyperlink{classusock_1_1Socket}{Socket} descriptor \item[{\em timeout}]Timeout to be set on the socket \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1Socket_12fa74b5a9eebcea247aa00a1236c0ee}{
+\index{usock::Socket@{usock::Socket}!Socket@{Socket}}
+\index{Socket@{Socket}!usock::Socket@{usock::Socket}}
+\subsubsection[{Socket}]{\setlength{\rightskip}{0pt plus 5cm}usock::Socket::Socket (const std::string \& {\em host}, \/  u\_\-int16\_\-t {\em port}, \/  double {\em timeout} = {\tt 0.0})  throw ()}}
+\label{classusock_1_1Socket_12fa74b5a9eebcea247aa00a1236c0ee}
+
+
+Constructor for the \hyperlink{classusock_1_1Socket}{Socket} class, builds a TCP socket and connects onto it. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em host}]Host name/address \item[{\em port}]Remote port \item[{\em timeout}]Timeout to be set on the socket \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classusock_1_1Socket_2036f820d8973a3e4a7cd9c60d6a5a24}{
+\index{usock::Socket@{usock::Socket}!connect@{connect}}
+\index{connect@{connect}!usock::Socket@{usock::Socket}}
+\subsubsection[{connect}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::connect (const std::string \& {\em host}, \/  u\_\-int16\_\-t {\em port})  throw ()}}
+\label{classusock_1_1Socket_2036f820d8973a3e4a7cd9c60d6a5a24}
+
+
+Create a TCP connection on the socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em host}]Host name/address \item[{\em port}]Remote port \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1Socket_1887be63ebc540949cfadf18fa5d9532}{
+\index{usock::Socket@{usock::Socket}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!usock::Socket@{usock::Socket}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::operator$<$$<$ (const std::string \& {\em buf})  throw ()}}
+\label{classusock_1_1Socket_1887be63ebc540949cfadf18fa5d9532}
+
+
+\hypertarget{classusock_1_1Socket_b1da84bc5e90631c85b85e12852b5399}{
+\index{usock::Socket@{usock::Socket}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!usock::Socket@{usock::Socket}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::operator$<$$<$ (const double \& {\em buf})  throw ()}}
+\label{classusock_1_1Socket_b1da84bc5e90631c85b85e12852b5399}
+
+
+\hypertarget{classusock_1_1Socket_da103da3dcc47ab072efd471deb4aa17}{
+\index{usock::Socket@{usock::Socket}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!usock::Socket@{usock::Socket}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::operator$<$$<$ (const float \& {\em buf})  throw ()}}
+\label{classusock_1_1Socket_da103da3dcc47ab072efd471deb4aa17}
+
+
+\hypertarget{classusock_1_1Socket_41c1bddf8c1cc6bf2b7c06d9da38ebad}{
+\index{usock::Socket@{usock::Socket}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!usock::Socket@{usock::Socket}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::operator$<$$<$ (const int \& {\em buf})  throw ()}}
+\label{classusock_1_1Socket_41c1bddf8c1cc6bf2b7c06d9da38ebad}
+
+
+\hypertarget{classusock_1_1Socket_07ccbad3e0d485df8111aec584c2f38e}{
+\index{usock::Socket@{usock::Socket}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!usock::Socket@{usock::Socket}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::operator$<$$<$ (const char \& {\em buf})  throw ()}}
+\label{classusock_1_1Socket_07ccbad3e0d485df8111aec584c2f38e}
+
+
+Overloaded operator to send a buffer onto a TCP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]Stuff to be sent \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1Socket_9796319ece2e7d7f7463608f00413457}{
+\index{usock::Socket@{usock::Socket}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!usock::Socket@{usock::Socket}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::operator$>$$>$ (std::string \& {\em buf})  throw ()}}
+\label{classusock_1_1Socket_9796319ece2e7d7f7463608f00413457}
+
+
+Overloaded operator to receive a buffer from a socket (default size: BUFRECV\_\-SIZE). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]String object where we're going to put our received stuff \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1Socket_179bbc1c0b837c0e73c22c1b9bc149eb}{
+\index{usock::Socket@{usock::Socket}!readline@{readline}}
+\index{readline@{readline}!usock::Socket@{usock::Socket}}
+\subsubsection[{readline}]{\setlength{\rightskip}{0pt plus 5cm}std::string usock::Socket::readline ()  throw ()}}
+\label{classusock_1_1Socket_179bbc1c0b837c0e73c22c1b9bc149eb}
+
+
+Read an ASCII line from the socket. 
+
+\begin{Desc}
+\item[Returns:]String containing the read line \end{Desc}
+\hypertarget{classusock_1_1Socket_852c343031c5516f747577ee6f3fc96e}{
+\index{usock::Socket@{usock::Socket}!recv@{recv}}
+\index{recv@{recv}!usock::Socket@{usock::Socket}}
+\subsubsection[{recv}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::recv (void $\ast$ {\em buf}, \/  u\_\-int32\_\-t {\em size})  throw ()}}
+\label{classusock_1_1Socket_852c343031c5516f747577ee6f3fc96e}
+
+
+Receive a binary buffer from a TCP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]Buffer where the read stuff will be placed \item[{\em size}]Number of bytes to be read \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1Socket_be79db8987d9d0dd3a534fca7a84f0f9}{
+\index{usock::Socket@{usock::Socket}!recv@{recv}}
+\index{recv@{recv}!usock::Socket@{usock::Socket}}
+\subsubsection[{recv}]{\setlength{\rightskip}{0pt plus 5cm}std::string usock::Socket::recv (u\_\-int32\_\-t {\em nbytes} = {\tt BUFRECV\_\-SIZE})  throw ()}}
+\label{classusock_1_1Socket_be79db8987d9d0dd3a534fca7a84f0f9}
+
+
+Receive a buffer from a TCP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em nbytes}]Number of bytes to be read \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]A string containing the bytes read from the socket \end{Desc}
+\hypertarget{classusock_1_1Socket_a42fa11f66d5f75f37c67f3a31d1ea81}{
+\index{usock::Socket@{usock::Socket}!send@{send}}
+\index{send@{send}!usock::Socket@{usock::Socket}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::send (const void $\ast$ {\em buf}, \/  u\_\-int32\_\-t {\em size})  throw ()}}
+\label{classusock_1_1Socket_a42fa11f66d5f75f37c67f3a31d1ea81}
+
+
+Send a binary buffer onto a TCP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]Buffer to be sent \item[{\em size}]buf's size \end{description}
+\end{Desc}
+\hypertarget{classusock_1_1Socket_6aa18c3c0131c826afe790a4c8c7aa77}{
+\index{usock::Socket@{usock::Socket}!send@{send}}
+\index{send@{send}!usock::Socket@{usock::Socket}}
+\subsubsection[{send}]{\setlength{\rightskip}{0pt plus 5cm}void usock::Socket::send (const std::string \& {\em buf})  throw ()}}
+\label{classusock_1_1Socket_6aa18c3c0131c826afe790a4c8c7aa77}
+
+
+Send a string onto a TCP socket. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em buf}]String to send \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+\hyperlink{usock_8h}{usock.h}\end{CompactItemize}
