@@ -92,7 +92,7 @@ string RawSocket::getIPv4addr() throw()  {
 	int raw;
 	struct ifreq ifr;
 	
-	if ((raw = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+	if ((raw = socket(inet, sock_stream, tcp)) < 0)
 		throw SocketException("socket error");
 
 	if (iface == "")
@@ -114,7 +114,7 @@ string RawSocket::getIPv4addr() throw()  {
 string RawSocket::getHWaddr() throw()  {
 	int raw;
 	
-	if ((raw = socket(AF_INET, SOCK_DGRAM, 0)) < 0)
+	if ((raw = socket(inet, sock_dgram, tcp)) < 0)
 		throw SocketException("socket error");
 
 	char *hwaddr = new char[ETH_ALEN];
@@ -373,14 +373,14 @@ void RawSocket::write() throw()  {
 	if (is_IPv4)  {
 		memcpy (&ip, head, sizeof(struct iphdr));
 		
-		if ((sd = socket(AF_INET, SOCK_RAW, ip.protocol)) < 0)
+		if ((sd = socket(inet, sock_raw, ip.protocol)) < 0)
 			throw SocketException("socket error");
 
 		if (::setsockopt(sd, IPPROTO_IP, IP_HDRINCL, &opt, sizeof(opt)) < 0)
 			throw SocketException("setsockopt error");
 
 		struct sockaddr_in sin;
-		sin.sin_family = AF_INET;
+		sin.sin_family = inet;
 
 		if (is_ICMPv4)
 			sin.sin_port = 0;
@@ -435,17 +435,17 @@ void* RawSocket::read (u_int32_t len, const string& host) throw()  {
 		struct iphdr ip;
 		memcpy (&ip, head, sizeof(struct iphdr));
 
-		if ((sd = socket(AF_INET, SOCK_RAW, ip.protocol)) < 0)
+		if ((sd = socket(inet, sock_raw, ip.protocol)) < 0)
 			throw SocketException("socket error");
 	
 		if (::setsockopt(sd, IPPROTO_IP, IP_HDRINCL, &opt, sizeof(opt)) < 0)
 			throw SocketException("setsockopt error");
 
-		sin.sin_family = AF_INET;
+		sin.sin_family = inet;
 		sin.sin_port = 0;
 
 		if (host.empty())
-			sin.sin_addr.s_addr = INADDR_ANY;
+			sin.sin_addr.s_addr = any;
 		else
 			sin.sin_addr.s_addr = inet_addr(getHostByName(host.c_str()).c_str());
 

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <usock.h>
 #include <netinet/ip.h>
+#include <netinet/ip_icmp.h>
 
 using namespace std;
 using namespace usock;
@@ -17,8 +18,8 @@ int main(int argc, char **argv)  {
 		payload[i] = i;
 
 	RawSocket s(argv[1]);
-	s.buildIPv4(argv[2], s.getIPv4addr(), IPPROTO_ICMP);
-	s.buildICMPv4(8);
+	s.buildIPv4(argv[2], s.getIPv4addr(), RawSocket::icmp);
+	s.buildICMPv4(ICMP_ECHO);
 	s.setPayload(payload, sizeof(payload));
 	
 	cout << "Sending a ping request to " << argv[2] << endl;

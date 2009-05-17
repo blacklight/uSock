@@ -43,6 +43,8 @@
  */
 
 #include <arpa/inet.h>
+#include <sys/signal.h>
+
 #include "usock.h"
 #include "usock_exception.h"
 using namespace usock;
@@ -52,10 +54,11 @@ ServerSocket::ServerSocket (u_int16_t port, u_int32_t m, const std::string& addr
 
 	sin.sin_family = domain;
 	sin.sin_port = htons(port);
-	sin.sin_addr.s_addr = (addr.empty()) ? INADDR_ANY : inet_addr(getHostByName(addr).c_str());
+	sin.sin_addr.s_addr = (addr.empty()) ? any : inet_addr(getHostByName(addr).c_str());
 	
 	maxconn = m;
-	sock_index = 0;
+	client_index = 0;
+	client_pid = new int[m];
 
 	if (::bind(sd, (struct sockaddr*) &sin, sizeof(struct sockaddr)) < 0)
 		throw SocketException("bind error");
@@ -69,7 +72,7 @@ void ServerSocket::bind (u_int16_t port) throw()  {
 
 	sin.sin_family = domain;
 	sin.sin_port = htons(port);
-	sin.sin_addr.s_addr = INADDR_ANY;
+	sin.sin_addr.s_addr = any;
 
 	if (::bind(sd, (struct sockaddr*) &sin, sizeof(struct sockaddr)) < 0)
 		throw SocketException("bind error");
@@ -88,7 +91,37 @@ Socket ServerSocket::accept() throw()  {
 	if ( (new_sd = ::accept(sd, (struct sockaddr*) &addr, &len)) < 0)
 		throw SocketException("accept error");
 
-	sock_index++;
 	return Socket(new_sd);
+}
+
+void ServerSocket::accept (void (*clientHandler)(Socket&)) throw()  {
+	int pid;
+	int new_sd;
+	struct sockaddr_in addr;
+	socklen_t len = sizeof(struct sockaddr);
+
+	do  {
+		if ( (new_sd = ::accept(sd, (struct sockaddr*) &addr, &len)) < 0)
+			throw SocketException("accept error");
+	} while (new_sd <= 0);
+
+	// FUCK! FUCK! FUCK POSIX DEVELOPERS!
+	//
+	// They haven't managed to make pthread() available with C++ member methods
+	// as callback functions too, forcing me to use the old dear fork() method
+	// to manage multiple connections!
+
+	if ((pid = fork()) < 0)
+		throw SocketException("process creation failed");
+
+	if (!pid)  {
+
+		Socket client_sock(new_sd);
+		clientHandler(client_sock);
+
+		::close(sd);
+		exit(0);
+	} else
+		client_pid[client_index++] = pid;
 }
 

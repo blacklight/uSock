@@ -16,6 +16,12 @@ Inheritance diagram for usock::BaseSocket::\begin{figure}[H]
 \subsection*{Public Types}
 \begin{CompactItemize}
 \item 
+enum \hyperlink{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b}{target} \{ \hyperlink{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b13bac8e60708dc8451b1addafbd3dd77}{any} =  INADDR\_\-ANY, 
+\hyperlink{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b1bf59b5083e7c55e7bf86ec50291d617}{broadcat} =  INADDR\_\-BROADCAST, 
+\hyperlink{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0bbefd2832243f347df978af6409917c38}{loopback} =  INADDR\_\-LOOPBACK, 
+\hyperlink{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b2e5c5b23744de44c69004e477510d95b}{none} =  INADDR\_\-NONE
+ \}
+\item 
 enum \hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d90}{domain} \{ \hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73}{inet} =  AF\_\-INET, 
 \hyperlink{classusock_1_1BaseSocket_a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680}{inet6} =  AF\_\-INET6
  \}
@@ -69,17 +75,6 @@ void \hyperlink{classusock_1_1BaseSocket_e31552b42df68bc68fe557caf6e75128}{setTi
 \begin{CompactList}\small\item\em Set a timeout (in seconds) on the socket. \item\end{CompactList}\item 
 std::string \hyperlink{classusock_1_1BaseSocket_3da108b8c23df3b521ded0bc4ae5295c}{ntoa} (in\_\-addr\_\-t addr)  throw ()
 \begin{CompactList}\small\item\em Wrap around inet\_\-ntoa() function, it returns an ASCII string, given a 32 bit IPv4 address. \item\end{CompactList}\end{CompactItemize}
-\subsection*{Static Public Attributes}
-\begin{CompactItemize}
-\item 
-static const int \hyperlink{classusock_1_1BaseSocket_7b468e99479cf6c1e78e7c11ffe3b7c4}{inaddr\_\-any} = INADDR\_\-ANY
-\item 
-static const int \hyperlink{classusock_1_1BaseSocket_0ecd3c3f3d1c7d39e5d208ff9ae05578}{inaddr\_\-broadcat} = INADDR\_\-BROADCAST
-\item 
-static const int \hyperlink{classusock_1_1BaseSocket_bb1df5061201886e6190acdbf0f197e4}{inaddr\_\-loopback} = INADDR\_\-LOOPBACK
-\item 
-static const int \hyperlink{classusock_1_1BaseSocket_47df56bb0f6fadf6d309517526704efd}{inaddr\_\-none} = INADDR\_\-NONE
-\end{CompactItemize}
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
@@ -159,6 +154,35 @@ raw}
 \hypertarget{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb}{
 icmp}
 \label{classusock_1_1BaseSocket_09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb}
+}]\end{description}
+\end{Desc}
+
+\hypertarget{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b}{
+\index{usock::BaseSocket@{usock::BaseSocket}!target@{target}}
+\index{target@{target}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{target}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf usock::BaseSocket::target}}}
+\label{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{any@{any}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!any@{any}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b13bac8e60708dc8451b1addafbd3dd77}{
+any}
+\label{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b13bac8e60708dc8451b1addafbd3dd77}
+}]\index{broadcat@{broadcat}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!broadcat@{broadcat}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b1bf59b5083e7c55e7bf86ec50291d617}{
+broadcat}
+\label{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b1bf59b5083e7c55e7bf86ec50291d617}
+}]\index{loopback@{loopback}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!loopback@{loopback}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0bbefd2832243f347df978af6409917c38}{
+loopback}
+\label{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0bbefd2832243f347df978af6409917c38}
+}]\index{none@{none}!usock::BaseSocket@{usock::BaseSocket}}\index{usock::BaseSocket@{usock::BaseSocket}!none@{none}}\item[{\em 
+\hypertarget{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b2e5c5b23744de44c69004e477510d95b}{
+none}
+\label{classusock_1_1BaseSocket_50d8769de87937b42f8cef370917aa0b2e5c5b23744de44c69004e477510d95b}
 }]\end{description}
 \end{Desc}
 
@@ -373,34 +397,6 @@ Set a timeout (in seconds) on the socket.
 \index{domain@{domain}!usock::BaseSocket@{usock::BaseSocket}}
 \subsubsection[{domain}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf usock::BaseSocket::domain}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
 \label{classusock_1_1BaseSocket_9a7414d934aeccd1340292214a2aef0e}
-
-
-\hypertarget{classusock_1_1BaseSocket_7b468e99479cf6c1e78e7c11ffe3b7c4}{
-\index{usock::BaseSocket@{usock::BaseSocket}!inaddr\_\-any@{inaddr\_\-any}}
-\index{inaddr\_\-any@{inaddr\_\-any}!usock::BaseSocket@{usock::BaseSocket}}
-\subsubsection[{inaddr\_\-any}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf usock::BaseSocket::inaddr\_\-any} = INADDR\_\-ANY\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
-\label{classusock_1_1BaseSocket_7b468e99479cf6c1e78e7c11ffe3b7c4}
-
-
-\hypertarget{classusock_1_1BaseSocket_0ecd3c3f3d1c7d39e5d208ff9ae05578}{
-\index{usock::BaseSocket@{usock::BaseSocket}!inaddr\_\-broadcat@{inaddr\_\-broadcat}}
-\index{inaddr\_\-broadcat@{inaddr\_\-broadcat}!usock::BaseSocket@{usock::BaseSocket}}
-\subsubsection[{inaddr\_\-broadcat}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf usock::BaseSocket::inaddr\_\-broadcat} = INADDR\_\-BROADCAST\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
-\label{classusock_1_1BaseSocket_0ecd3c3f3d1c7d39e5d208ff9ae05578}
-
-
-\hypertarget{classusock_1_1BaseSocket_bb1df5061201886e6190acdbf0f197e4}{
-\index{usock::BaseSocket@{usock::BaseSocket}!inaddr\_\-loopback@{inaddr\_\-loopback}}
-\index{inaddr\_\-loopback@{inaddr\_\-loopback}!usock::BaseSocket@{usock::BaseSocket}}
-\subsubsection[{inaddr\_\-loopback}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf usock::BaseSocket::inaddr\_\-loopback} = INADDR\_\-LOOPBACK\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
-\label{classusock_1_1BaseSocket_bb1df5061201886e6190acdbf0f197e4}
-
-
-\hypertarget{classusock_1_1BaseSocket_47df56bb0f6fadf6d309517526704efd}{
-\index{usock::BaseSocket@{usock::BaseSocket}!inaddr\_\-none@{inaddr\_\-none}}
-\index{inaddr\_\-none@{inaddr\_\-none}!usock::BaseSocket@{usock::BaseSocket}}
-\subsubsection[{inaddr\_\-none}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf usock::BaseSocket::inaddr\_\-none} = INADDR\_\-NONE\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
-\label{classusock_1_1BaseSocket_47df56bb0f6fadf6d309517526704efd}
 
 
 \hypertarget{classusock_1_1BaseSocket_91b9f72f183b6314891f7e1f93ead99a}{

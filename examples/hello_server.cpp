@@ -4,15 +4,18 @@
 using namespace std;
 using namespace usock;
 
+void foo (Socket& s)  {
+	cout << "Connection from " << s.remoteAddr() << endl;
+	s << "Hello " + s.remoteAddr() + "\n";
+	s.close();
+}
+
 main()  {
 	ServerSocket ss(9999);
 
 	while(1)  {
 		try  {
-			Socket s = ss.accept();
-			cout << "Connection from " << s.remoteAddr() << endl;
-			s << "Hello " + s.remoteAddr() + "\n";
-			s.close();
+			ss.accept(foo);
 		}
 
 		catch (exception e)  {}

@@ -47,6 +47,12 @@ Inheritance diagram for usock::BaseSocket:</div>
 <a href="classusock_1_1BaseSocket-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Types</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#50d8769de87937b42f8cef370917aa0b">target</a> { <a class="el" href="classusock_1_1BaseSocket.html#50d8769de87937b42f8cef370917aa0b13bac8e60708dc8451b1addafbd3dd77">any</a> =  INADDR_ANY, 
+<a class="el" href="classusock_1_1BaseSocket.html#50d8769de87937b42f8cef370917aa0b1bf59b5083e7c55e7bf86ec50291d617">broadcat</a> =  INADDR_BROADCAST, 
+<a class="el" href="classusock_1_1BaseSocket.html#50d8769de87937b42f8cef370917aa0bbefd2832243f347df978af6409917c38">loopback</a> =  INADDR_LOOPBACK, 
+<a class="el" href="classusock_1_1BaseSocket.html#50d8769de87937b42f8cef370917aa0b2e5c5b23744de44c69004e477510d95b">none</a> =  INADDR_NONE
+ }</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d90">domain</a> { <a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d904293c75d794987e0017bab42bbbcbf73">inet</a> =  AF_INET, 
 <a class="el" href="classusock_1_1BaseSocket.html#a51cae0b366638a5f697f64174135d9089db67cd78ea92b1ca5bf823ca967680">inet6</a> =  AF_INET6
  }</td></tr>
@@ -114,15 +120,6 @@ Inheritance diagram for usock::BaseSocket:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#3da108b8c23df3b521ded0bc4ae5295c">ntoa</a> (in_addr_t addr)  throw ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Wrap around inet_ntoa() function, it returns an ASCII string, given a 32 bit IPv4 address.  <a href="#3da108b8c23df3b521ded0bc4ae5295c"></a><br></td></tr>
-<tr><td colspan="2"><br><h2>Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#7b468e99479cf6c1e78e7c11ffe3b7c4">inaddr_any</a> = INADDR_ANY</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#0ecd3c3f3d1c7d39e5d208ff9ae05578">inaddr_broadcat</a> = INADDR_BROADCAST</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#bb1df5061201886e6190acdbf0f197e4">inaddr_loopback</a> = INADDR_LOOPBACK</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">static const int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#47df56bb0f6fadf6d309517526704efd">inaddr_none</a> = INADDR_NONE</td></tr>
-
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#20f598433d6c3a97656f0179f7371218">BaseSocket</a> ()</td></tr>
 
@@ -190,6 +187,33 @@ Class for describing basic sockets.
 <tr><td valign="top"><em><a class="anchor" name="09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4"></a><!-- doxytag: member="raw" ref="09208675b41c416fb402824742963eaa0d09509fb52df026fec01b98795f9ac4" args="" -->raw</em>&nbsp;</td><td>
 </td></tr>
 <tr><td valign="top"><em><a class="anchor" name="09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb"></a><!-- doxytag: member="icmp" ref="09208675b41c416fb402824742963eaa5c569c4f7525d07ee96857a015d057bb" args="" -->icmp</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="50d8769de87937b42f8cef370917aa0b"></a><!-- doxytag: member="usock::BaseSocket::target" ref="50d8769de87937b42f8cef370917aa0b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="classusock_1_1BaseSocket.html#50d8769de87937b42f8cef370917aa0b">usock::BaseSocket::target</a>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+<dl compact><dt><b>Enumerator: </b></dt><dd>
+<table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" name="50d8769de87937b42f8cef370917aa0b13bac8e60708dc8451b1addafbd3dd77"></a><!-- doxytag: member="any" ref="50d8769de87937b42f8cef370917aa0b13bac8e60708dc8451b1addafbd3dd77" args="" -->any</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" name="50d8769de87937b42f8cef370917aa0b1bf59b5083e7c55e7bf86ec50291d617"></a><!-- doxytag: member="broadcat" ref="50d8769de87937b42f8cef370917aa0b1bf59b5083e7c55e7bf86ec50291d617" args="" -->broadcat</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" name="50d8769de87937b42f8cef370917aa0bbefd2832243f347df978af6409917c38"></a><!-- doxytag: member="loopback" ref="50d8769de87937b42f8cef370917aa0bbefd2832243f347df978af6409917c38" args="" -->loopback</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" name="50d8769de87937b42f8cef370917aa0b2e5c5b23744de44c69004e477510d95b"></a><!-- doxytag: member="none" ref="50d8769de87937b42f8cef370917aa0b2e5c5b23744de44c69004e477510d95b" args="" -->none</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dl>
@@ -658,66 +682,6 @@ Set a timeout (in seconds) on the socket.
 
 </div>
 </div><p>
-<a class="anchor" name="7b468e99479cf6c1e78e7c11ffe3b7c4"></a><!-- doxytag: member="usock::BaseSocket::inaddr_any" ref="7b468e99479cf6c1e78e7c11ffe3b7c4" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="classusock_1_1BaseSocket.html#7b468e99479cf6c1e78e7c11ffe3b7c4">usock::BaseSocket::inaddr_any</a> = INADDR_ANY<code> [static]</code>          </td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-</div>
-</div><p>
-<a class="anchor" name="0ecd3c3f3d1c7d39e5d208ff9ae05578"></a><!-- doxytag: member="usock::BaseSocket::inaddr_broadcat" ref="0ecd3c3f3d1c7d39e5d208ff9ae05578" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="classusock_1_1BaseSocket.html#0ecd3c3f3d1c7d39e5d208ff9ae05578">usock::BaseSocket::inaddr_broadcat</a> = INADDR_BROADCAST<code> [static]</code>          </td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-</div>
-</div><p>
-<a class="anchor" name="bb1df5061201886e6190acdbf0f197e4"></a><!-- doxytag: member="usock::BaseSocket::inaddr_loopback" ref="bb1df5061201886e6190acdbf0f197e4" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="classusock_1_1BaseSocket.html#bb1df5061201886e6190acdbf0f197e4">usock::BaseSocket::inaddr_loopback</a> = INADDR_LOOPBACK<code> [static]</code>          </td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-</div>
-</div><p>
-<a class="anchor" name="47df56bb0f6fadf6d309517526704efd"></a><!-- doxytag: member="usock::BaseSocket::inaddr_none" ref="47df56bb0f6fadf6d309517526704efd" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="classusock_1_1BaseSocket.html#47df56bb0f6fadf6d309517526704efd">usock::BaseSocket::inaddr_none</a> = INADDR_NONE<code> [static]</code>          </td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-</div>
-</div><p>
 <a class="anchor" name="91b9f72f183b6314891f7e1f93ead99a"></a><!-- doxytag: member="usock::BaseSocket::protocol" ref="91b9f72f183b6314891f7e1f93ead99a" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -781,7 +745,7 @@ Set a timeout (in seconds) on the socket.
 <hr>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="usock_8h-source.html">usock.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 09:50:53 2009 for libusock by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 12:35:55 2009 for libusock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7 </small></address>
 </body>

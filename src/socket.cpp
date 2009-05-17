@@ -57,7 +57,7 @@ using std::string;
 using std::stringstream;
 using namespace usock;
 
-Socket::Socket() throw() : BaseSocket(AF_INET, SOCK_STREAM, IPPROTO_TCP)  {}
+Socket::Socket() throw() : BaseSocket(inet, sock_stream, tcp)  {}
 
 Socket::Socket (int sd, double timeout) throw()  {
 	this->sd = sd;
@@ -67,7 +67,7 @@ Socket::Socket (int sd, double timeout) throw()  {
 	this->timeout = timeout;
 }
 
-Socket::Socket (const string& host, u_int16_t port, double timeout) throw() : BaseSocket(AF_INET, SOCK_STREAM, IPPROTO_TCP, timeout)  {
+Socket::Socket (const string& host, u_int16_t port, double timeout) throw() : BaseSocket(inet, sock_stream, tcp, timeout)  {
 	connect(host,port);
 }
 

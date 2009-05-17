@@ -64,6 +64,10 @@
 #define TH_URG	 0x20
 #endif
 
+#ifndef INET6_ADDRSTRLEN
+#define INET6_ADDRSTRELN 46
+#endif
+
 namespace usock  {
 
 /**
@@ -87,10 +91,12 @@ protected:
 	BaseSocket()  {}
 
 public:
-	static const int inaddr_any = INADDR_ANY;
-	static const int inaddr_broadcat = INADDR_BROADCAST;
-	static const int inaddr_loopback = INADDR_LOOPBACK;
-	static const int inaddr_none = INADDR_NONE;
+	enum target  {
+		any = INADDR_ANY,
+		broadcat = INADDR_BROADCAST,
+		loopback = INADDR_LOOPBACK,
+		none = INADDR_NONE
+	};
 
 	enum domain  {
 		inet = AF_INET,
@@ -292,6 +298,9 @@ private:
 	u_int32_t maxconn;
 	u_int32_t sock_index;
 
+	int *client_pid;
+	u_int32_t client_index;
+
 public:
 	/**
 	 * @brief ServerSocket high-level constructor
@@ -306,6 +315,8 @@ public:
 	 * @return A Socket object identifying the client connection, if successfully built
 	 */
 	Socket accept() throw();
+	
+	void accept(void(*)(Socket&)) throw();
 
 	/**
 	 * @brief Bind ServerSocket onto a port
