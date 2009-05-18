@@ -6,7 +6,7 @@ using namespace usock;
 
 main()  {
 	string buf;
-	Socket s("192.168.1.5", 80, 1.0);
+	Socket s("192.168.1.4", 80, 1.0);
 
 	s << "HEAD / HTTP/1.1\r\n"
 		"Host: www.google.it\r\n"

@@ -115,13 +115,15 @@ void ServerSocket::accept (void (*clientHandler)(Socket&)) throw()  {
 		throw SocketException("process creation failed");
 
 	if (!pid)  {
-
 		Socket client_sock(new_sd);
+		::close(sd);
 		clientHandler(client_sock);
 
-		::close(sd);
+		::close(new_sd);
 		exit(0);
-	} else
+	} else {
+		::close(new_sd);
 		client_pid[client_index++] = pid;
+	}
 }
 
