@@ -2,13 +2,14 @@ SRCDIR=src
 INCLUDEDIR=include
 PREFIX=/usr/local
 LIB=usock
+OPTS=-Wall -ansi -pedantic -pedantic-errors
 
 all:
-	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/basesocket.cpp
-	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/socket.cpp
-	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/rawsocket.cpp
-	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/serversocket.cpp
-	g++ -Wall -ansi -pedantic -pedantic-errors -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/udpsocket.cpp
+	g++ $(OPTS)  -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/basesocket.cpp
+	g++ $(OPTS) -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/socket.cpp
+	g++ $(OPTS) -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/rawsocket.cpp
+	g++ $(OPTS) -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/serversocket.cpp
+	g++ $(OPTS) -I$(INCLUDEDIR) -fPIC -g -c $(SRCDIR)/udpsocket.cpp
 	g++ -shared -Wl,-soname,lib$(LIB).so.1 -o lib$(LIB).so.1.0.0 socket.o rawsocket.o serversocket.o udpsocket.o basesocket.o
 	ar rcs lib$(LIB).a socket.o rawsocket.o serversocket.o udpsocket.o basesocket.o
 
