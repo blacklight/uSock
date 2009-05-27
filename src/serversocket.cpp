@@ -57,8 +57,8 @@ ServerSocket::ServerSocket (u_int16_t port, u_int32_t m, const std::string& addr
 	sin.sin_addr.s_addr = (addr.empty()) ? any : inet_addr(getHostByName(addr).c_str());
 	
 	maxconn = m;
-	client_index = 0;
-	client_pid = new int[m];
+	//client_index = 0;
+	//client_pid = new int[m];
 
 	if (::bind(sd, (struct sockaddr*) &sin, sizeof(struct sockaddr)) < 0)
 		throw SocketException("bind error");
@@ -123,7 +123,7 @@ void ServerSocket::accept (void (*clientHandler)(Socket&)) throw()  {
 		exit(0);
 	} else {
 		::close(new_sd);
-		client_pid[client_index++] = pid;
+		//client_pid[client_index++] = pid;
 	}
 }
 

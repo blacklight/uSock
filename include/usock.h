@@ -312,10 +312,10 @@ private:
 	u_int32_t maxconn;
 
 	///@brief Array with the process identifiers of the open client connections
-	int *client_pid;
+	//int *client_pid;
 
 	///@brief Number of the currently open client connections
-	u_int32_t client_index;
+	//u_int32_t client_index;
 
 public:
 	/**
