@@ -55,6 +55,8 @@ void \hyperlink{classusock_1_1BaseSocket_06383c7ad352244fb0e5e6276e5e86c2}{close
 \begin{CompactList}\small\item\em Close the socket descriptor. \item\end{CompactList}\item 
 std::string \hyperlink{classusock_1_1BaseSocket_7ffc3a11be4a9d7ba72a1f66f3dbad68}{getHostByName} (const std::string \&name)  throw ()
 \begin{CompactList}\small\item\em Wrap method around gethostbyname() function. \item\end{CompactList}\item 
+std::string \hyperlink{classusock_1_1BaseSocket_b0fdf738e659b1d7088611bd4b4c9b67}{getHostByAddr} (const std::string \&addr)  throw ()
+\begin{CompactList}\small\item\em Wrap method around gethostbyaddr() function. \item\end{CompactList}\item 
 void \hyperlink{classusock_1_1BaseSocket_143722edec56e119495fb8ded76582e5}{setBlocking} (bool f=true)  throw ()
 \begin{CompactList}\small\item\em Set or unset the blocking flag on a socket. \item\end{CompactList}\item 
 bool \hyperlink{classusock_1_1BaseSocket_d29a1fabc8b4c7a86cd236473ef03177}{isBlocking} ()  throw ()
@@ -274,6 +276,22 @@ Destroyer for the \hyperlink{classusock_1_1Socket}{Socket} class (it just destro
 
 Close the socket descriptor. 
 
+\hypertarget{classusock_1_1BaseSocket_b0fdf738e659b1d7088611bd4b4c9b67}{
+\index{usock::BaseSocket@{usock::BaseSocket}!getHostByAddr@{getHostByAddr}}
+\index{getHostByAddr@{getHostByAddr}!usock::BaseSocket@{usock::BaseSocket}}
+\subsubsection[{getHostByAddr}]{\setlength{\rightskip}{0pt plus 5cm}std::string usock::BaseSocket::getHostByAddr (const std::string \& {\em addr})  throw ()}}
+\label{classusock_1_1BaseSocket_b0fdf738e659b1d7088611bd4b4c9b67}
+
+
+Wrap method around gethostbyaddr() function. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em addr}]IPv4 address as a string \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]The hostname associated to addr, if found, an empty otherwise \end{Desc}
 \hypertarget{classusock_1_1BaseSocket_7ffc3a11be4a9d7ba72a1f66f3dbad68}{
 \index{usock::BaseSocket@{usock::BaseSocket}!getHostByName@{getHostByName}}
 \index{getHostByName@{getHostByName}!usock::BaseSocket@{usock::BaseSocket}}
@@ -289,7 +307,7 @@ Wrap method around gethostbyname() function.
 \item[{\em name}]Host name \end{description}
 \end{Desc}
 \begin{Desc}
-\item[Returns:]IP address of our host name, if found, NULL otherwise \end{Desc}
+\item[Returns:]IP address of our host name, if found, an empty string otherwise \end{Desc}
 \hypertarget{classusock_1_1BaseSocket_87925e8c3b89a50f8c8c2a68e0d2ab70}{
 \index{usock::BaseSocket@{usock::BaseSocket}!getSockOpt@{getSockOpt}}
 \index{getSockOpt@{getSockOpt}!usock::BaseSocket@{usock::BaseSocket}}

@@ -17,7 +17,7 @@ Inheritance diagram for usock::ServerSocket::\begin{figure}[H]
 \begin{CompactItemize}
 \item 
 \hyperlink{classusock_1_1ServerSocket_0ac1908d4a4afb675715ae0ad994e870}{ServerSocket} (u\_\-int16\_\-t port, u\_\-int32\_\-t m=DEFAULT\_\-MAXCON, const std::string \&addr=\char`\"{}\char`\"{})  throw ()
-\begin{CompactList}\small\item\em \hyperlink{classusock_1_1ServerSocket}{ServerSocket} high-level constructor. \item\end{CompactList}\item 
+\begin{CompactList}\small\item\em Array with the process identifiers of the open client connections. \item\end{CompactList}\item 
 \hyperlink{classusock_1_1Socket}{Socket} \hyperlink{classusock_1_1ServerSocket_bf0477af52a725ced6afad86d7b3e794}{accept} ()  throw ()
 \begin{CompactList}\small\item\em Wrap around \hyperlink{classusock_1_1ServerSocket_bf0477af52a725ced6afad86d7b3e794}{accept()} function. \item\end{CompactList}\item 
 void \hyperlink{classusock_1_1ServerSocket_0ef5b201140a37c5d7c42aced9a45f2e}{accept} (void($\ast$handler)(\hyperlink{classusock_1_1Socket}{Socket} \&s))  throw ()
@@ -43,9 +43,9 @@ Class for managing TCP server sockets.
 \label{classusock_1_1ServerSocket_0ac1908d4a4afb675715ae0ad994e870}
 
 
-\hyperlink{classusock_1_1ServerSocket}{ServerSocket} high-level constructor. 
+Array with the process identifiers of the open client connections. 
 
-\begin{Desc}
+Number of the currently open client connections \hyperlink{classusock_1_1ServerSocket}{ServerSocket} high-level constructor \begin{Desc}
 \item[Parameters:]
 \begin{description}
 \item[{\em port}]Port the server will listen onto \item[{\em m}]Maximum number of allowed connections (default = DEFAULT\_\-MAXCON) \item[{\em addr}]Address the socket will listen from, as string (default = INADDR\_\-ANY) \end{description}

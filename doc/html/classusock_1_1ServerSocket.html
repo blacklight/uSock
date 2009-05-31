@@ -47,7 +47,7 @@ Inheritance diagram for usock::ServerSocket:</div>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1ServerSocket.html#0ac1908d4a4afb675715ae0ad994e870">ServerSocket</a> (u_int16_t port, u_int32_t m=DEFAULT_MAXCON, const std::string &amp;addr=&quot;&quot;)  throw ()</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="classusock_1_1ServerSocket.html" title="Class for managing TCP server sockets.">ServerSocket</a> high-level constructor.  <a href="#0ac1908d4a4afb675715ae0ad994e870"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Array with the process identifiers of the open client connections.  <a href="#0ac1908d4a4afb675715ae0ad994e870"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="classusock_1_1Socket.html">Socket</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1ServerSocket.html#bf0477af52a725ced6afad86d7b3e794">accept</a> ()  throw ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Wrap around <a class="el" href="classusock_1_1ServerSocket.html#bf0477af52a725ced6afad86d7b3e794" title="Wrap around accept() function.">accept()</a> function.  <a href="#bf0477af52a725ced6afad86d7b3e794"></a><br></td></tr>
@@ -98,9 +98,9 @@ Class for managing TCP server sockets.
 <div class="memdoc">
 
 <p>
-<a class="el" href="classusock_1_1ServerSocket.html" title="Class for managing TCP server sockets.">ServerSocket</a> high-level constructor. 
+Array with the process identifiers of the open client connections. 
 <p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
+Number of the currently open client connections <a class="el" href="classusock_1_1ServerSocket.html" title="Class for managing TCP server sockets.">ServerSocket</a> high-level constructor <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>port</em>&nbsp;</td><td>Port the server will listen onto </td></tr>
     <tr><td valign="top"></td><td valign="top"><em>m</em>&nbsp;</td><td>Maximum number of allowed connections (default = DEFAULT_MAXCON) </td></tr>
@@ -211,7 +211,7 @@ Wrap around <a class="el" href="classusock_1_1ServerSocket.html#c6cd2070380b8427
 <hr>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="usock_8h-source.html">usock.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 23:32:47 2009 for libusock by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jun 1 00:58:30 2009 for libusock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7 </small></address>
 </body>

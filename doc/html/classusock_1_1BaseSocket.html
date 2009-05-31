@@ -94,6 +94,9 @@ Inheritance diagram for usock::BaseSocket:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#7ffc3a11be4a9d7ba72a1f66f3dbad68">getHostByName</a> (const std::string &amp;name)  throw ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Wrap method around gethostbyname() function.  <a href="#7ffc3a11be4a9d7ba72a1f66f3dbad68"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#b0fdf738e659b1d7088611bd4b4c9b67">getHostByAddr</a> (const std::string &amp;addr)  throw ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Wrap method around gethostbyaddr() function.  <a href="#b0fdf738e659b1d7088611bd4b4c9b67"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classusock_1_1BaseSocket.html#143722edec56e119495fb8ded76582e5">setBlocking</a> (bool f=true)  throw ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Set or unset the blocking flag on a socket.  <a href="#143722edec56e119495fb8ded76582e5"></a><br></td></tr>
@@ -382,6 +385,34 @@ Close the socket descriptor.
 
 </div>
 </div><p>
+<a class="anchor" name="b0fdf738e659b1d7088611bd4b4c9b67"></a><!-- doxytag: member="usock::BaseSocket::getHostByAddr" ref="b0fdf738e659b1d7088611bd4b4c9b67" args="(const std::string &amp;addr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string usock::BaseSocket::getHostByAddr           </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&nbsp;</td>
+          <td class="paramname"> <em>addr</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td>  throw ()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Wrap method around gethostbyaddr() function. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>addr</em>&nbsp;</td><td>IPv4 address as a string </td></tr>
+  </table>
+</dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>The hostname associated to addr, if found, an empty otherwise </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="7ffc3a11be4a9d7ba72a1f66f3dbad68"></a><!-- doxytag: member="usock::BaseSocket::getHostByName" ref="7ffc3a11be4a9d7ba72a1f66f3dbad68" args="(const std::string &amp;name)" -->
 <div class="memitem">
 <div class="memproto">
@@ -406,7 +437,7 @@ Wrap method around gethostbyname() function.
     <tr><td valign="top"></td><td valign="top"><em>name</em>&nbsp;</td><td>Host name </td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>IP address of our host name, if found, NULL otherwise </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>IP address of our host name, if found, an empty string otherwise </dd></dl>
 
 </div>
 </div><p>
@@ -772,7 +803,7 @@ Optional timeout for connect/send/receive operations (default: no timeout, timeo
 <hr>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="usock_8h-source.html">usock.h</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 17 23:32:46 2009 for libusock by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon Jun 1 00:58:30 2009 for libusock by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.7 </small></address>
 </body>

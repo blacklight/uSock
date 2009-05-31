@@ -16,7 +16,7 @@ Inheritance diagram for usock::RawSocket::\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{classusock_1_1RawSocket_d476598f4a6db6d3cf28673172eb1b8b}{RawSocket} (std::string i=\char`\"{}lo\char`\"{})
+\hyperlink{classusock_1_1RawSocket_4eb16f88edce4337c3df518465fd5566}{RawSocket} (std::string i=\char`\"{}\char`\"{})  throw ()
 \begin{CompactList}\small\item\em \hyperlink{classusock_1_1RawSocket}{RawSocket} constructor. \item\end{CompactList}\item 
 std::string \hyperlink{classusock_1_1RawSocket_3b0c8f2f539982c8f37a66ebc29746a0}{getIPv4addr} ()  throw ()
 \begin{CompactList}\small\item\em Get the IPv4 address associated to the network interface. \item\end{CompactList}\item 
@@ -24,7 +24,7 @@ std::string \hyperlink{classusock_1_1RawSocket_1276f5fcc7bc3b41d9d11055887ab7a9}
 \begin{CompactList}\small\item\em Get the HW address associated to the network interface. \item\end{CompactList}\item 
 u\_\-int16\_\-t \hyperlink{classusock_1_1RawSocket_11c89cceced7302fe25163fbc74a6b83}{csum} (u\_\-int16\_\-t $\ast$buf, int nwords)
 \begin{CompactList}\small\item\em Compute the checksum of a buffer. \item\end{CompactList}\item 
-void \hyperlink{classusock_1_1RawSocket_999a433a049b33006ab8c26a7d0875b9}{buildIPv4} (std::string dst, std::string src=\char`\"{}\char`\"{}, u\_\-int8\_\-t proto=IPPROTO\_\-TCP, u\_\-int16\_\-t len=0, u\_\-int8\_\-t ttl=32, u\_\-int8\_\-t tos=0, u\_\-int16\_\-t id=0, u\_\-int16\_\-t frag=0, u\_\-int16\_\-t sum=0)
+void \hyperlink{classusock_1_1RawSocket_1365484108821273f2c2e279f908df21}{buildIPv4} (std::string dst, std::string src=\char`\"{}\char`\"{}, u\_\-int8\_\-t proto=IPPROTO\_\-TCP, u\_\-int8\_\-t ttl=32, u\_\-int16\_\-t len=0, u\_\-int8\_\-t tos=0, u\_\-int16\_\-t id=0, u\_\-int16\_\-t frag=0, u\_\-int16\_\-t sum=0)
 \begin{CompactList}\small\item\em Build an IPv4 header for the raw socket. \item\end{CompactList}\item 
 void \hyperlink{classusock_1_1RawSocket_687afa2e3259ce2bc2cea7cc49db7f14}{buildTCP} (u\_\-int16\_\-t sport, u\_\-int16\_\-t dport, u\_\-int8\_\-t flags, u\_\-int32\_\-t seq=0, u\_\-int32\_\-t ack=0, u\_\-int16\_\-t window=0x1000, u\_\-int16\_\-t urgent=0, u\_\-int16\_\-t sum=0)
 \begin{CompactList}\small\item\em Build a TCP header for the raw socket. \item\end{CompactList}\item 
@@ -38,7 +38,7 @@ void \hyperlink{classusock_1_1RawSocket_ab429ec3a150c6e15175b3223c90ade6}{setPay
 \begin{CompactList}\small\item\em Set a payload for the raw socket as a string. \item\end{CompactList}\item 
 void \hyperlink{classusock_1_1RawSocket_e62377b0933a176570f226e1acbe3e16}{write} ()  throw ()
 \begin{CompactList}\small\item\em Write the raw packet onto the network interface. \item\end{CompactList}\item 
-void $\ast$ \hyperlink{classusock_1_1RawSocket_bc4cd4449b47d28397fc270447405609}{read} (u\_\-int32\_\-t len, const std::string \&host=\char`\"{}\char`\"{})  throw ()
+void $\ast$ \hyperlink{classusock_1_1RawSocket_07bc901bc9b902122cca8a41f8c5c02a}{read} (u\_\-int32\_\-t len=0, const std::string \&host=\char`\"{}\char`\"{})  throw ()
 \begin{CompactList}\small\item\em Read binary data from the raw socket. \item\end{CompactList}\end{CompactItemize}
 
 
@@ -50,11 +50,11 @@ Class for managing raw sockets.
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classusock_1_1RawSocket_d476598f4a6db6d3cf28673172eb1b8b}{
+\hypertarget{classusock_1_1RawSocket_4eb16f88edce4337c3df518465fd5566}{
 \index{usock::RawSocket@{usock::RawSocket}!RawSocket@{RawSocket}}
 \index{RawSocket@{RawSocket}!usock::RawSocket@{usock::RawSocket}}
-\subsubsection[{RawSocket}]{\setlength{\rightskip}{0pt plus 5cm}usock::RawSocket::RawSocket (std::string {\em i} = {\tt \char`\"{}lo\char`\"{}})}}
-\label{classusock_1_1RawSocket_d476598f4a6db6d3cf28673172eb1b8b}
+\subsubsection[{RawSocket}]{\setlength{\rightskip}{0pt plus 5cm}usock::RawSocket::RawSocket (std::string {\em i} = {\tt \char`\"{}\char`\"{}})  throw ()}}
+\label{classusock_1_1RawSocket_4eb16f88edce4337c3df518465fd5566}
 
 
 \hyperlink{classusock_1_1RawSocket}{RawSocket} constructor. 
@@ -62,7 +62,7 @@ Class for managing raw sockets.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em i}]Interface on which we're going to bind our raw socket \end{description}
+\item[{\em i}]Interface on which we're going to bind our raw socket (default: the first available, up and running network interface != lo is chosen) \end{description}
 \end{Desc}
 
 
@@ -81,11 +81,11 @@ Build an ICMPv4 header for the raw socket.
 \begin{description}
 \item[{\em type}]ICMP type \item[{\em id}]Packet ID (default: 0x100) \item[{\em seq}]Sequence number (default: 0x100) \item[{\em code}]ICMP code (default: 0) \item[{\em sum}]ICMP checksum (default: auto-computed) \end{description}
 \end{Desc}
-\hypertarget{classusock_1_1RawSocket_999a433a049b33006ab8c26a7d0875b9}{
+\hypertarget{classusock_1_1RawSocket_1365484108821273f2c2e279f908df21}{
 \index{usock::RawSocket@{usock::RawSocket}!buildIPv4@{buildIPv4}}
 \index{buildIPv4@{buildIPv4}!usock::RawSocket@{usock::RawSocket}}
-\subsubsection[{buildIPv4}]{\setlength{\rightskip}{0pt plus 5cm}void usock::RawSocket::buildIPv4 (std::string {\em dst}, \/  std::string {\em src} = {\tt \char`\"{}\char`\"{}}, \/  u\_\-int8\_\-t {\em proto} = {\tt IPPROTO\_\-TCP}, \/  u\_\-int16\_\-t {\em len} = {\tt 0}, \/  u\_\-int8\_\-t {\em ttl} = {\tt 32}, \/  u\_\-int8\_\-t {\em tos} = {\tt 0}, \/  u\_\-int16\_\-t {\em id} = {\tt 0}, \/  u\_\-int16\_\-t {\em frag} = {\tt 0}, \/  u\_\-int16\_\-t {\em sum} = {\tt 0})}}
-\label{classusock_1_1RawSocket_999a433a049b33006ab8c26a7d0875b9}
+\subsubsection[{buildIPv4}]{\setlength{\rightskip}{0pt plus 5cm}void usock::RawSocket::buildIPv4 (std::string {\em dst}, \/  std::string {\em src} = {\tt \char`\"{}\char`\"{}}, \/  u\_\-int8\_\-t {\em proto} = {\tt IPPROTO\_\-TCP}, \/  u\_\-int8\_\-t {\em ttl} = {\tt 32}, \/  u\_\-int16\_\-t {\em len} = {\tt 0}, \/  u\_\-int8\_\-t {\em tos} = {\tt 0}, \/  u\_\-int16\_\-t {\em id} = {\tt 0}, \/  u\_\-int16\_\-t {\em frag} = {\tt 0}, \/  u\_\-int16\_\-t {\em sum} = {\tt 0})}}
+\label{classusock_1_1RawSocket_1365484108821273f2c2e279f908df21}
 
 
 Build an IPv4 header for the raw socket. 
@@ -93,7 +93,7 @@ Build an IPv4 header for the raw socket.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em dst}]Destination hostname/address \item[{\em src}]Source hostname/address (default: IPv4 address associated to the network interface) \item[{\em proto}]Transport protocol (default: TCP) \item[{\em len}]Total length of the IPv4 datagram (default: header length + payload length) \item[{\em ttl}]Time To Live (default: 32) \item[{\em tos}]Type Of Service (default: 0) \item[{\em id}]Datagram ID (default: 0) \item[{\em frag}]Fragmentation flag (default: 0) \item[{\em sum}]IPv4 checksum (default: auto-computed) \end{description}
+\item[{\em dst}]Destination hostname/address \item[{\em src}]Source hostname/address (default: IPv4 address associated to the network interface) \item[{\em proto}]Transport protocol (default: TCP) \item[{\em ttl}]Time To Live (default: 32) \item[{\em len}]Total length of the IPv4 datagram (default: header length + payload length) \item[{\em tos}]Type Of Service (default: 0) \item[{\em id}]Datagram ID (default: 0) \item[{\em frag}]Fragmentation flag (default: 0) \item[{\em sum}]IPv4 checksum (default: auto-computed) \end{description}
 \end{Desc}
 \hypertarget{classusock_1_1RawSocket_687afa2e3259ce2bc2cea7cc49db7f14}{
 \index{usock::RawSocket@{usock::RawSocket}!buildTCP@{buildTCP}}
@@ -161,11 +161,11 @@ Get the IPv4 address associated to the network interface.
 
 \begin{Desc}
 \item[Returns:]IPv4 address, if the interface is valid, up and running \end{Desc}
-\hypertarget{classusock_1_1RawSocket_bc4cd4449b47d28397fc270447405609}{
+\hypertarget{classusock_1_1RawSocket_07bc901bc9b902122cca8a41f8c5c02a}{
 \index{usock::RawSocket@{usock::RawSocket}!read@{read}}
 \index{read@{read}!usock::RawSocket@{usock::RawSocket}}
-\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ usock::RawSocket::read (u\_\-int32\_\-t {\em len}, \/  const std::string \& {\em host} = {\tt \char`\"{}\char`\"{}})  throw ()}}
-\label{classusock_1_1RawSocket_bc4cd4449b47d28397fc270447405609}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ usock::RawSocket::read (u\_\-int32\_\-t {\em len} = {\tt 0}, \/  const std::string \& {\em host} = {\tt \char`\"{}\char`\"{}})  throw ()}}
+\label{classusock_1_1RawSocket_07bc901bc9b902122cca8a41f8c5c02a}
 
 
 Read binary data from the raw socket. 
@@ -173,7 +173,7 @@ Read binary data from the raw socket.
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em len}]Number of bytes to be read \item[{\em host}]Host name/address we're going to receive our packet from (default: any) \end{description}
+\item[{\em len}]Number of bytes to be read (default: get the buffer size from the tot\_\-len field of IP header) \item[{\em host}]Host name/address we're going to receive our packet from (default: any) \end{description}
 \end{Desc}
 \hypertarget{classusock_1_1RawSocket_ab429ec3a150c6e15175b3223c90ade6}{
 \index{usock::RawSocket@{usock::RawSocket}!setPayload@{setPayload}}
