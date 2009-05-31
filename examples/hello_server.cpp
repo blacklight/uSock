@@ -1,3 +1,13 @@
+/**
+ * An elementary TCP server
+ *
+ * It just listens for connections on port 9999, and whenever a connection arrives
+ * it creates a new process to handle that, using a transparent callback function,
+ * sending the listening client some strings.
+ *
+ * by BlackLight, (C) 2009
+ */
+
 #include <iostream>
 #include <usock.h>
 

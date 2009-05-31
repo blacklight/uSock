@@ -1,3 +1,9 @@
+/**
+ * Sample pinger program
+ * It just requires a host to ping, and nothing more
+ * by BlackLight, (C) 2009
+ */
+
 #include <iostream>
 #include <usock.h>
 #include <netinet/ip.h>
@@ -7,8 +13,8 @@ using namespace std;
 using namespace usock;
 
 int main(int argc, char **argv)  {
-	if (argc<3)  {
-		cerr << "Usage: " << argv[0] << " <network interface> <host>\n";
+	if (argc<2)  {
+		cerr << "Usage: " << argv[0] << " <host>\n";
 		return 1;
 	}
 
@@ -17,18 +23,18 @@ int main(int argc, char **argv)  {
 	for (int i=0; i < sizeof(payload); i++)
 		payload[i] = i;
 
-	RawSocket s(argv[1]);
-	s.buildIPv4(argv[2], s.getIPv4addr(), RawSocket::icmp);
+	RawSocket s;
+	s.buildIPv4(s.getHostByName(argv[1]), s.getIPv4addr(), RawSocket::icmp);
 	s.buildICMPv4(ICMP_ECHO);
 	s.setPayload(payload, sizeof(payload));
 	
-	cout << "Sending a ping request to " << argv[2] << endl;
+	cout << "Sending a ping request to " << argv[1] << endl;
 	s.setTimeout(1.0);
 
 	try  {
 		s.write();
 		
-		unsigned char* buf = (unsigned char*) s.read(64, argv[2]);
+		unsigned char* buf = (unsigned char*) s.read(64, argv[1]);
 		struct iphdr ip;
 		memcpy (&ip, buf, sizeof(struct iphdr));
 		string addr = s.ntoa(ip.saddr);

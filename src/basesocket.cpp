@@ -74,7 +74,7 @@ string BaseSocket::getHostByName (const string& name) throw()  {
 	struct hostent *host;
 
 	if (! (host = gethostbyname(name.c_str())) )
-		throw SocketException("gethostbyname exception");
+		return string("");
 
 	snprintf (addr, INET6_ADDRSTRLEN, "%u.%u.%u.%u",
 			(unsigned char) host->h_addr[0],
@@ -83,6 +83,27 @@ string BaseSocket::getHostByName (const string& name) throw()  {
 			(unsigned char) host->h_addr[3]);
 
 	return string(addr);
+}
+
+string BaseSocket::getHostByAddr (const string& addr) throw()  {
+	unsigned int tmp[4];
+	struct hostent *host;
+	in_addr_t inaddr = inet_addr(addr.c_str());
+
+	if (sscanf(addr.c_str(), "%u.%u.%u.%u", &tmp[0], &tmp[1], &tmp[2], &tmp[3]) != 4)
+		throw SocketException("invalid IPv4 address");
+
+	for (int i=0; i<4; i++)
+		if (tmp[i] > 255)
+			throw SocketException("invalid IPv4 address");
+
+	if (! (host = gethostbyaddr(&inaddr, 4, AF_INET)))
+		return string("");
+
+	if (host->h_name)
+		return string(host->h_name);
+	else
+		return string("");
 }
 
 void BaseSocket::getSockOpt (int level, int optname, void* optval, socklen_t* optlen) throw()  {

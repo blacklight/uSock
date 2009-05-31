@@ -76,8 +76,40 @@ struct pseudohdr  {
 	u_int16_t len;
 };
 
-RawSocket::RawSocket (string i)  {	
-	iface = i;
+RawSocket::RawSocket (string i) throw()  {	
+	if (!(i.empty()))
+		iface = i;
+	else  {
+		int raw;
+
+		if ((raw = socket(inet, sock_stream, tcp)) < 0)
+			throw SocketException("socket error");
+
+		bool ok = false;
+		struct ifreq ifr;
+		struct sockaddr_in *sin = (struct sockaddr_in*) &ifr.ifr_addr;
+
+		// I assume a host has no more than 10 invalid network interfaces before having a valid one
+		for (int i=1; i < 10 && !ok; i++)  {
+			ifr.ifr_ifindex = i;
+			ioctl(raw,SIOCGIFNAME,&ifr);
+			ioctl(raw,SIOCGIFADDR,&ifr);
+
+			if ((sin->sin_addr.s_addr) && (ifr.ifr_name))  {
+				char *addr = inet_ntoa(sin->sin_addr);
+				char *substr = strstr(addr, "127.");
+
+				if ((int) (substr - addr))
+					ok = true;
+			}
+		}
+
+		if (!ok)
+			throw SocketException("no valid up & running network interface was found");
+
+		iface = ifr.ifr_name;
+		::close(raw);
+	}
 
 	is_IPv4 = false;
 	is_TCP  = false;
@@ -91,15 +123,12 @@ RawSocket::RawSocket (string i)  {
 string RawSocket::getIPv4addr() throw()  {
 	int raw;
 	struct ifreq ifr;
+	struct sockaddr_in *sin = (struct sockaddr_in*) &ifr.ifr_addr;
 	
 	if ((raw = socket(inet, sock_stream, tcp)) < 0)
 		throw SocketException("socket error");
 
-	if (iface == "")
-		throw SocketException("no network interface specified");
-
 	strncpy (ifr.ifr_name, iface.c_str(), sizeof(ifr.ifr_name));
-	struct sockaddr_in *sin = (struct sockaddr_in*) &ifr.ifr_addr;
 
 	ioctl(raw,SIOCGIFNAME,&ifr);
 	ioctl(raw,SIOCGIFADDR,&ifr);
@@ -139,7 +168,7 @@ string RawSocket::getHWaddr() throw()  {
 	return string(aschwaddr);
 }
 
-void RawSocket::buildIPv4 (string dst, string src, u_int8_t proto, u_int16_t len, u_int8_t ttl,
+void RawSocket::buildIPv4 (string dst, string src, u_int8_t proto, u_int8_t ttl, u_int16_t len,
 		u_int8_t tos, u_int16_t id, u_int16_t frag, u_int16_t sum)  {
 
 	struct iphdr ip;
@@ -426,7 +455,11 @@ void RawSocket::write() throw()  {
 }
 
 void* RawSocket::read (u_int32_t len, const string& host) throw()  {
-	u_int8_t *buf = new u_int8_t[len];
+	u_int8_t *buf = NULL;
+
+	if (len)
+		buf = new u_int8_t[len];
+
 	struct sockaddr_in sin;
 	int opt = 1;
 	socklen_t slen = sizeof(struct sockaddr_in);
@@ -434,6 +467,11 @@ void* RawSocket::read (u_int32_t len, const string& host) throw()  {
 	if (is_IPv4)  {
 		struct iphdr ip;
 		memcpy (&ip, head, sizeof(struct iphdr));
+
+		if (!buf)  {
+			len = ip.tot_len;
+			buf = new u_int8_t[len];
+		}
 
 		if ((sd = socket(inet, sock_raw, ip.protocol)) < 0)
 			throw SocketException("socket error");

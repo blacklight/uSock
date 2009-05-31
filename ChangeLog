@@ -1,0 +1,13 @@
+0.3:
+
+- I re-wrote the method for managing raw IPv4 socket. Now you don't have to
+manually specify a network interface anymore. If you won't, usock will look
+for the first available, up and running network interface to be used.
+
+- I inverted the fields 'TTL' and 'TotLen' in buildIPv4 function, as you
+will most likely work on TTL field, than managing the IP's total length.
+
+- I set a default parameter 'len=0' in RawSocket::read() method. If no length
+is specified, the method will just read as many bytes as specified in the
+eventual IP header (total length).
+

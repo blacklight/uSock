@@ -1,3 +1,8 @@
+/**
+ * A simple UDP server that read a string over an UDP socket
+ * by BlackLight, (C) 2009
+ */
+
 #include <iostream>
 #include <usock.h>
 

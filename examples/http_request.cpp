@@ -1,3 +1,8 @@
+/**
+ * An elementary application that makes an HTTP request
+ * by BlackLight, (C) 2009
+ */
+
 #include <iostream>
 #include <usock.h>
 

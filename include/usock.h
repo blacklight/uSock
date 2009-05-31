@@ -154,9 +154,16 @@ public:
 	/**
 	 * @brief Wrap method around gethostbyname() function
 	 * @param name Host name
-	 * @return IP address of our host name, if found, NULL otherwise
+	 * @return IP address of our host name, if found, an empty string otherwise
 	 */
 	std::string getHostByName (const std::string& name) throw();
+
+	/**
+	 * @brief Wrap method around gethostbyaddr() function
+	 * @param addr IPv4 address as a string
+	 * @return The hostname associated to addr, if found, an empty otherwise
+	 */
+	std::string getHostByAddr (const std::string& addr) throw();
 
 	/**
 	 * @brief Set or unset the blocking flag on a socket
@@ -440,9 +447,9 @@ private:
 public:
 	/**
 	 * @brief RawSocket constructor
-	 * @param i Interface on which we're going to bind our raw socket
+	 * @param i Interface on which we're going to bind our raw socket (default: the first available, up and running network interface != lo is chosen)
 	 */
-	RawSocket (std::string i = "lo");
+	RawSocket (std::string i = "") throw();
 
 	/**
 	 * @brief Get the IPv4 address associated to the network interface
@@ -469,14 +476,14 @@ public:
 	 * @param dst Destination hostname/address
 	 * @param src Source hostname/address (default: IPv4 address associated to the network interface)
 	 * @param proto Transport protocol (default: TCP)
-	 * @param len Total length of the IPv4 datagram (default: header length + payload length)
 	 * @param ttl Time To Live (default: 32)
+	 * @param len Total length of the IPv4 datagram (default: header length + payload length)
 	 * @param tos Type Of Service (default: 0)
 	 * @param id Datagram ID (default: 0)
 	 * @param frag Fragmentation flag (default: 0)
 	 * @param sum IPv4 checksum (default: auto-computed)
 	 */
-	void buildIPv4 (std::string dst, std::string src = "", u_int8_t proto = IPPROTO_TCP, u_int16_t len = 0, u_int8_t ttl = 32,
+	void buildIPv4 (std::string dst, std::string src = "", u_int8_t proto = IPPROTO_TCP, u_int8_t ttl = 32, u_int16_t len = 0,
 			u_int8_t tos = 0, u_int16_t id = 0, u_int16_t frag = 0, u_int16_t sum = 0);
 
 	/**
@@ -532,10 +539,10 @@ public:
 
 	/**
 	 * @brief Read binary data from the raw socket
-	 * @param len Number of bytes to be read
+	 * @param len Number of bytes to be read (default: get the buffer size from the tot_len field of IP header)
 	 * @param host Host name/address we're going to receive our packet from (default: any)
 	 */
-	void* read (u_int32_t len, const std::string& host = "") throw();
+	void* read (u_int32_t len = 0, const std::string& host = "") throw();
 };
 }
 
