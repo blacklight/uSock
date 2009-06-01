@@ -5,6 +5,8 @@
  */
 
 #include <iostream>
+#include <string>
+#include <cstdlib>
 #include <usock.h>
 #include <netinet/ip.h>
 #include <netinet/ip_icmp.h>
@@ -19,15 +21,15 @@ int main(int argc, char **argv)  {
 		return 1;
 	}
 
-	RawSocket ss("eth0");
+	RawSocket ss;
 	string addr = ss.getHostByName(argv[1]);
+	ss.close();
 
 	if (addr.empty())  {
 		cerr << "Unable to resolve " << argv[1] << endl;
 		return 1;
 	}
 
-	ss.close();
 	u_int8_t payload[56];
 
 	for (int i=0; i < sizeof(payload); i++)
