@@ -21,9 +21,9 @@ int main(int argc, char **argv)  {
 		return 1;
 	}
 
-	RawSocket ss;
-	string addr = ss.getHostByName(argv[1]);
-	ss.close();
+	RawSocket s;
+	string addr = s.getHostByName(argv[1]);
+	s.close();
 
 	if (addr.empty())  {
 		cerr << "Unable to resolve " << argv[1] << endl;
@@ -40,7 +40,7 @@ int main(int argc, char **argv)  {
 	cout << "Tracerouting " << argv[1] << " (" << addr << ")\n\n";
 
 	for (int i=1; !ended; i++)  {
-		RawSocket s;
+		s = RawSocket();
 		s.buildIPv4(addr, s.getIPv4addr(), RawSocket::icmp, i);
 		s.buildICMPv4(ICMP_ECHO);
 		s.setPayload(payload, sizeof(payload));
