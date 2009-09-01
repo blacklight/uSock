@@ -42,6 +42,7 @@
  * this file might be covered by the GNU General Public License.
  */
 
+#include <cstdlib>
 #include <sys/ioctl.h>
 #include <net/if.h>
 #include <net/ethernet.h>

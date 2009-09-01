@@ -42,6 +42,7 @@
  * this file might be covered by the GNU General Public License.
  */
 
+#include <cstdlib>
 #include <arpa/inet.h>
 #include <sys/signal.h>
 

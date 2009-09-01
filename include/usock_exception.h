@@ -44,6 +44,7 @@
 
 #include <exception>
 #include <cerrno>
+#include <cstring>
 using std::exception;
 
 #define	ERRBUF_SIZE	1024

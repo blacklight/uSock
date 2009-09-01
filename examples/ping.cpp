@@ -5,6 +5,7 @@
  */
 
 #include <iostream>
+#include <memory.h>
 #include <usock.h>
 #include <netinet/ip.h>
 #include <netinet/ip_icmp.h>

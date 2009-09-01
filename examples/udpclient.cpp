@@ -3,8 +3,8 @@
  * by BlackLight, (C) 2009
  */
 
+#include <memory.h>
 #include <usock.h>
-
 using namespace usock;
 
 main()  {
