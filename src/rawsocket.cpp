@@ -58,6 +58,8 @@
 #include "usock.h"
 #include "usock_exception.h"
 
+#include "raii.hh"
+
 using std::string;
 using namespace usock;
 
@@ -119,6 +121,11 @@ RawSocket::RawSocket (string i) throw()  {
 
 	head_len=0;
 	payload_len=0;
+	payload = 0;
+}
+
+RawSocket::~RawSocket() {
+	delete [] payload;
 }
 
 string RawSocket::getIPv4addr() throw()  {
@@ -148,7 +155,9 @@ string RawSocket::getHWaddr() throw()  {
 		throw SocketException("socket error");
 
 	char *hwaddr = new char[ETH_ALEN];
+	raii_array<char> hwaddr_holder(hwaddr);
 	char *aschwaddr = new char[ETH_ALEN*4];
+	raii_array<char> aschwaddr_holder(aschwaddr);
 	struct ifreq ifr;
 
 	strncpy (ifr.ifr_name, iface.c_str(), sizeof(ifr.ifr_name));
@@ -255,14 +264,17 @@ void RawSocket::buildTCP (u_int16_t sport, u_int16_t dport, u_int8_t flags, u_in
 	head_len += sizeof(struct tcphdr);
 }
 
-void RawSocket::setPayload (void *payload, int length)  {
-	this->payload = new u_int8_t[length];
+void RawSocket::setPayload (const void *payload, int length)  {
+	if(length > payload_len) {
+		delete [] this->payload;
+		this->payload = new u_int8_t[length];
+	}
 	payload_len = length;
 	memcpy (this->payload, payload, length);
 }
 
 void RawSocket::setPayload (string payload)  {
-	this->payload = (u_int8_t*) strdup(payload.c_str());
+	this->setPayload(payload.c_str(), payload.length());
 }
 
 u_int16_t RawSocket::csum (u_int16_t *buf, int nwords)  {
@@ -279,6 +291,7 @@ u_int16_t RawSocket::csum (u_int16_t *buf, int nwords)  {
 void RawSocket::write() throw()  {
 	u_int32_t len = head_len + payload_len;
 	u_int8_t *pkt = new u_int8_t[len];
+	raii_array<u_int8_t> pkt_holder(pkt);
 	u_int32_t opt = 1;
 	
 	struct iphdr ip;

@@ -451,6 +451,8 @@ public:
 	 */
 	RawSocket (std::string i = "") throw();
 
+	~RawSocket();
+
 	/**
 	 * @brief Get the IPv4 address associated to the network interface
 	 * @return IPv4 address, if the interface is valid, up and running
@@ -524,7 +526,7 @@ public:
 	 * @param payload Binary payload
 	 * @param length payload's length
 	 */
-	void setPayload (void* payload, int length);
+	void setPayload (const void* payload, int length);
 
 	/**
 	 * @brief Set a payload for the raw socket as a string

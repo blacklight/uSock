@@ -53,6 +53,8 @@
 #include "usock.h"
 #include "usock_exception.h"
 
+#include "raii.hh"
+
 using std::string;
 using std::stringstream;
 using namespace usock;
@@ -71,10 +73,11 @@ BaseSocket::~BaseSocket()  { close(); }
 
 string BaseSocket::getHostByName (const string& name) throw()  {
 	char* addr = new char[INET6_ADDRSTRLEN];
+	raii_array<char> addr_holder(addr);
 	struct hostent *host;
 
 	if (! (host = gethostbyname(name.c_str())) )
-		return string("");
+		return string();
 
 	snprintf (addr, INET6_ADDRSTRLEN, "%u.%u.%u.%u",
 			(unsigned char) host->h_addr[0],
@@ -98,12 +101,12 @@ string BaseSocket::getHostByAddr (const string& addr) throw()  {
 			throw SocketException("invalid IPv4 address");
 
 	if (! (host = gethostbyaddr(&inaddr, 4, AF_INET)))
-		return string("");
+		return string();
 
 	if (host->h_name)
 		return string(host->h_name);
 	else
-		return string("");
+		return string();
 }
 
 void BaseSocket::getSockOpt (int level, int optname, void* optval, socklen_t* optlen) throw()  {
@@ -124,7 +127,7 @@ string BaseSocket::remoteAddr() throw()  {
 	socklen_t len = sizeof(struct sockaddr_in);
 
 	if (getpeername(sd, (struct sockaddr*) &sock, &len) < 0)  {
-		if (errno == ENOTCONN) return string("");
+		if (errno == ENOTCONN) return string();
 		else throw SocketException("getpeername exception");
 	}
 
@@ -138,7 +141,7 @@ string BaseSocket::localAddr() throw()  {
 	socklen_t len = sizeof(struct sockaddr_in);
 
 	if (getsockname(sd, (struct sockaddr*) &sock, &len) < 0)  {
-		if (errno == ENOTCONN) return string("");
+		if (errno == ENOTCONN) return string();
 		else throw SocketException("getsockname exception");
 	}
 

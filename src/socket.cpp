@@ -53,6 +53,8 @@
 #include "usock.h"
 #include "usock_exception.h"
 
+#include "raii.hh"
+
 using std::string;
 using std::stringstream;
 using namespace usock;
@@ -179,6 +181,7 @@ void Socket::operator<< (const double& buf) throw()  {
 
 string Socket::recv (u_int32_t nbytes) throw()  {
 	char* buf = new char[nbytes];
+	raii_array<char> buf_holder(buf);
 	u_int32_t n;
 
 	if (timeout == 0.0)  {
@@ -215,7 +218,7 @@ string Socket::recv (u_int32_t nbytes) throw()  {
 		setBlocking(true);
 	}
 
-	if (!n) return string("");
+	if (!n) return string();
 	return string(buf);
 }
 

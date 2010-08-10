@@ -45,6 +45,8 @@
 #include <exception>
 #include <cerrno>
 #include <cstring>
+#include <cstdio>
+
 using std::exception;
 
 #define	ERRBUF_SIZE	1024
@@ -63,6 +65,9 @@ namespace usock  {
 			errbuf = new char[ERRBUF_SIZE];
 			snprintf (errbuf, ERRBUF_SIZE, "%s: %s",
 					str, strerror(errno));
+		}
+		~SocketException() throw() {
+			delete [] errbuf;
 		}
 
 		const char* what() const throw()  { return errbuf; }

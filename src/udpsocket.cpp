@@ -46,6 +46,8 @@
 #include "usock.h"
 #include "usock_exception.h"
 
+#include "raii.hh"
+
 using std::string;
 using namespace usock;
 
@@ -97,6 +99,7 @@ void UDPSocket::recv (void* buf, u_int32_t size, const string& host, u_int16_t p
 
 string UDPSocket::recv (const string& host, u_int16_t port) throw()  {
 	char* buf = new char[BUFRECV_SIZE];
+	raii_array<char> buf_holder(buf);
 	u_int32_t n;
 
 	struct sockaddr_in sock;
@@ -117,7 +120,7 @@ string UDPSocket::recv (const string& host, u_int16_t port) throw()  {
 	if ((n = recvfrom(sd, buf, BUFRECV_SIZE, 0, (struct sockaddr*) &sock, &len)) < 0)
 		throw SocketException("recv exception");
 
-	if (!n) return string("");
+	if (!n) return string();
 	return string(buf);
 }
 
